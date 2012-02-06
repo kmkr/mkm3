@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  title: MyString
+  body: MyText
+  country_id: 1
+  start_date: 2012-02-06
+  end_date: 2012-02-06
+  published: 2012-02-06 22:00:54
+  latitude: 1.5
+  longitude: 1.5
+  zoom_level: 
+
+two:
+  title: MyString
+  body: MyText
+  country_id: 1
+  start_date: 2012-02-06
+  end_date: 2012-02-06
+  published: 2012-02-06 22:00:54
+  latitude: 1.5
+  longitude: 1.5
+  zoom_level: 
