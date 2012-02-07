@@ -9,11 +9,11 @@
     </div>
 
     <div class="control-group">
-      <label class="control-label" for="title">Period</label>
+      <label class="control-label">Period</label>
       <div class="controls">
-        <input data-datepicker="datepicker" class="span2" type="text" />
+        <input data-datepicker="datepicker" id="start-date" class="span2" type="text" />
         to
-        <input data-datepicker="datepicker" class="span2" type="text" />
+        <input data-datepicker="datepicker" id="end-date" class="span2" type="text" />
       </div>
     </div>
 
@@ -30,6 +30,11 @@
       <div class="controls">
         <textarea id="article-body"></textarea>
       </div>
+    </div>
+
+    <div class="form-actions">
+      <button type="submit" class="btn primary">Save</button>
+      <button type="reset" class="btn">Reset</button>
     </div>
 
   </fieldset>
