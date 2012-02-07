@@ -1,6 +1,9 @@
 class mkm.routers.AppRouter extends Backbone.Router
-  routes: ->
+
+  routes: {
     ""                : "index"
+  }
+
   index: ->
     @swap(new mkm.views.IndexView())
     
