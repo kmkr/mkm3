@@ -20,6 +20,6 @@ window.module = (name, fn)->
   @module "helpers", ->
 
 $(->
-  mkm.init()
   $('.dropdown-toggle').dropdown()
+  $('.alert-message').alert()
 )
