@@ -21,4 +21,5 @@ window.module = (name, fn)->
 
 $(->
   mkm.init()
+  $('.dropdown-toggle').dropdown()
 )
