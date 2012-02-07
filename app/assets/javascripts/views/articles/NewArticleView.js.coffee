@@ -12,4 +12,6 @@ class mkm.views.articles.NewArticleView extends Backbone.View
     $(@el).html(@template)
     @renderCountries()
     $(@el).find('[data-datepicker]').datepicker()
+    settings = new mkm.helpers.TextileHelper().settings
+    $(@el).find("#article-body").markItUp(settings)
     @

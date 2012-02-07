@@ -17,6 +17,7 @@
 //= require_tree ./bootstrap
 //= require init
 //= require_tree ../templates
+//= require_tree ./helpers
 //= require_tree ./views
 //= require_tree ./models
 //= require_tree ./routers
