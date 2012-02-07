@@ -18,6 +18,7 @@ class mkm.views.articles.NewArticleView extends Backbone.View
       success: =>
         mkm.collections.articles.add(article)
         mkm.helpers.flash('info', "Article added successfully")
+        mkm.routers.router.navigate("articles/#{article.id}", true)
       error: (model, resp) =>
         mkm.helpers.flash('error', "Unable to add article (#{resp.statusText})")
     })

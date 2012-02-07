@@ -3,9 +3,18 @@ class mkm.routers.AppRouter extends Backbone.Router
   routes:
     ""                : "index"
     "articles/new"    : "newArticle"
+    "articles/:id"    : "showArticle"
 
   index: ->
     @swap(new mkm.views.IndexView())
+
+  showArticle: (id) ->
+    model = mkm.collections.articles.get(id)
+    if model
+      @swap(new mkm.views.articles.ShowArticleView({model: model}))
+    else
+      mkm.helpers.flash('error', 'No such article')
+      @navigate('', true)
 
   newArticle: ->
     @swap(new mkm.views.articles.NewArticleView())
