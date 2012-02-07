@@ -9,7 +9,7 @@ class CreateArticles < ActiveRecord::Migration
       t.datetime :published
       t.float :latitude
       t.float :longitude
-      t.int :zoom_level
+      t.integer :zoom_level
 
       t.timestamps
     end
