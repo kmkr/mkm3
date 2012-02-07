@@ -6,13 +6,8 @@ window.module = (name, fn)->
   fn.apply(this[name], [])
 
 @module "mkm", ->
-  @init = ->
-    new mkm.routers.AppRouter()
-    $.get("/articles", (articles) ->
-      mkm.collections.articles = new mkm.collections.ArticleCollection(articles)
-      Backbone.history.start()
-    )
   @module "views", ->
+    @module "articles", ->
   @module "collections", ->
   @module "models", ->
   @module "routers", ->

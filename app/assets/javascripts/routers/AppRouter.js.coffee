@@ -1,11 +1,14 @@
 class mkm.routers.AppRouter extends Backbone.Router
 
-  routes: {
+  routes:
     ""                : "index"
-  }
+    "articles/new"    : "newArticle"
 
   index: ->
     @swap(new mkm.views.IndexView())
+
+  newArticle: ->
+    @swap(new mkm.views.articles.NewArticleView())
     
   swap: (newView) ->
     @view.leave() if @view?.leave

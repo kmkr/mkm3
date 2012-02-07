@@ -1,5 +1,8 @@
 <script>
 $(function() {
-mkm.init();
+  mkm.collections.articles = new mkm.collections.ArticleCollection(<%= @articles %>)
+  mkm.collections.countries = new mkm.collections.CountryCollection(<%= @countries %>)
+  new mkm.routers.AppRouter();
+  Backbone.history.start()
 });
 </script>
