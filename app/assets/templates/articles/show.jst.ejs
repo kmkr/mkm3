@@ -10,10 +10,12 @@
       <i class="icon-edit"></i>
       Edit
     </a>
-    <a class="btn" href="#">
+    <% if (!article.get('published')) { %>
+    <a class="btn publish" href="#">
       <i class="icon-share"></i>
       Publish
     </a>
+    <% } %>
     <a class="btn btn-danger" href="#">
       <i class="icon-trash icon-white"></i>
       Delete
