@@ -27,7 +27,7 @@ class mkm.views.articles.NewArticleView extends Backbone.View
 
   renderCountries: ->
     mkm.collections.countries.forEach((country) =>
-      ctr = $('<option>').attr('value', country.id)
+      ctr = $('<option>').attr('value', country.id).text(country.get('title'))
       $(@el).find("#country").append(ctr)
     )
 
