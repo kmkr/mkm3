@@ -1,14 +1,9 @@
 <div class="navbar navbar-fixed-top">
   <div class="navbar-inner">
     <div class="container">
-      <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
-        <span class="i-bar"></span>
-        <span class="i-bar"></span>
-        <span class="i-bar"></span>
-      </a>
       <a class="brand" href="#">Mkm3</a>
       <div class="container nav-collapse">
-        <ul class="nav continents">
+        <ul class="nav secondary-nav">
           <% for (var i = 0; i < continents.length; i++) { %>
             <% var continent = continents[i]; %>
             <li class="dropdown">
@@ -19,7 +14,9 @@
           <ul class="dropdown-menu">
             <% countries.filter(function(country) { %>
               <% if (country.get('continent_id') === continent.get('id')) { %>
-                <li><%= country.get('title') %></li>
+                <li>
+                <%= country.get('title') %>
+                </li>
               <% } %>
             <% }); %>
           </ul>
