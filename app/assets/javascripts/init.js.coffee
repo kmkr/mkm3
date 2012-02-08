@@ -8,6 +8,7 @@ window.module = (name, fn)->
 @module "mkm", ->
   @module "views", ->
     @module "articles", ->
+    @module "countries", ->
   @module "collections", ->
   @module "models", ->
   @module "routers", ->

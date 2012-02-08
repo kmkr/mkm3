@@ -2,6 +2,7 @@
 $(function() {
   mkm.collections.articles = new mkm.collections.ArticleCollection(<%= raw @articles %>)
   mkm.collections.countries = new mkm.collections.CountryCollection(<%= raw @countries %>)
+  mkm.collections.continents = new mkm.collections.ContinentCollection(<%= raw @continentz %>)
   mkm.routers.router = new mkm.routers.AppRouter();
   Backbone.history.start()
 });

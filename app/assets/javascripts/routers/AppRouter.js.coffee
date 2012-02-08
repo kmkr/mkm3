@@ -4,6 +4,7 @@ class mkm.routers.AppRouter extends Backbone.Router
     ""                : "index"
     "articles/new"    : "newArticle"
     "articles/:id"    : "showArticle"
+    "countries/new"   : "newCountry"
 
   index: ->
     @swap(new mkm.views.IndexView())
@@ -18,12 +19,16 @@ class mkm.routers.AppRouter extends Backbone.Router
 
   newArticle: ->
     @swap(new mkm.views.articles.NewArticleView())
+
+  newCountry: ->
+    @swap(new mkm.views.countries.NewCountryView())
     
   swap: (newView) ->
     @view.leave() if @view?.leave
     @view.destroy() if @view
     @view = newView
     $("#page-content").html(@view.render().el)
+    @view.init() if @view.init
 
 
 

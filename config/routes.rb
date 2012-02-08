@@ -4,6 +4,7 @@ Mkm3::Application.routes.draw do
   get "page/index"
 
   resources :articles
+  resources :countries
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
