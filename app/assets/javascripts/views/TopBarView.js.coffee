@@ -12,4 +12,5 @@ class mkm.views.TopBarView extends Backbone.View
       continents: mkm.collections.continents.models
       articles: mkm.collections.articles.models
     }))
+    $(@el).find('.sf-menu').superfish()
     @

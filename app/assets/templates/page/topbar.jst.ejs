@@ -3,7 +3,7 @@
     <div class="container">
       <a class="brand" href="#">Mkm3</a>
       <div class="container nav-collapse">
-        <ul class="nav secondary-nav">
+        <ul class="sf-menu nav secondary-nav">
           <% for (var i = 0; i < continents.length; i++) { %>
             <% var continent = continents[i]; %>
             <li class="dropdown">
@@ -16,6 +16,14 @@
               <% if (country.get('continent_id') === continent.get('id')) { %>
                 <li>
                 <%= country.get('title') %>
+                <ul>
+                  <% articles.filter(function(article) { %>
+                    <% if (article.get('country_id') === country.get('id')) { %>
+                      <li><a href="#articles/<%= article.get('id') %>"><%= article.get('title') %></a></li>
+                    <% } %>
+
+                  <% }); %>
+                </ul>
                 </li>
               <% } %>
             <% }); %>
