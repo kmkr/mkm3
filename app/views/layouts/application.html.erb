@@ -17,37 +17,7 @@
   </head>
   <body>
 
-    <div class="navbar navbar-fixed-top">
-      <div class="navbar-inner">
-          <div class="container">
-          <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
-            <span class="i-bar"></span>
-            <span class="i-bar"></span>
-            <span class="i-bar"></span>
-          </a>
-          <a class="brand" href="#">Mkm3</a>
-          <div class="container nav-collapse">
-            <ul class="nav">
-              <% @continents.each do |continent| %>
-                <li class="dropdown">
-                <%= link_to "#", { :class => 'dropdown-toggle', 'data-toggle' => 'dropdown' } do %>
-                  <%= continent.title %>
-                  <b class="caret"></b>
-              <% end %>
-                <ul class="dropdown-menu">
-                  <% continent.countries.each do |country| %>
-                    <li><%= country.title %></li>
-                  <% end %>
-                </ul>
-                
-                </li>
-                <li><%=  %></li>
-              <% end %>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
+  <div id="menu"></div>
 
     <div class="container">
       <div class="content">
