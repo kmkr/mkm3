@@ -8,6 +8,12 @@ class ArticlesController < ApplicationController
     respond_with articles
   end
 
+  def update
+    article = Article.find(params[:id])
+    article.update_attributes(params[:article])
+    respond_with article
+  end
+
   def create
     article = Article.new(params[:article])
     article.save

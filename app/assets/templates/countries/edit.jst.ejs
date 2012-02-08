@@ -1,10 +1,10 @@
 <form class="form-horizontal">
   <fieldset>
-    <legend>Create country</legend>
+    <legend>Edit country</legend>
     <div class="control-group">
       <label class="control-label" for="title">Title</label>
       <div class="controls">
-        <input type="text" class="span6" id="title" />
+        <input type="text" class="span6" id="title" value="<%= country.get('title') %>" />
       </div>
     </div>
 
@@ -15,9 +15,6 @@
         </select>
       </div>
     </div>
-
-    <input type="hidden" name="latitude" />
-    <input type="hidden" name="longitude" />
 
     <div class="map" id="map"></div>
 

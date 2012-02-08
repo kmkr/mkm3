@@ -1,3 +1,3 @@
 class mkm.models.Article extends Backbone.Model
-  url: "/articles"
+  urlRoot: "/articles"
 

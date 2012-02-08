@@ -4,13 +4,25 @@ class mkm.helpers.MapHelper
 
   renderMap: ->
     mapOpts =
-      center: new google.maps.LatLng(0, 0)
+      center: @getCenter()
+      zoom: @getZoomLevel()
       mapTypeId: google.maps.MapTypeId.TERRAIN
-      zoom: 1
     @map = new google.maps.Map(document.getElementById("map"), mapOpts)
+
+  getZoomLevel: ->
+    @model.get('zoom_level') or 1
+
+  getCenter: ->
+    lat = @model.get('latitude') or 0
+    lon = @model.get('longitude') or 0
+    new google.maps.LatLng(lat, lon)
 
   removeMarker: ->
     @marker.setMap(null) if @marker
+
+  placeMarkerFromModel: ->
+    position = new google.maps.LatLng(@model.get('latitude'), @model.get('longitude'))
+    @placeMarker(position)
 
   placeMarker: (position) ->
     @removeMarker()
@@ -20,12 +32,17 @@ class mkm.helpers.MapHelper
     })
     @map.setCenter(position)
 
-  addClickListener: ->
+  addListeners: ->
     google.maps.event.addListener(@map, 'click', (evt) =>
       @trigger('map:clicked', { latitude: evt.latLng.lat(), longitude: evt.latLng.lng() })
       @placeMarker(evt.latLng)
     )
 
-  initMap: ->
+    google.maps.event.addListener(@map, 'zoom_changed', (evt) =>
+      @trigger('map:zoom', { zoomLevel: @map.getZoom() })
+    )
+
+  initMap: (opts = {}) ->
     @renderMap()
-    @addClickListener()
+    @addListeners() unless opts.readOnly
+    @placeMarkerFromModel() if @model.get('latitude') and @model.get('longitude')

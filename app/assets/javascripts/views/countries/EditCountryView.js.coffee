@@ -1,4 +1,4 @@
-class mkm.views.countries.NewCountryView extends Backbone.View
+class mkm.views.countries.EditCountryView extends Backbone.View
   template: JST['countries/new']
 
   initialize: ->
@@ -9,33 +9,30 @@ class mkm.views.countries.NewCountryView extends Backbone.View
 
   save: (evt) ->
     evt.preventDefault()
-    country = new mkm.models.Country({
+    @model.save({
       title: $(@el).find('#title').val()
       continent_id: $(@el).find('#continent option:selected').val()
-      latitude: $(@el).find('input[name=latitude]').val()
-      longitude: $(@el).find('input[name=longitude]').val()
-    })
-
-    country.save({}, {
+    },
+    {
       success: =>
-        mkm.collections.countries.add(country)
-        mkm.helpers.flash('info', "Country added successfully")
-        mkm.routers.router.navigate("country/#{country.id}", true)
+        mkm.collections.countries.add(@model) unless mkm.collections.countries.any((country) -> @model.id == country.id)
+        mkm.helpers.flash('info', "Country successfully saved")
+        mkm.routers.router.navigate("country/#{@model.id}", true)
       error: (model, resp) =>
-        mkm.helpers.flash('error', "Unable to add country (#{resp.statusText})")
+        mkm.helpers.flash('error', "Unable to save country (#{resp.statusText})")
     })
 
   renderContinents: ->
     mkm.collections.continents.forEach((continent) =>
       cont = $('<option>').attr('value', continent.id).text(continent.get('title'))
+      cont.attr('selected', 'selected') if @model.get('continent_id') == continent.id
       $(@el).find("#continent").append(cont)
     )
 
   init: ->
     @initMap()
     @on('map:clicked', (resp) =>
-      $(@el).find('input[name=latitude]').val(resp.latitude)
-      $(@el).find('input[name=longitude]').val(resp.longitude)
+      @model.set({latitude: resp.latitude, longitude: resp.longitude })
     )
 
   render: ->

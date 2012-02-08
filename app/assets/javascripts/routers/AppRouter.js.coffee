@@ -1,10 +1,12 @@
 class mkm.routers.AppRouter extends Backbone.Router
 
   routes:
-    ""                : "index"
-    "articles/new"    : "newArticle"
-    "articles/:id"    : "showArticle"
-    "countries/new"   : "newCountry"
+    ""                  : "index"
+    "articles/new"      : "newArticle"
+    "articles/:id/edit" : "editArticle"
+    "articles/:id"      : "showArticle"
+    "countries/:id/edit": "editCountry"
+    "countries/new"     : "newCountry"
 
   index: ->
     @swap(new mkm.views.IndexView())
@@ -17,11 +19,27 @@ class mkm.routers.AppRouter extends Backbone.Router
       mkm.helpers.flash('error', 'No such article')
       @navigate('', true)
 
+  editArticle: (id) ->
+    model = mkm.collections.articles.get(id)
+    if model
+      @swap(new mkm.views.articles.EditArticleView({model: model}))
+    else
+      mkm.helpers.flash('error', 'No such article')
+      @navigate('', true)
+
   newArticle: ->
-    @swap(new mkm.views.articles.NewArticleView())
+    @swap(new mkm.views.articles.EditArticleView({model: new mkm.models.Article()}))
 
   newCountry: ->
-    @swap(new mkm.views.countries.NewCountryView())
+    @swap(new mkm.views.countries.EditCountryView({model: new mkm.models.Country()}))
+
+  editCountry: (id) ->
+    model = mkm.collections.countries.get(id)
+    if model
+      @swap(new mkm.views.countries.EditCountryView({model: model}))
+    else
+      mkm.helpers.flash('error', 'No such country')
+      @navigate('', true)
     
   swap: (newView) ->
     @view.leave() if @view?.leave
