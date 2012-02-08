@@ -3,10 +3,25 @@
 </div>
 
 <div class="span8">
-  <h1><%= article.title %></h1>
+  <h1><%= article.get('title') %></h1>
+
+  <div class="btn-toolbar">
+    <a class="btn" href="#articles/<%= article.id %>/edit">
+      <i class="icon-edit"></i>
+      Edit
+    </a>
+    <a class="btn" href="#">
+      <i class="icon-share"></i>
+      Publish
+    </a>
+    <a class="btn btn-danger" href="#">
+      <i class="icon-trash icon-white"></i>
+      Delete
+    </a>
+  </div>
 
   <p>
-  <%= article.body %>
+  <%= article.get('body') %>
   </p>
 
   <div id="map" class="map"></div>
