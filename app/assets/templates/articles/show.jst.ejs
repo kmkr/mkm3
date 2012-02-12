@@ -1,7 +1,3 @@
-<div class="span4">
-  Pics
-</div>
-
 <div class="span8">
   <h1><%= article.get('title') %></h1>
 
@@ -16,19 +12,22 @@
       Publish
     </a>
     <% } %>
-    <a class="btn btn-danger" href="#">
-      <i class="icon-trash icon-white"></i>
-      Delete
-    </a>
     <a class="btn" href="#articles/<%= article.id %>/photos/new">
       <i class="icon-upload"></i>
       Upload photo
+    </a>
+    <a class="btn btn-danger" href="#">
+      <i class="icon-trash icon-white"></i>
+      Delete
     </a>
   </div>
 
   <%= superTextile(article.get('body')) %>
 
-  <div class="photos"></div>
 
   <div id="map" class="map"></div>
+</div>
+
+<div class="span4">
+  <div class="photos"></div>
 </div>
