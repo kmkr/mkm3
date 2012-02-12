@@ -3,7 +3,7 @@ class ArticlesController < ApplicationController
   before_filter :authenticate_user!, :except => :index
 
   def index
-    articles = Article.all
+    articles = Article.all.includes(:photos)
 
     respond_with articles
   end

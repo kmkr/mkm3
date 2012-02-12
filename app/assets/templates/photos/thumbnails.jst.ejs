@@ -1,0 +1,6 @@
+<% collection.forEach(function(photo) { %>
+  <div> 
+    <img src="<%= photo.get('photo').small.url %>" />
+    <p><%= photo.get('photo').caption %></p>
+  </div>
+<% }); %>

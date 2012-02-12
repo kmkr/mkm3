@@ -1,5 +1,6 @@
 class mkm.views.articles.ShowArticleView extends Backbone.View
   template: JST['articles/show']
+  views: []
 
   events: ->
     "click .publish"        : "publish"
@@ -23,4 +24,7 @@ class mkm.views.articles.ShowArticleView extends Backbone.View
 
   render: ->
     $(@el).html(@template({article: @model}))
+    thumbnailPhotoView = new mkm.views.photos.ThumbnailsPhotoView({ collection: new mkm.collections.PhotoCollection(@model.get('photos')) })
+    @views.push(thumbnailPhotoView)
+    $(@el).find('.photos').html(thumbnailPhotoView.render().el)
     @
