@@ -3,6 +3,5 @@ class mkm.views.photos.ThumbnailsPhotoView extends Backbone.View
   views: []
 
   render: ->
-    console.log(@collection)
     $(@el).html(@template({collection: @collection}))
     @
