@@ -1,12 +1,13 @@
 class mkm.routers.AppRouter extends Backbone.Router
 
   routes:
-    ""                  : "index"
-    "articles/new"      : "newArticle"
-    "articles/:id/edit" : "editArticle"
-    "articles/:id"      : "showArticle"
-    "countries/:id/edit": "editCountry"
-    "countries/new"     : "newCountry"
+    ""                        : "index"
+    "articles/new"            : "newArticle"
+    "articles/:id/photos/new" : "newPhoto"
+    "articles/:id/edit"       : "editArticle"
+    "articles/:id"            : "showArticle"
+    "countries/:id/edit"      : "editCountry"
+    "countries/new"           : "newCountry"
 
   index: ->
     @swap(new mkm.views.IndexView())
@@ -29,6 +30,14 @@ class mkm.routers.AppRouter extends Backbone.Router
 
   newArticle: ->
     @swap(new mkm.views.articles.EditArticleView({model: new mkm.models.Article()}))
+
+  newPhoto: (articleId) ->
+    model = mkm.collections.articles.get(articleId)
+    if model
+      @swap(new mkm.views.photos.NewPhotoView({model: model}))
+    else
+      mkm.helpers.flash('error', 'No such article')
+      @navigate('', true)
 
   newCountry: ->
     @swap(new mkm.views.countries.EditCountryView({model: new mkm.models.Country()}))

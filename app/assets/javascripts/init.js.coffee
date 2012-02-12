@@ -9,6 +9,7 @@ window.module = (name, fn)->
   @module "views", ->
     @module "articles", ->
     @module "countries", ->
+    @module "photos", ->
   @module "collections", ->
   @module "models", ->
   @module "routers", ->
