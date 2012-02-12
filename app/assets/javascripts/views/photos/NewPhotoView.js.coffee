@@ -1,7 +1,9 @@
 class mkm.views.photos.NewPhotoView extends Backbone.View
   template: JST['photos/new']
 
+  className: 'photosView'
   filesWaiting: []
+  filesComplete: 0
   ongoingTransfer: false
 
   events:
@@ -13,6 +15,11 @@ class mkm.views.photos.NewPhotoView extends Backbone.View
   fileDropped: (evt) =>
     evt.preventDefault()
     evt.stopPropagation()
+
+    if @ongoingTransfer
+      mkm.helpers.flash('warning', 'Please wait until the current upload is complete')
+      return
+
     files = evt.originalEvent?.dataTransfer?.files
     if files
       @transferFiles(files)
@@ -20,8 +27,11 @@ class mkm.views.photos.NewPhotoView extends Backbone.View
       mkm.helpers.flash('error', 'Your browser is too old for this')
 
   transferFiles: (files) ->
+    @totalFiles = files.length
     parsedFiles = 0
     img = null
+
+    $(@el).find('.progress').addClass('active')
 
     for file in files
       binaryReader = new FileReader()
@@ -44,8 +54,24 @@ class mkm.views.photos.NewPhotoView extends Backbone.View
 
       binaryReader.readAsBinaryString(file)
 
+  reset: ->
+    @filesWaiting = []
+    @filesComplete = 0
+    @ongoingTransfer = false
+    $(@el).find('.progress').removeClass('active')
+
   transferNextFile: =>
     @transferFile(@filesWaiting.shift())
+
+  updateProgress: ->
+    @filesComplete++
+    $(@el).find('.progress .bar').width("#{(@filesComplete / @totalFiles) * 100}%")
+
+    if @filesWaiting.length is 0
+      mkm.helpers.flash('info', "All files uploaded successfully ")
+      @reset()
+    else
+      mkm.helpers.flash('info', "File uploaded successfully, #{@filesWaiting.length} files left. Please wait... ")
 
   transferFile: (postData) ->
     $.ajax({
@@ -53,13 +79,12 @@ class mkm.views.photos.NewPhotoView extends Backbone.View
       url: "/articles/#{@model.id}/photos"
       data: postData
       success: =>
-        if @filesWaiting.length is 0
-          @ongoingTransfer = false
-        else
+        @updateProgress()
+        unless @filesWaiting.length is 0
           setTimeout(@transferNextFile, 6000)
       error: (jqXhr, status, error) ->
-        @filesWaiting = []
         mkm.helpers.flash('error', "Error while uploading pictures #{status} - #{error}")
+        @reset()
     })
 
   dragOver: (evt) ->
