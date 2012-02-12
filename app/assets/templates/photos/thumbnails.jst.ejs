@@ -2,5 +2,6 @@
   <div> 
     <img src="<%= photo.get('photo').small.url %>" />
     <p><%= photo.get('photo').caption %></p>
+    <a href="#" class="btn btn-danger delete-photo" data-id="<%= photo.id %>">Delete</a>
   </div>
 <% }); %>

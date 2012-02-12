@@ -14,6 +14,15 @@ class PhotosController < ApplicationController
     respond_with article, photo
   end
 
+  def destroy
+    article = Article.find(params[:article_id], :include => :photos)    
+    photo = Photo.find(params[:id])
+    photo.remove_photo!
+    article.photos.delete(photo)
+
+    respond_with photo
+  end
+
   private
 
   def read_file(fileName, binary)

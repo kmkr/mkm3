@@ -24,7 +24,7 @@ class mkm.views.articles.ShowArticleView extends Backbone.View
 
   render: ->
     $(@el).html(@template({article: @model}))
-    thumbnailPhotoView = new mkm.views.photos.ThumbnailsPhotoView({ collection: new mkm.collections.PhotoCollection(@model.get('photos')) })
+    thumbnailPhotoView = new mkm.views.photos.ThumbnailsPhotoView({ model: @model})
     @views.push(thumbnailPhotoView)
     $(@el).find('.photos').html(thumbnailPhotoView.render().el)
     @
