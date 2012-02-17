@@ -2,7 +2,7 @@ class mkm.views.countries.EditCountryView extends Backbone.View
   template: JST['countries/new']
 
   initialize: ->
-    _.extend(@, new mkm.helpers.MapHelper())
+    _.extend(@, new mkm.helpers.ArticleMapHelper())
 
   events:
     "click button"    : "save"

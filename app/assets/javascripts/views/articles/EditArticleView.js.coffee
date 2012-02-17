@@ -2,7 +2,7 @@ class mkm.views.articles.EditArticleView extends Backbone.View
   template: JST['articles/edit']
 
   initialize: ->
-    _.extend(@, new mkm.helpers.MapHelper())
+    _.extend(@, new mkm.helpers.ArticleMapHelper())
 
   events:
     "click button"    : "save"

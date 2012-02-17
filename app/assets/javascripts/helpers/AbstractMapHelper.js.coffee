@@ -1,31 +1,19 @@
-class mkm.helpers.MapHelper
+class mkm.helpers.AbstractMapHelper
   constructor: ->
     _.extend(@, Backbone.Events)
 
-  renderMap: ->
-    mapOpts =
-      center: @getCenter()
-      zoom: @getZoomLevel()
+  renderMap: (mapOpts = {}) ->
+    opts = _.extend({
+      center: new google.maps.LatLng(0, 0)
+      zoom: 0
       mapTypeId: google.maps.MapTypeId.TERRAIN
-    @map = new google.maps.Map(document.getElementById("map"), mapOpts)
-
-  getZoomLevel: ->
-    @model.get('zoom_level') or 1
-
-  getCenter: ->
-    lat = @model.get('latitude') or 0
-    lon = @model.get('longitude') or 0
-    new google.maps.LatLng(lat, lon)
+    }, mapOpts)
+    @map = new google.maps.Map(document.getElementById("map"), opts)
 
   removeMarker: ->
     @marker.setMap(null) if @marker
 
-  placeMarkerFromModel: ->
-    position = new google.maps.LatLng(@model.get('latitude'), @model.get('longitude'))
-    @placeMarker(position)
-
   placeMarker: (position) ->
-    @removeMarker()
     @marker = new google.maps.Marker({
       position: position
       map: @map
@@ -45,4 +33,3 @@ class mkm.helpers.MapHelper
   initMap: (opts = {}) ->
     @renderMap()
     @addListeners() unless opts.readOnly
-    @placeMarkerFromModel() if @model.get('latitude') and @model.get('longitude')

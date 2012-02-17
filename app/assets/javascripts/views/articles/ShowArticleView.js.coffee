@@ -17,7 +17,7 @@ class mkm.views.articles.ShowArticleView extends Backbone.View
     })
 
   initialize: ->
-    _.extend(@, new mkm.helpers.MapHelper())
+    _.extend(@, new mkm.helpers.ArticleMapHelper())
 
   init: ->
     @initMap({ readOnly: true })
