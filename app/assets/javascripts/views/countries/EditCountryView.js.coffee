@@ -1,5 +1,6 @@
 class mkm.views.countries.EditCountryView extends Backbone.View
-  template: JST['countries/new']
+  template: JST['countries/edit']
+  className: 'editCountry'
 
   initialize: ->
     _.extend(@, new mkm.helpers.ArticleMapHelper())
@@ -32,10 +33,11 @@ class mkm.views.countries.EditCountryView extends Backbone.View
   init: ->
     @initMap()
     @on('map:clicked', (resp) =>
+      @removeMarker()
       @model.set({latitude: resp.latitude, longitude: resp.longitude })
     )
 
   render: ->
-    $(@el).html(@template)
+    $(@el).html(@template({country: @model}))
     @renderContinents()
     @
