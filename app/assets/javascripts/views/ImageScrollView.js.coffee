@@ -12,7 +12,6 @@ class mkm.views.ImageScrollView extends Backbone.View
         for p in gallery
           photos.push(p.photo)
 
-    console.log photos
     photos
 
   init: ->
