@@ -1,0 +1,7 @@
+<div class="slider-wrapper theme-default">
+<div class="nivoSlider" style="height: 250px;">
+  <% $.each(photos, function(i, photo) { %>
+    <img src="<%= photo.medium.url %>" alt="<%= photo.caption %>" />
+  <% }); %>
+</div>
+</div>
