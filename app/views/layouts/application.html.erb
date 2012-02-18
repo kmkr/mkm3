@@ -13,6 +13,10 @@
   </head>
   <body>
 
+  <script>
+    mkm.config.logged_in = <%= user_signed_in? %>;
+  </script>
+
   <div id="menu"></div>
 
     <div class="container">
@@ -26,7 +30,21 @@
       </div>
 
       <footer>
-        <p>lala</p>
+        <% if user_signed_in? %>
+          <%= link_to '#articles/new', :class => 'btn btn-mini' do %>
+            <i class="icon-pencil"></i>
+            New article
+          <% end %>
+          <%= link_to destroy_user_session_path, :class => 'btn btn-mini' do %>
+            <i class="icon-remove-circle"></i>
+            Log out
+          <% end %>
+        <% else %>
+          <%= link_to new_user_session_path, :class => 'btn btn-mini' do %>
+            <i class="icon-lock"></i>
+            Log in
+          <% end %>
+        <% end %>
       </footer>
 
       <% [:notice, :error, :alert].each do |level| %>

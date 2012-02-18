@@ -6,6 +6,7 @@ window.module = (name, fn)->
   fn.apply(this[name], [])
 
 @module "mkm", ->
+  @module "config", ->
   @module "views", ->
     @module "articles", ->
     @module "countries", ->

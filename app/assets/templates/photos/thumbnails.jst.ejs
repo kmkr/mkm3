@@ -3,9 +3,11 @@
   <img src="<%= photo.get('photo').small.url %>" />
   <div class="caption">
     <p>Her skal det stå en tekst ... </p>
+    <% if (mkm.config.logged_in) { %>
     <p>
     <a href="#" class="btn btn-danger btn-mini delete-photo" data-id="<%= photo.id %>"><i class="icon-trash icon-white"></i>Delete</a>
     </p>
+    <% } %>
   </div>
 </div>
 <% }); %>

@@ -14,6 +14,7 @@
         </p>
       </div>
 
+      <% if (mkm.config.logged_in) { %>
       <div class="btn-toolbar">
         <a class="btn btn-mini" href="#articles/<%= article.id %>/edit">
           <i class="icon-edit"></i>
@@ -39,6 +40,7 @@
           Delete
         </a>
       </div>
+      <% } %>
 
       <section class="body">
         <%= superTextile(article.get('body')) %>
