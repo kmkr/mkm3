@@ -1,0 +1,36 @@
+.indexView {
+  .imagescroll {
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5px;
+
+    height: 320px;
+
+    .nivo-caption {
+      text-align: center;
+    }
+  }
+
+
+  #map {
+    padding: 5px;
+    height: 300px;
+    width: 100%;
+    border: 1px solid black;
+    border-radius: 5px;
+  }
+
+  .carousel {
+    padding: 5px;
+    margin-top: 50px;
+    height: 140px;
+    border: 1px solid black;
+    border-radius: 5px;
+  }
+
+  .nivoSlider {
+    height: 250px;
+    width: 90%;
+  }
+  
+}

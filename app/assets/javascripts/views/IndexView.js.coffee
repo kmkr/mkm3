@@ -1,6 +1,7 @@
 class mkm.views.IndexView extends Backbone.View
   template: JST['page/index']
   views: []
+  className: 'indexView'
 
   initialize: ->
     _.extend(@, new mkm.helpers.CountriesMapHelper())
