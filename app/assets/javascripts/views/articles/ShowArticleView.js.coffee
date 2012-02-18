@@ -46,9 +46,13 @@ class mkm.views.articles.ShowArticleView extends Backbone.View
   init: ->
     @initMap({ readOnly: true })
 
+  writePublishStatus: ->
+    @$('.publish-info').html("Published #{$.timeago(@model.get('published'))}.")
+
   render: ->
     $(@el).html(@template({article: @model}))
     thumbnailPhotoView = new mkm.views.photos.ThumbnailsPhotoView({ model: @model})
     @views.push(thumbnailPhotoView)
     $(@el).find('.photos').html(thumbnailPhotoView.render().el)
+    @writePublishStatus() if @model.published()
     @

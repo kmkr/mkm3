@@ -5,12 +5,10 @@
   <div class="row">
     <div class="span8">
       <div class="meta">
-        <p>Dated <%= article.get('start-date') %>.
-        <% if (article.published()) { %>
-          Published <%= article.get('published') %>
-    <% } else { %>
+        <p>Dated <%= mkm.helpers.date.format(article.get('start_date')) %>.
+        <span class="publish-info">
           Not yet published
-      <% } %>
+        </span>
         </p>
       </div>
 
