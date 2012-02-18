@@ -1,5 +1,6 @@
 class mkm.views.articles.ShowArticleView extends Backbone.View
   template: JST['articles/show']
+  className: 'showArticleView'
   views: []
 
   events: ->

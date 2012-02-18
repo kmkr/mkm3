@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.photosView {
+.newPhotoView {
   .dropArea {
     margin: 0 auto;
     width: 300px;
@@ -14,4 +14,10 @@
     }
   }
 
+}
+
+.thumbnailsPhotoView {
+  .thumbnail {
+    margin-bottom: 30px;
+  }
 }

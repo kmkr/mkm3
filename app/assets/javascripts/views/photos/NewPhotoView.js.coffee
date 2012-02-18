@@ -1,7 +1,7 @@
 class mkm.views.photos.NewPhotoView extends Backbone.View
   template: JST['photos/new']
 
-  className: 'photosView'
+  className: 'newPhotoView'
   filesWaiting: []
   filesComplete: 0
   ongoingTransfer: false

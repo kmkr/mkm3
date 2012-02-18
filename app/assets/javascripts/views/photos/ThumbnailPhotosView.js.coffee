@@ -1,5 +1,6 @@
 class mkm.views.photos.ThumbnailsPhotoView extends Backbone.View
   template: JST['photos/thumbnails']
+  className: 'thumbnailsPhotoView'
   views: []
 
   events:
