@@ -8,6 +8,12 @@ class ArticlesController < ApplicationController
     respond_with articles
   end
 
+  def show
+    article = Article.includes(:photos).find(params[:id])
+
+    respond_with article
+  end
+
   def update
     article = Article.find(params[:id])
     article.update_attributes(params[:article])

@@ -64,6 +64,7 @@ class mkm.views.photos.NewPhotoView extends Backbone.View
     @transferFile(@filesWaiting.shift())
 
   updateProgress: ->
+    console.log("etter fetch: antall bilder i modellen er %s", @model.get('photos').length)
     @filesComplete++
     $(@el).find('.progress .bar').width("#{(@filesComplete / @totalFiles) * 100}%")
 
@@ -79,7 +80,8 @@ class mkm.views.photos.NewPhotoView extends Backbone.View
       url: "/articles/#{@model.id}/photos"
       data: postData
       success: =>
-        @updateProgress()
+        console.log("før fetch: antall bilder i modellen er %s", @model.get('photos').length)
+        @model.fetch({success: => @updateProgress()})
         unless @filesWaiting.length is 0
           setTimeout(@transferNextFile, 6000)
       error: (jqXhr, status, error) ->

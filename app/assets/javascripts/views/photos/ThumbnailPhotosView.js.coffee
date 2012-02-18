@@ -8,15 +8,17 @@ class mkm.views.photos.ThumbnailsPhotoView extends Backbone.View
 
   deletePhoto: (evt) ->
     evt.preventDefault()
-    id = Number($(evt.target).attr('data-id'))
-    photo = @collection.get(id)
+    id = Number($(evt.target).closest('[data-id]').attr('data-id'))
+    console.log("prøver å slette %s", id)
+    photo = @model.get('photos').get(id)
+    console.log("før slett: photo size er %s", @model.get('photos').length)
     photo.destroy({
       success: =>
-        # todo: fjern photo fra collection
+        console.log("etter slett: photo size er %s", @model.get('photos').length)
         @render()
     })
 
   render: ->
-    @collection = new mkm.collections.PhotoCollection(@model.get('photos'))
+    @collection = @model.get('photos')
     $(@el).html(@template({collection: @collection}))
     @

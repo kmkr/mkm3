@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require ./libs/underscore
 //= require ./libs/backbone
+//= require ./libs/backbone-relational
 //= require init
 //= require_tree ../templates
 //= require_tree ./helpers
