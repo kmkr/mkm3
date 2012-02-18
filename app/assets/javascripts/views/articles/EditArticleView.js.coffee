@@ -10,11 +10,12 @@ class mkm.views.articles.EditArticleView extends Backbone.View
   save: (evt) ->
     evt.preventDefault()
     @model.save({
-      title: $(@el).find('#title').val()
-      start_date: $(@el).find('#startDate').val()
-      end_date: $(@el).find('#endDate').val()
-      country_id: $(@el).find('#country option:selected').val()
-      body: $(@el).find('#article-body').val()
+      title: @$('#title').val()
+      start_date: @$('#startDate').val()
+      end_date: @$('#endDate').val()
+      country_id: @$('#country option:selected').val()
+      body: @$('#article-body').val()
+      published: @$('#published').val()
     }, {
       success: =>
         mkm.collections.articles.add(@model) unless mkm.collections.articles.any((article) => @model.id == article.id)
@@ -28,7 +29,7 @@ class mkm.views.articles.EditArticleView extends Backbone.View
     mkm.collections.countries.forEach((country) =>
       ctr = $('<option>').attr('value', country.id).text(country.get('title'))
       ctr.attr('selected', 'selected') if @model.get('country_id') == country.id
-      $(@el).find("#country").append(ctr)
+      @$("#country").append(ctr)
     )
 
   init: ->
@@ -43,7 +44,7 @@ class mkm.views.articles.EditArticleView extends Backbone.View
   render: ->
     $(@el).html(@template({article: @model}))
     @renderCountries()
-    $(@el).find('[data-datepicker]').datepicker()
+    @$('[data-datepicker]').datepicker()
     settings = new mkm.helpers.TextileHelper().settings
-    $(@el).find("#article-body").markItUp(settings)
+    @$("#article-body").markItUp(settings)
     @
