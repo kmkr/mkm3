@@ -27,11 +27,12 @@ class mkm.views.photos.NewPhotoView extends Backbone.View
       mkm.helpers.flash('error', 'Your browser is too old for this')
 
   transferFiles: (files) ->
+    @$('.loader').show()
     @totalFiles = files.length
     parsedFiles = 0
     img = null
 
-    $(@el).find('.progress').addClass('active')
+    @$('.progress').addClass('active')
 
     for file in files
       binaryReader = new FileReader()
@@ -58,14 +59,15 @@ class mkm.views.photos.NewPhotoView extends Backbone.View
     @filesWaiting = []
     @filesComplete = 0
     @ongoingTransfer = false
-    $(@el).find('.progress').removeClass('active')
+    @$('.progress').removeClass('active')
+    @$('.loader').hide()
 
   transferNextFile: =>
     @transferFile(@filesWaiting.shift())
 
   updateProgress: ->
     @filesComplete++
-    $(@el).find('.progress .bar').width("#{(@filesComplete / @totalFiles) * 100}%")
+    @$('.progress .bar').width("#{(@filesComplete / @totalFiles) * 100}%")
 
     if @filesWaiting.length is 0
       mkm.helpers.flash('info', "All files uploaded successfully ")

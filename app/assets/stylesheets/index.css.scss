@@ -1,13 +1,15 @@
 .indexView {
   .imagescroll {
+    margin-bottom: 40px;
     border: 1px solid black;
     border-radius: 5px;
     padding: 5px;
 
-    height: 320px;
-
     .nivo-caption {
       text-align: center;
+    }
+    .nivoSlider {
+      height: 400px;
     }
   }
 
@@ -20,15 +22,5 @@
     border-radius: 5px;
   }
 
-  .carousel {
-    margin-top: 50px;
-    border: 1px solid black;
-    border-radius: 5px;
-  }
-
-  .nivoSlider {
-    height: 250px;
-    width: 90%;
-  }
   
 }
