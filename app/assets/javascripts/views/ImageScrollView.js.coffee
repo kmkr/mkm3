@@ -15,7 +15,11 @@ class mkm.views.ImageScrollView extends Backbone.View
     photos
 
   init: ->
-    @$('.nivoSlider').nivoSlider()
+    @$('.nivoSlider').nivoSlider({
+      effect: 'fade'
+      randomStart: true
+      pauseTime: 5000
+    })
 
   render: ->
     $(@el).html(@template({photos: @photos}))
