@@ -9,15 +9,16 @@ class mkm.views.CarouselView extends Backbone.View
       wrap: 'circular'
       auto: 4
       animation: "slow"
+      scroll: 2
     })
 
   getPhotos: ->
     photos = []
-    galleries = mkm.collections.articles.pluck('photos')
-    for gallery in galleries
-      if gallery.length isnt 0
-        for p in gallery
-          photos.push(p.photo)
+    mkm.collections.articles.forEach((article) ->
+      article.get('photos').forEach((photo) ->
+        photos.push(photo.get('photo'))
+      )
+    )
 
     photos
 
