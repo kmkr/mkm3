@@ -3,7 +3,6 @@ class mkm.helpers.ArticleMapHelper extends mkm.helpers.AbstractMapHelper
     super {
       center: @getCenter()
       zoom: @getZoomLevel()
-      mapTypeId: google.maps.MapTypeId.TERRAIN
     }
 
   getZoomLevel: ->
