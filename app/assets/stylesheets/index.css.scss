@@ -21,25 +21,7 @@
   }
 
   .carousel {
-    ul {
-      width: 20000em;
-      position: absolute;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      li {
-        float: left;
-      }
-    }
-
-    position: relative;
-    overflow: hidden;
-    > div {
-      width: 100%;
-    }
-    padding: 5px;
     margin-top: 50px;
-    height: 140px;
     border: 1px solid black;
     border-radius: 5px;
   }

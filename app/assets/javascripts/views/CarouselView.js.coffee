@@ -5,11 +5,13 @@ class mkm.views.CarouselView extends Backbone.View
     @photos = @getPhotos()
 
   init: ->
-    @$('> div').jcarousel({
-      wrap: 'circular'
-      auto: 4
-      animation: "slow"
-      scroll: 2
+    @$('.carousel').carouFredSel({
+      height: '200'
+      items:
+        minimum: 1
+        start: "random"
+        height: "variable"
+        width: "variable"
     })
 
   getPhotos: ->
