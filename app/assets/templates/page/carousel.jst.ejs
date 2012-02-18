@@ -1,0 +1,7 @@
+<div style="width: 100%; overflow: hidden;">
+  <ul class="jcarousel-skin-tango">
+    <% $.each(photos, function(i, p) { %>
+      <li><img src="<%= p.medium.url %>" alt="<%= p.caption %>" /></li>
+    <% }); %>
+  </ul>
+</div>
