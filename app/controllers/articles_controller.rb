@@ -14,6 +14,14 @@ class ArticlesController < ApplicationController
     respond_with article
   end
 
+  def destroy
+    article = Article.find(params[:id])
+
+    article.destroy
+
+    respond_with article
+  end
+
   def update
     article = Article.find(params[:id])
     article.update_attributes(params[:article])

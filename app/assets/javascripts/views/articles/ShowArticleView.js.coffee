@@ -4,9 +4,21 @@ class mkm.views.articles.ShowArticleView extends Backbone.View
   views: []
 
   events: ->
+    "click .confirm"        : mkm.helpers.confirm.dialog
+    "click .delete-article" : "del"
     "click .publish"        : "publish"
     "click .unpublish"      : "unpublish"
 
+  del: (evt) =>
+    evt.preventDefault()
+    button = $(evt.target).closest('.btn')
+    button.after($('<img src="/assets/loader.gif" />'))
+    button.remove()
+    @model.destroy({success: ->
+      mkm.helpers.flash('info', "Article removed")
+      mkm.routers.router.navigate("", true)
+    })
+    
   unpublish: (evt) =>
     evt.preventDefault()
     @model.save({
