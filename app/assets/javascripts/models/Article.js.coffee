@@ -10,3 +10,6 @@ class mkm.models.Article extends Backbone.RelationalModel
       includeInJSON: 'id'
   }]
 
+  published: ->
+    if @get('published') then true else false
+

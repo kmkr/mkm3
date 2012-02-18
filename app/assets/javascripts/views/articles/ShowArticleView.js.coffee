@@ -5,16 +5,27 @@ class mkm.views.articles.ShowArticleView extends Backbone.View
 
   events: ->
     "click .publish"        : "publish"
+    "click .unpublish"      : "unpublish"
+
+  unpublish: (evt) =>
+    evt.preventDefault()
+    @model.save({
+      published: ""
+    }, {
+      success: =>
+        mkm.helpers.flash('info', 'Article is now hidden')
+        @render()
+    })
 
   publish: (evt) =>
     evt.preventDefault()
 
     @model.save({
-      published: true
+      published: new Date()
     }, {
       success: =>
-        mkm.helpers.flash('info', 'Article published')
-        $(@el).find(".publish").hide('slow')
+        mkm.helpers.flash('info', 'Article is published')
+        @render()
     })
 
   initialize: ->

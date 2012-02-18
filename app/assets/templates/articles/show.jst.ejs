@@ -2,7 +2,13 @@
   <h1><%= article.get('title') %></h1>
 
   <div class="meta">
-    <p>Dated <%= article.get('start-date') %>. Published <%= article.get('published') %></p>
+    <p>Dated <%= article.get('start-date') %>.
+    <% if (article.published()) { %>
+      Published <%= article.get('published') %>
+    <% } else { %>
+      Not yet published
+    <% } %>
+  </p>
   </div>
 
   <div class="btn-toolbar">
@@ -10,16 +16,21 @@
       <i class="icon-edit"></i>
       Edit
     </a>
-    <% if (!article.get('published')) { %>
-    <a class="btn btn-mini publish" href="#">
-      <i class="icon-share"></i>
-      Publish
-    </a>
-    <% } %>
     <a class="btn btn-mini " href="#articles/<%= article.id %>/photos/new">
       <i class="icon-upload"></i>
       Upload photo
     </a>
+    <% if (article.published()) { %>
+    <a class="btn btn-mini unpublish" href="#">
+      <i class="icon-eye-close"></i>
+      Unpublish
+    </a>
+    <% } else { %>
+    <a class="btn btn-primary btn-mini publish" href="#">
+      <i class="icon-eye-open icon-white"></i>
+      Publish
+    </a>
+    <% } %>
     <a class="btn btn-mini btn-danger" href="#">
       <i class="icon-trash icon-white"></i>
       Delete
