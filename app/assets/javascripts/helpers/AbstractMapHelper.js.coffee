@@ -13,12 +13,14 @@ class mkm.helpers.AbstractMapHelper
   removeMarker: ->
     @marker.setMap(null) if @marker
 
-  placeMarker: (position) ->
+  placeMarker: (position, title = "") ->
     @marker = new google.maps.Marker({
       position: position
+      title: title
       map: @map
     })
     @map.setCenter(position)
+    @marker
 
   addListeners: ->
     google.maps.event.addListener(@map, 'click', (evt) =>
