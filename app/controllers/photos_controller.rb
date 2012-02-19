@@ -15,10 +15,24 @@ class PhotosController < ApplicationController
   end
 
   def destroy
-    article = Article.find(params[:article_id], :include => :photos)    
+    article = Article.find(params[:article_id], :include => :photos)
     photo = Photo.find(params[:id])
     photo.remove_photo!
     article.photos.delete(photo)
+
+    respond_with photo
+  end
+
+  def update
+    photo = Photo.find(params[:id])
+
+    photo.crop_x = params[:crop_x]
+    photo.crop_y = params[:crop_y]
+    photo.crop_h = params[:crop_h]
+    photo.crop_w = params[:crop_w]
+    photo.save
+
+    photo.photo.recreate_versions!
 
     respond_with photo
   end

@@ -4,7 +4,7 @@ Mkm3::Application.routes.draw do
   get "page/index"
 
   resources :articles do
-    resources :photos, :only => [:index, :create, :destroy]
+    resources :photos, :only => [:index, :update, :create, :destroy]
   end
   resources :countries
 

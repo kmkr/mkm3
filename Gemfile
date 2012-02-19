@@ -9,7 +9,7 @@ gem 'sqlite3'
 
 gem 'ejs'
 
-gem 'carrierwave'
+gem 'carrierwave', '0.5.7'
 gem 'fog'
 gem 'rmagick'
 gem 'less-rails'

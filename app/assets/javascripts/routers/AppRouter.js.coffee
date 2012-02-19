@@ -4,6 +4,7 @@ class mkm.routers.AppRouter extends Backbone.Router
     ""                        : "index"
     "articles/new"            : "newArticle"
     "articles/:id/photos/new" : "newPhoto"
+    "articles/:aId/photos/:pId/edit": "editPhoto"
     "articles/:id/edit"       : "editArticle"
     "articles/:id"            : "showArticle"
     "countries/:id/edit"      : "editCountry"
@@ -27,6 +28,20 @@ class mkm.routers.AppRouter extends Backbone.Router
     else
       mkm.helpers.flash('error', 'No such article')
       @navigate('', true)
+
+  editPhoto: (aId, pId) ->
+    article = mkm.collections.articles.get(aId)
+    if article
+      photo = article.get('photos').get(pId)
+      if photo
+        @swap(new mkm.views.photos.EditPhotoView({model: photo}))
+      else
+        mkm.helpers.flash('error', 'No such photo')
+        @navigate('', true)
+    else
+      mkm.helpers.flash('error', 'No such article')
+      @navigate('', true)
+
 
   newArticle: ->
     @swap(new mkm.views.articles.EditArticleView({model: new mkm.models.Article()}))
