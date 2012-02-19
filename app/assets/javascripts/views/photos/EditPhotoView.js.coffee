@@ -39,8 +39,8 @@ class mkm.views.photos.EditPhotoView extends Backbone.View
       onSelect: @showCoords
       onChange: @showCoords
       aspectRatio: 2.42
+      # TODO: jCrop fikser ikke dette. må manuelt finne ut scale-rate
       minSize: [968, 400]
-
     }, ->
       # oh my god..
       that.setApi(@)
