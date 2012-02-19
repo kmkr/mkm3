@@ -47,6 +47,7 @@ class PhotoUploader < CarrierWave::Uploader::Base
   
   version :cropped, :if => :is_cropped? do
     process :crop_photo
+    process :resize_to_limit => [968, 400]
   end
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:

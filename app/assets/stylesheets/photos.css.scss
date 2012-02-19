@@ -21,6 +21,12 @@
 
 }
 
+.editPhotoView {
+  img.photo {
+    max-width: 50000px;
+  }
+}
+
 .thumbnailsPhotoView {
   .thumbnail {
     margin-bottom: 30px;
