@@ -45,6 +45,15 @@ class mkm.views.articles.ShowArticleView extends Backbone.View
 
   init: ->
     @initMap({ readOnly: true })
+    @$('.gallery').galleryView({
+      panel_width: 720
+      panel_height: 410
+      frame_width: 90
+      frame_height: 90
+      frame_scale: 'fit'
+      frame_opacity: 0.9
+      show_captions: true
+    })
 
   writePublishStatus: ->
     @$('.publish-info').html("Published #{$.timeago(@model.get('published'))}.")

@@ -3,7 +3,6 @@
     <h1><%= article.get('title') %></h1>
   </header>
   <div class="row">
-    <div class="span8">
       <div class="meta">
         <p>Dated <%= mkm.helpers.date.format(article.get('start_date')) %>.
         <span class="publish-info">
@@ -40,16 +39,25 @@
       </div>
       <% } %>
 
+      <div class="gallery-wrapper">
+        <ul class="gallery">
+          <% article.get('photos').each(function(photo) { %>
+          <li><img title="En tittel" src="<%= photo.get('photo').medium.url %>" /></li>
+        <% }); %>
+        </ul>
+      </div>
+
+      <div class="span4 photos"></div>
+
       <section class="body">
         <%= superTextile(article.get('body')) %>
       </section>
 
 
+
       <div id="map" class="map"></div>
     </div>
 
-    <section class="span4">
-      <div class="photos"></div>
-    </section>
+
   </div>
 </article>
