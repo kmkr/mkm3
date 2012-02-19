@@ -12,7 +12,7 @@ class mkm.views.articles.ShowArticleView extends Backbone.View
   del: (evt) =>
     evt.preventDefault()
     button = $(evt.target).closest('.btn')
-    button.after($('<img src="/assets/loader.gif" />'))
+    @$('.loader').show()
     button.remove()
     @model.destroy({success: ->
       mkm.helpers.flash('info', "Article removed")
@@ -60,7 +60,7 @@ class mkm.views.articles.ShowArticleView extends Backbone.View
 
   render: ->
     $(@el).html(@template({article: @model}))
-    thumbnailPhotoView = new mkm.views.photos.ThumbnailsPhotoView({ model: @model})
+    thumbnailPhotoView = new mkm.views.photos.ThumbnailsPhotoView({ collection: @model.get('photos')})
     @views.push(thumbnailPhotoView)
     $(@el).find('.photos').html(thumbnailPhotoView.render().el)
     @writePublishStatus() if @model.published()
