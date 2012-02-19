@@ -8,7 +8,8 @@ class mkm.views.ImageScrollView extends Backbone.View
     photos = []
     mkm.collections.articles.forEach((article) ->
       article.get('photos').forEach((photo) ->
-        photos.push(photo.get('photo'))
+        if photo.isCropped()
+          photos.push(photo.get('photo'))
       )
     )
 

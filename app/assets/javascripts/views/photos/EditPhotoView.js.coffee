@@ -38,11 +38,14 @@ class mkm.views.photos.EditPhotoView extends Backbone.View
       addClass: 'jcrop-light'
       onSelect: @showCoords
       onChange: @showCoords
+      aspectRatio: 2.42
+      minSize: [968, 400]
+
     }, ->
       # oh my god..
       that.setApi(@)
-      if crop = model.cropped()
-        @animateTo(crop)
+      if model.isCropped()
+        @animateTo(model.cropped())
     )
 
   setApi: (api) ->

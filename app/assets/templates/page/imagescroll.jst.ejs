@@ -1,7 +1,7 @@
 <div class="slider-wrapper theme-default">
   <div class="nivoSlider">
     <% $.each(photos, function(i, photo) { %>
-      <img src="<%= photo.medium.url %>" title="En beskrivelse..." />
+      <img src="<%= photo.cropped.url %>" title="En beskrivelse..." />
   <% }); %>
   </div>
 </div>
