@@ -7,13 +7,6 @@
     }
   }
 
-  .gallery-wrapper {
-    float: right;
-    margin: 0 0 20px 20px;
-    padding: 2px;
-    border: 1px solid #222;
-   }
-
   .meta {
     p {
       font-size: 0.9em;
@@ -24,9 +17,38 @@
     float: right;
   }
 
+  .thumbmatrix {
+    clear: both;
+
+    .pagination {
+      text-align: center;
+    }
+
+    .page {
+      height: 565px;
+      .imgrow {
+        margin: 0 auto;
+        width: 810px;
+        .thumbnailPhotoView {
+          display: inline-block;
+          position: relative;
+          max-height: 280px;
+          margin: 5px;
+          width: 260px;
+          .thumbnail {
+          }
+        }
+      }
+    }
+  }
+
   section.body {
     p {
       font-size: 1.2em;
     }
   }
+}
+
+.thumbnailMatrixView {
+  width: 100%;
 }

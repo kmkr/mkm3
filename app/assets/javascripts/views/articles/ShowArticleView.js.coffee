@@ -45,15 +45,6 @@ class mkm.views.articles.ShowArticleView extends Backbone.View
 
   init: ->
     @initMap({ readOnly: true })
-    @$('.gallery').galleryView({
-      panel_width: 720
-      panel_height: 410
-      frame_width: 90
-      frame_height: 90
-      frame_scale: 'fit'
-      frame_opacity: 0.9
-      show_captions: true
-    })
     @imgsc.init()
 
   writePublishStatus: ->
@@ -64,8 +55,13 @@ class mkm.views.articles.ShowArticleView extends Backbone.View
     @imgsc = new mkm.views.ImageScrollView({photos: @model.get('photos').onlyCropped() })
     @views.push(@imgsc)
     @$('.imagescroll').html(@imgsc.render().el)
+
     thumbnailPhotoView = new mkm.views.photos.ThumbnailsPhotoView({ collection: @model.get('photos')})
     @views.push(thumbnailPhotoView)
-    $(@el).find('.photos').html(thumbnailPhotoView.render().el)
+    @$('.photos').html(thumbnailPhotoView.render().el)
+
+    thumbnailMatrixView = new mkm.views.photos.ThumbnailMatrixView({ collection: @model.get('photos')})
+    @views.push(thumbnailMatrixView)
+    @$('.thumbmatrix').html(thumbnailMatrixView.render().el)
     @writePublishStatus() if @model.published()
     @

@@ -53,15 +53,7 @@
         <%= superTextile(article.get('body')) %>
       </section>
 
-
-      <div class="gallery-wrapper">
-        <ul class="gallery">
-          <% article.get('photos').each(function(photo) { %>
-          <li><img title="En tittel" src="<%= photo.get('photo').medium.url %>" /></li>
-        <% }); %>
-        </ul>
-      </div>
-
+      <div class="thumbmatrix"></div>
       <div id="map" class="map"></div>
     </div>
 
