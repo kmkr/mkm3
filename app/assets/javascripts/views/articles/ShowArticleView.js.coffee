@@ -54,12 +54,16 @@ class mkm.views.articles.ShowArticleView extends Backbone.View
       frame_opacity: 0.9
       show_captions: true
     })
+    @imgsc.init()
 
   writePublishStatus: ->
     @$('.publish-info').html("Published #{$.timeago(@model.get('published'))}.")
 
   render: ->
     $(@el).html(@template({article: @model}))
+    @imgsc = new mkm.views.ImageScrollView({photos: @model.get('photos').onlyCropped() })
+    @views.push(@imgsc)
+    @$('.imagescroll').html(@imgsc.render().el)
     thumbnailPhotoView = new mkm.views.photos.ThumbnailsPhotoView({ collection: @model.get('photos')})
     @views.push(thumbnailPhotoView)
     $(@el).find('.photos').html(thumbnailPhotoView.render().el)

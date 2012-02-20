@@ -10,20 +10,19 @@ class mkm.views.IndexView extends Backbone.View
     @initMap({ readOnly: true})
     @imgsc.init()
 
-  getPhotoCollection: ->
+  getPhotos: ->
     photos = []
     mkm.collections.articles.forEach((article) ->
       article.get('photos').forEach((photo) ->
-        if photo.isCropped()
-          photos.push(photo.get('photo'))
+        photos.push(photo)
       )
     )
 
-    new mkm.collections.PhotoCollection(photos)
+    photos
 
   render: ->
     $(@el).html(@template)
-    @imgsc = new mkm.views.ImageScrollView({collection: @getPhotoCollection() })
+    @imgsc = new mkm.views.ImageScrollView({ photos: @getPhotos() })
     @views.push(@imgsc)
     @$('.imagescroll').html(@imgsc.render().el)
     @

@@ -1,6 +1,9 @@
 class mkm.views.ImageScrollView extends Backbone.View
   template: JST['page/imagescroll']
 
+  initialize: (opts) ->
+    @collection = new mkm.collections.PhotoCollection(opts.photos)
+
   init: ->
     @$('.nivoSlider').nivoSlider({
       effect: 'boxRandom'
@@ -9,5 +12,5 @@ class mkm.views.ImageScrollView extends Backbone.View
     })
 
   render: ->
-    $(@el).html(@template({collection: @collection}))
+    $(@el).html(@template({photos: @collection.onlyCropped()}))
     @
