@@ -8,7 +8,7 @@ class mkm.views.photos.ThumbnailPhotoView extends Backbone.View
 
   deletePhoto: (evt) ->
     evt.preventDefault()
-    @$('button').remove()
+    @$('.btn').remove()
     @$('.loader').show()
     
     @model.destroy({ success: => @remove() })
