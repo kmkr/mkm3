@@ -19,9 +19,9 @@ class mkm.views.photos.EditPhotoView extends Backbone.View
       success: =>
         @$('button').show()
         @$('.loader').hide()
-        mkm.helpers.flash.info("Image cropped successfully")
+        mkm.helpers.flash('info' ,"Image cropped successfully")
       error: ->
-        mkm.helpers.flash.error("Error while uploading cropped version.")
+        mkm.helpers.flash('error', "Error while uploading cropped version.")
     })
 
   showCoords: (c) =>
@@ -38,9 +38,9 @@ class mkm.views.photos.EditPhotoView extends Backbone.View
       addClass: 'jcrop-light'
       onSelect: @showCoords
       onChange: @showCoords
-      aspectRatio: 2.42
+      aspectRatio: 2.5
       # TODO: jCrop fikser ikke dette. må manuelt finne ut scale-rate
-      minSize: [968, 400]
+      minSize: [940, 376]
     }, ->
       # oh my god..
       that.setApi(@)

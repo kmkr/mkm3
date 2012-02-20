@@ -42,7 +42,7 @@ class PhotoUploader < CarrierWave::Uploader::Base
   end
 
   version :large do
-    process :resize_to_limit => [920, 920]
+    process :resize_to_limit => [940, 376]
   end
   
   version :cropped, :if => :is_cropped? do
