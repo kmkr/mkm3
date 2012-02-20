@@ -1,7 +1,7 @@
 <div class="slider-wrapper theme-default">
   <div class="nivoSlider">
-    <% $.each(photos, function(i, photo) { %>
+    <% photos.forEach(function(photo) { %>
       <img src="<%= photo.cropped.url %>" title="En beskrivelse..." />
-  <% }); %>
+    <% }); %>
   </div>
 </div>
