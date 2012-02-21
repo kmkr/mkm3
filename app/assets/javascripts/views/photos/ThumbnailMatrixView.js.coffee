@@ -84,6 +84,6 @@ class mkm.views.photos.ThumbnailMatrixView extends Backbone.View
     )
     @paginate(@currentPage)
 
-    mkm.helpers.lightboxHelper.init(@$('.thumbnail'))
+    mkm.helpers.lightboxHelper.init(@$('.thumbnail > a'))
 
     @

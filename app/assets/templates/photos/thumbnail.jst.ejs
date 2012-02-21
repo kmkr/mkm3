@@ -1,5 +1,7 @@
-<div class="thumbnail" data-fancybox-group="<%= thumbCollectionId %>" href="<%= model.get('photo').large.url %>" title="En fin tittel her..."> 
-  <img src="<%= model.get('photo').small.url %>" />
+<div class="thumbnail">
+  <a data-fancybox-group="<%= thumbCollectionId %>" href="<%= model.get('photo').large.url %>" title="En fin tittel her..."> 
+    <img src="<%= model.get('photo').small.url %>" />
+  </a>
   <div class="caption">
     <p>Her skal det stå en tekst ... </p>
     <% if (mkm.config.logged_in) { %>

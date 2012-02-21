@@ -12,5 +12,7 @@ class mkm.views.ImageScrollView extends Backbone.View
     })
 
   render: ->
-    $(@el).html(@template({photos: @collection.onlyCropped()}))
+    photos = @collection.onlyCropped()
+    if photos.length isnt 0
+      $(@el).html(@template({photos: @collection.onlyCropped()}))
     @
