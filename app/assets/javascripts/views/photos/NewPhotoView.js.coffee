@@ -60,6 +60,7 @@ class mkm.views.photos.NewPhotoView extends Backbone.View
     @filesComplete = 0
     @ongoingTransfer = false
     @$('.progress').removeClass('active')
+    @$('.progress .bar').width('0')
     @$('.loader').hide()
 
   transferNextFile: =>
@@ -85,7 +86,7 @@ class mkm.views.photos.NewPhotoView extends Backbone.View
         @model.fetch({success: => @updateProgress()})
         unless @filesWaiting.length is 0
           setTimeout(@transferNextFile, 6000)
-      error: (jqXhr, status, error) ->
+      error: (jqXhr, status, error) =>
         mkm.helpers.flash('error', "Error while uploading pictures #{status} - #{error}")
         @reset()
     })

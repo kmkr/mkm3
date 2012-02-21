@@ -1,19 +1,19 @@
 <article>
   <div class="row">
-    <header>
+    <header class="page-header">
       <h1><%= article.get('title') %></h1>
     </header>
 
-    <div class="meta">
-      <div class="pull-right">
-        <div class="fb-like" data-href="http://www.mkm.tc/#articles/<%= article.id %>" data-send="false" data-layout="button_count" data-width="75" data-show-faces="false" data-action="recommend"></div>
-      </div>
-      <p>Dated <%= mkm.helpers.date.format(article.get('start_date')) %>.
+    <div class="pull-right">
+      <div class="fb-like" data-href="http://www.mkm.tc/#articles/<%= article.id %>" data-send="false" data-layout="button_count" data-width="75" data-show-faces="false" data-action="recommend"></div>
+    </div>
+    <small>
+      Dated <%= mkm.helpers.date.format(article.get('start_date')) %>.
       <span class="publish-info">
         Not yet published
       </span>
-      </p>
-    </div>
+    </small>
+
 
     <% if (mkm.config.logged_in) { %>
       <div class="btn-toolbar">

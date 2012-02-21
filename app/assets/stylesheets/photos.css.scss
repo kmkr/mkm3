@@ -3,6 +3,9 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .newPhotoView {
+  .progress {
+    margin: 20px 0 16px 0;
+  }
   .dropArea {
     margin: 0 auto;
     width: 300px;
@@ -12,6 +15,10 @@
     p {
       text-align: center;
     }
+  }
+
+  .dropArea.over {
+    border: 5px;
   }
 
   .loader {
