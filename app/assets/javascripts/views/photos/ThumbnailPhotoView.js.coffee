@@ -1,6 +1,7 @@
 class mkm.views.photos.ThumbnailPhotoView extends Backbone.View
   template: JST['photos/thumbnail']
   className: 'thumbnailPhotoView'
+  tagName: 'li'
   views: []
 
   initialize: (options = {}) ->

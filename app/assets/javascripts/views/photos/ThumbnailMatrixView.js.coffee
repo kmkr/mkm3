@@ -17,7 +17,9 @@ class mkm.views.photos.ThumbnailMatrixView extends Backbone.View
 
   paginateNext: (e) =>
     e.preventDefault()
-    if @currentPage < @pages - 1
+    console.log @currentPage
+    console.log @pages
+    if @currentPage < @pages
       @paginate(@currentPage + 1)
 
   paginatePrev: (e) =>
@@ -32,16 +34,17 @@ class mkm.views.photos.ThumbnailMatrixView extends Backbone.View
 
   paginate: (index) ->
     @currentPage = index
-    @$('.page').hide()
-    @$('.page').eq(index - 1).show()
+    @$('.page').animate({opacity: 0}, 100, 'swing', =>
+        @$('.page').hide()
+        @$('.page').eq(index - 1).show().css('opacity', 0).animate({opacity: 1}, 100, 'swing')
+    )
     @$('.pagination li').removeClass('active')
     @$('.pagination li').eq(index).addClass('active')
 
-  createRow: (photos) ->
-    $('<div>').addClass('imgrow')
-
   createPage: (index) ->
     p = $('<div>').addClass('page').attr('data-index', index)
+    ul = $('<ul>').addClass('thumbnails')
+    p.append(ul)
     p
 
   addPageToPagination: (num) ->
@@ -58,29 +61,21 @@ class mkm.views.photos.ThumbnailMatrixView extends Backbone.View
     $(@el).html(@template)
 
     colNum = 0
-    rowNum = 0
     pageNum = 1
     page = @createPage(pageNum)
-    row = @createRow()
     thumbCollectionId = "thumbs_#{new Date().getTime()}"
     @collection.forEach((photo, index) =>
       colNum++
       t = new mkm.views.photos.ThumbnailPhotoView({model: photo, thumbCollectionId: thumbCollectionId})
-      row.append($(t.render().el))
+      page.append($(t.render().el).addClass('span4'))
       @views.push(t)
 
-      if colNum is @columns or index + 1 is @collection.length
+      if colNum is @columns * @rows or index + 1 is @collection.length
         colNum = 0
-        page.append(row)
-        row = @createRow()
-        rowNum++
-
-        if rowNum is @rows or index + 1 is @collection.length
-          @$('.thumbnails').append(page)
-          @addPageToPagination(pageNum)
-          page = @createPage(++pageNum)
-          @pages++
-          rowNum = 0
+        @$('.gallery').append(page)
+        @addPageToPagination(pageNum)
+        page = @createPage(++pageNum)
+        @pages++
     )
     @paginate(@currentPage)
 

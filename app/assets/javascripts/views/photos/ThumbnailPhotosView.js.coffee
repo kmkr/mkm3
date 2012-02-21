@@ -8,7 +8,7 @@ class mkm.views.photos.ThumbnailsPhotoView extends Backbone.View
     @collection.forEach((photo) =>
       v = new mkm.views.photos.ThumbnailPhotoView({model: photo})
       @views.push(v)
-      $(@el).append(v.render().el)
+      @$('ul').append($(v.render().el).addClass('span5'))
     )
 
     @
