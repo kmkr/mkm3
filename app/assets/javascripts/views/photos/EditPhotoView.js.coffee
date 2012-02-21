@@ -17,8 +17,7 @@ class mkm.views.photos.EditPhotoView extends Backbone.View
       crop_w: @w
     }, {
       success: =>
-        @$('button').show()
-        @$('.loader').hide()
+        mkm.routers.router.navigate("articles/#{@model.get('article').id}", true)
         mkm.helpers.flash('info' ,"Image cropped successfully")
       error: ->
         mkm.helpers.flash('error', "Error while uploading cropped version.")
