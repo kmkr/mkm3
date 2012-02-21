@@ -7,6 +7,9 @@ class mkm.views.photos.ThumbnailMatrixView extends Backbone.View
   columns: 3
   rows: 2
 
+  initialize: ->
+    @collection.bind('remove', @render)
+
   events:
     "click .next"   : "paginateNext"
     "click .prev"   : "paginatePrev"
@@ -15,12 +18,12 @@ class mkm.views.photos.ThumbnailMatrixView extends Backbone.View
   paginateNext: (e) =>
     e.preventDefault()
     if @currentPage < @pages
-      @paginate(++@currentPage)
+      @paginate(@currentPage + 1)
 
   paginatePrev: (e) =>
     e.preventDefault()
     if @currentPage > 1
-      @paginate(--@currentPage)
+      @paginate(@currentPage - 1)
 
   paginateByNum: (e) =>
     e.preventDefault()
@@ -29,7 +32,6 @@ class mkm.views.photos.ThumbnailMatrixView extends Backbone.View
 
   paginate: (index) ->
     @currentPage = index
-    console.log("current page er %s", index)
     @$('.page').hide()
     @$('.page').eq(index - 1).show()
     @$('.pagination li').removeClass('active')
@@ -48,8 +50,11 @@ class mkm.views.photos.ThumbnailMatrixView extends Backbone.View
     li.append(a)
     @$('.pagination li a.next').parent().before(li)
 
+  leave: ->
+    @collection.unbind('remove', @render)
 
-  render: ->
+
+  render: =>
     $(@el).html(@template)
 
     colNum = 0
@@ -76,6 +81,6 @@ class mkm.views.photos.ThumbnailMatrixView extends Backbone.View
           @pages++
           rowNum = 0
     )
-    @paginate(1)
+    @paginate(@currentPage)
 
     @

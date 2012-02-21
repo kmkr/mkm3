@@ -3,6 +3,15 @@ class mkm.views.photos.ThumbnailPhotoView extends Backbone.View
   className: 'thumbnailPhotoView'
   views: []
 
+  initialize: ->
+    @model.bind('destroy', @rem)
+
+  leave: ->
+    @model.unbind('destroy', @rem)
+
+  rem: =>
+    @remove()
+
   events:
     "click .delete-photo"   : "deletePhoto"
 
@@ -11,7 +20,7 @@ class mkm.views.photos.ThumbnailPhotoView extends Backbone.View
     @$('.btn').remove()
     @$('.loader').show()
     
-    @model.destroy({ success: => @remove() })
+    @model.destroy({ wait: true })
 
   render: ->
     $(@el).html(@template({model: @model}))
