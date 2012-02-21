@@ -17,7 +17,7 @@ class mkm.views.photos.ThumbnailMatrixView extends Backbone.View
 
   paginateNext: (e) =>
     e.preventDefault()
-    if @currentPage < @pages
+    if @currentPage < @pages - 1
       @paginate(@currentPage + 1)
 
   paginatePrev: (e) =>
