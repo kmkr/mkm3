@@ -62,9 +62,10 @@ class mkm.views.photos.ThumbnailMatrixView extends Backbone.View
     pageNum = 1
     page = @createPage(pageNum)
     row = @createRow()
+    thumbCollectionId = "thumbs_#{new Date().getTime()}"
     @collection.forEach((photo, index) =>
       colNum++
-      t = new mkm.views.photos.ThumbnailPhotoView({model: photo})
+      t = new mkm.views.photos.ThumbnailPhotoView({model: photo, thumbCollectionId: thumbCollectionId})
       row.append($(t.render().el))
       @views.push(t)
 
@@ -82,5 +83,7 @@ class mkm.views.photos.ThumbnailMatrixView extends Backbone.View
           rowNum = 0
     )
     @paginate(@currentPage)
+
+    mkm.helpers.lightboxHelper.init(@$('.thumbnail'))
 
     @
