@@ -1,7 +1,7 @@
 class mkm.views.photos.ThumbnailMatrixView extends Backbone.View
   template: JST['photos/thumbnailmatrix']
   className: 'thumbnailMatrixView'
-  currentPage: 1
+  currentPage: 0
   pages: 0
   views: []
   columns: 3
@@ -17,8 +17,6 @@ class mkm.views.photos.ThumbnailMatrixView extends Backbone.View
 
   paginateNext: (e) =>
     e.preventDefault()
-    console.log @currentPage
-    console.log @pages
     if @currentPage < @pages
       @paginate(@currentPage + 1)
 
@@ -33,6 +31,9 @@ class mkm.views.photos.ThumbnailMatrixView extends Backbone.View
     @paginate(index)
 
   paginate: (index) ->
+    index = 1 if index is 0
+    return if @currentPage is index
+
     @currentPage = index
     @$('.page').animate({opacity: 0}, 100, 'swing', =>
         @$('.page').hide()
@@ -79,6 +80,8 @@ class mkm.views.photos.ThumbnailMatrixView extends Backbone.View
     )
     @paginate(@currentPage)
 
-    mkm.helpers.lightboxHelper.init(@$('.thumbnail > a'))
+    mkm.helpers.lightboxHelper.init(@$('.thumb-wrapper > a'), { afterShow: (lightbox) =>
+      @paginate(Math.ceil((lightbox.index + 1) / (@columns*@rows)))
+    })
 
     @

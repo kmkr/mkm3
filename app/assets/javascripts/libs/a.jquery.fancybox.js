@@ -1047,7 +1047,7 @@
 				}
 			}
 
-			F.trigger('afterShow');
+			F.trigger('afterShow', F.current);
 
 			if (F.opts.autoPlay && !F.player.isActive) {
 				F.opts.autoPlay = false;

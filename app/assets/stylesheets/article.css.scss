@@ -17,38 +17,9 @@
     float: right;
   }
 
-  .thumbmatrix {
-    clear: both;
-
-    .pagination {
-      text-align: center;
-    }
-
-    .page {
-      height: 565px;
-      .imgrow {
-        margin: 0 auto;
-        width: 810px;
-        .thumbnailPhotoView {
-          display: inline-block;
-          position: relative;
-          max-height: 280px;
-          margin: 5px;
-          width: 260px;
-          .thumbnail {
-          }
-        }
-      }
-    }
-  }
-
   section.body {
     p {
       font-size: 1.2em;
     }
   }
-}
-
-.thumbnailMatrixView {
-  width: 100%;
 }

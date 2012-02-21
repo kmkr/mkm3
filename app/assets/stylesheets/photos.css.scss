@@ -34,7 +34,31 @@
 }
 
 .thumbnailMatrixView {
+  clear: both;
+  height: 900px;
+  width: 100%;
   border-top: 1px solid #ccc;
   padding-top: 10px;
   margin-top: 25px;
+
+  .thumbnail {
+    margin-top: 15px;
+    height: 275px;
+    .thumb-wrapper {
+      max-height: 190px;
+      overflow: hidden;
+    }
+  }
+
+  .pagination {
+    text-align: center;
+  }
+
+  .thumbmatrix {
+    clear: both;
+
+    .pagination {
+      text-align: center;
+    }
+  }
 }

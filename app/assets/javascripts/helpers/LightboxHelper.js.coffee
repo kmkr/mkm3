@@ -1,7 +1,7 @@
 mkm.helpers.lightboxHelper = {
 
-  init: (selector) ->
-    $(selector).fancybox(
+  init: (selector, callbacks = {}) ->
+    opts =
       prevEffect    : "fade"
       nextEffect    : "fade"
       openSpeed     : "fast"
@@ -15,5 +15,5 @@ mkm.helpers.lightboxHelper = {
         thumbs:
           width: 100
           height: 100
-    )
+    $(selector).fancybox(_.extend(opts, callbacks))
 }
