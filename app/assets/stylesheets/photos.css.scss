@@ -48,14 +48,11 @@
   margin-top: 25px;
 
   .thumbnailPhotoView {
-    // arghh...; why?
-    margin-left: 10px;
-
     .thumbnail {
       margin-top: 15px;
       height: 275px;
       .thumb-wrapper {
-        max-height: 190px;
+        height: 190px;
         overflow: hidden;
       }
   }

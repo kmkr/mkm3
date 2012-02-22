@@ -1,5 +1,9 @@
 .showArticleView {
 
+  article > div {
+    margin-bottom: 15px;
+  }
+
   .imagescroll {
     .nivoSlider {
       width: 940px;
