@@ -77,7 +77,6 @@ class mkm.routers.AppRouter extends Backbone.Router
 Backbone.View::destroy = ->
   # Destroy sub views
   if @views
-    console.log("Lengde på sub views: %o %o", @views.length, @)
     for view in @views
       view.destroy()
     @views.length = 0
