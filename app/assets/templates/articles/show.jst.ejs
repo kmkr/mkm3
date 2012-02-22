@@ -1,5 +1,5 @@
 <article>
-  <div class="row">
+  <div>
     <header class="page-header">
       <h1><%= article.get('title') %></h1>
     </header>
@@ -22,19 +22,21 @@
 
   <div class="imagescroll"></div>
 
+  <div>
+
+    <div class="row">
+    <section class="span7 body">
+      <%= superTextile(article.get('body')) %>
+    </section>
+
+    <div class="span5 photos"></div>
+  </div>
+
   <div class="row">
-
-
-      <div class="span6 photos"></div>
-
-      <section class="body">
-        <%= superTextile(article.get('body')) %>
-      </section>
-
+    <div class="span12">
       <div class="thumbmatrix"></div>
       <div id="map" class="map"></div>
     </div>
-
-
   </div>
+
 </article>
