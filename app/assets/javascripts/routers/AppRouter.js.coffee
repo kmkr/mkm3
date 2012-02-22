@@ -9,9 +9,14 @@ class mkm.routers.AppRouter extends Backbone.Router
     "articles/:id"            : "showArticle"
     "countries/:id/edit"      : "editCountry"
     "countries/new"           : "newCountry"
+    "*path"                   : "notFound"
 
   index: ->
     @swap(new mkm.views.IndexView())
+
+  notFound: ->
+      mkm.helpers.flash('warning', "I was unable to find the page you asked for :/")
+      @navigate("", true)
 
   showArticle: (id) ->
     model = mkm.collections.articles.get(id)
