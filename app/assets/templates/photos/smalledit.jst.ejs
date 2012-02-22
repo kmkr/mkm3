@@ -10,7 +10,8 @@
       <input name="caption" type="text" placeholder="Caption" value="<%= model.get('caption') %>" />
       <input name="widescreenCaption" type="text" placeholder="Caption as widescreen image" value="<%= model.get('widescreenCaption') %>" />
       <label class="checkbox">
-        <input name="useAsArticleImage" type="checkbox" checked="<%= model.get('useAsArticleImage') ? 'checked' : '' %>" />
+        <% console.log(model.get('useAsArticleImage')); %>
+        <input name="useAsArticleImage" type="checkbox" <%= model.get('useAsArticleImage') ? 'checked' : '' %> />
         Show in right column?
       </label>
 

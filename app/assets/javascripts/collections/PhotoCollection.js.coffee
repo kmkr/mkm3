@@ -3,3 +3,6 @@ class mkm.collections.PhotoCollection extends Backbone.Collection
 
   onlyCropped: ->
     @filter((p) -> p.isCropped())
+
+  articleImages: ->
+    @filter((p) -> p.get('useAsArticleImage'))
