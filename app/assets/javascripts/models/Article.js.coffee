@@ -7,7 +7,7 @@ class mkm.models.Article extends Backbone.RelationalModel
     collectionType: 'mkm.collections.PhotoCollection'
     reverseRelation:
       key: 'article'
-      includeInJSON: 'id'
+      includeInJSON: false
   }]
 
   published: ->

@@ -23,16 +23,22 @@ class PhotosController < ApplicationController
     respond_with photo
   end
 
+
+  # TODO: clean this up
   def update
     photo = Photo.find(params[:id])
 
-    photo.crop_x = params[:crop_x]
-    photo.crop_y = params[:crop_y]
-    photo.crop_h = params[:crop_h]
-    photo.crop_w = params[:crop_w]
-    photo.save
+    needRecreate = false
+    if params[:crop_x]
+      if photo.crop_x != params[:crop_x] or photo.crop_y != params[:crop_y] or photo.crop_h != params[:crop_h] or photo.crop_w != params[:crop_w]
+        needRecreate = true
+      end
+    end
 
-    photo.photo.recreate_versions!
+    photo.update_attributes({ :caption => params[:caption], :crop_h => params[:crop_h], :crop_y => params[:crop_y], :crop_x => params[:crop_x], :crop_w => params[:crop_w], :position => params[:position], :useAsArticleImage => params[:useAsArticleImage], :widescreenCaption => params[:widescreenCaption]})
+
+
+    photo.photo.recreate_versions! if needRecreate
 
     respond_with photo
   end

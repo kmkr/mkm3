@@ -1,11 +1,12 @@
 class mkm.views.articles.EditArticleView extends Backbone.View
   template: JST['articles/edit']
+  views: []
 
   initialize: ->
     _.extend(@, new mkm.helpers.ArticleMapHelper())
 
   events:
-    "click button"    : "save"
+    "click .save-article"    : "save"
 
   save: (evt) ->
     evt.preventDefault()
@@ -41,9 +42,17 @@ class mkm.views.articles.EditArticleView extends Backbone.View
       @model.set({ zoom_level: resp.zoomLevel })
     )
 
+  renderPhotos: ->
+    @model.get('photos').forEach((photo) =>
+      v = new mkm.views.photos.SmallEditablePhotoView({model: photo})
+      @views.push(v)
+      @$('.photos').append(v.render().el)
+    )
+
   render: ->
     $(@el).html(@template({article: @model}))
     @renderCountries()
+    @renderPhotos()
     @$('[data-datepicker]').datepicker()
     settings = new mkm.helpers.TextileHelper().settings
     @$("#article-body").markItUp(settings)

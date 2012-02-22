@@ -1,0 +1,24 @@
+<div class="row">
+    <div class="span3">
+    <a href="#" class="thumbnail">
+      <img src="<%= model.get('photo').small.url %>" />
+    </a>
+    </div>
+
+  <div class="span4">
+    <form class="well">
+      <input name="caption" type="text" placeholder="Caption" value="<%= model.get('caption') %>" />
+      <input name="widescreenCaption" type="text" placeholder="Caption as widescreen image" value="<%= model.get('widescreenCaption') %>" />
+      <label class="checkbox">
+        <input name="useAsArticleImage" type="checkbox" checked="<%= model.get('useAsArticleImage') ? 'checked' : '' %>" />
+        Show in right column?
+      </label>
+
+      <button class="btn update-photo">
+        <i class="icon-ok-circle"></i>
+        Update
+      </button>
+      <img class="loader" src="/assets/loader.gif" />
+    </form>
+  </div>
+</div>
