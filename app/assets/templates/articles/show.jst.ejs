@@ -16,33 +16,8 @@
 
 
     <% if (mkm.config.logged_in) { %>
-      <div class="btn-toolbar">
-      <a class="btn btn-mini" href="#articles/<%= article.id %>/edit">
-        <i class="icon-edit"></i>
-        Edit
-      </a>
-      <a class="btn btn-mini " href="#articles/<%= article.id %>/photos/new">
-        <i class="icon-upload"></i>
-        Upload photo
-      </a>
-      <% if (article.published()) { %>
-        <a class="btn btn-mini unpublish" href="#">
-        <i class="icon-eye-close"></i>
-        Unpublish
-      </a>
-    <% } else { %>
-      <a class="btn btn-primary btn-mini publish" href="#">
-        <i class="icon-eye-open icon-white"></i>
-        Publish
-      </a>
-    <% } %>
-      <a class="confirm delete-article btn btn-mini btn-danger" href="#">
-        <i class="icon-trash icon-white"></i>
-        Delete
-      </a>
-      <img class="loader" src="/assets/loader.gif" />
-    </div>
-  <% } %>
+      <div class="adminbar"></div>
+    <% } %>
   </div>
 
   <div class="imagescroll"></div>

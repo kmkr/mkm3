@@ -3,52 +3,23 @@ class mkm.views.articles.ShowArticleView extends Backbone.View
   className: 'showArticleView'
   views: []
 
-  events: ->
-    "click .confirm"        : mkm.helpers.confirm.dialog
-    "click .delete-article" : "del"
-    "click .publish"        : "publish"
-    "click .unpublish"      : "unpublish"
-
-  del: (evt) =>
-    evt.preventDefault()
-    button = $(evt.target).closest('.btn')
-    @$('.loader').show()
-    button.remove()
-    @model.destroy({success: ->
-      mkm.helpers.flash('info', "Article removed")
-      mkm.routers.router.navigate("", true)
-    })
-    
-  unpublish: (evt) =>
-    evt.preventDefault()
-    @model.save({
-      published: ""
-    }, {
-      success: =>
-        mkm.helpers.flash('info', 'Article is now hidden')
-        @render()
-    })
-
-  publish: (evt) =>
-    evt.preventDefault()
-
-    @model.save({
-      published: new Date()
-    }, {
-      success: =>
-        mkm.helpers.flash('info', 'Article is published')
-        @render()
-    })
-
   initialize: ->
     _.extend(@, new mkm.helpers.ArticleMapHelper())
+    @model.bind('change:published', @updatePublishedStatus)
+
+  leave: ->
+    @model.unbind('change:published', @updatePublishedStatus)
 
   init: ->
     @initMap({ readOnly: true })
     @imgsc.init()
 
-  writePublishStatus: ->
-    @$('.publish-info').html("Published #{$.timeago(@model.get('published'))}.")
+  updatePublishedStatus: =>
+    text = "Not yet published."
+    if @model.published()
+      text = "Published #{$.timeago(@model.get('published'))}."
+
+    @$('.publish-info').html(text)
 
   render: ->
     $(@el).html(@template({article: @model}))
@@ -63,5 +34,11 @@ class mkm.views.articles.ShowArticleView extends Backbone.View
     thumbnailMatrixView = new mkm.views.photos.ThumbnailMatrixView({ collection: @model.get('photos')})
     @views.push(thumbnailMatrixView)
     @$('.thumbmatrix').html(thumbnailMatrixView.render().el)
-    @writePublishStatus() if @model.published()
+
+    adminBarView = new mkm.views.articles.AdministerArticleBarView({ model: @model })
+    @views.push(adminBarView)
+    @$('.adminbar').html(adminBarView.render().el)
+
+    @updatePublishedStatus()
+
     @
