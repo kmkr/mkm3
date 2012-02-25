@@ -18,7 +18,7 @@ class mkm.views.countries.EditCountryView extends Backbone.View
       success: =>
         mkm.collections.countries.add(@model) unless mkm.collections.countries.any((country) -> @model.id == country.id)
         mkm.helpers.flash('info', "Country successfully saved")
-        mkm.routers.router.navigate("country/#{@model.id}", true)
+        mkm.routers.router.navigate("countries/new", true)
       error: (model, resp) =>
         mkm.helpers.flash('error', "Unable to save country (#{resp.statusText})")
     })
