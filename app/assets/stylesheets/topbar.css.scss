@@ -1,0 +1,115 @@
+.view-topbar {
+  .fadeout {
+    z-index: 50;
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    height: 50px;
+    background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 1)), to(rgba(255, 255, 255, 0.5)));
+    background: -moz-linear-gradient(top, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+  }
+
+  .flybar {
+    position: fixed;
+    z-index: 100;
+    height: 40px;
+    min-width: 490px;
+    left: 40px;
+    right: 40px;
+    top: 15px;
+    background: #EEE;
+    background: -webkit-gradient(linear, left top, left bottom, from(#F8F8F8), to(#DADADA));
+    background: -moz-linear-gradient(top, #F8F8F8, #DADADA);
+    border: 1px solid #AAA;
+    border-top: 1px solid #BBB;
+    border-bottom: 1px solid #888;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+    -moz-box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+
+    .logo {
+      height: 50px;
+      float: left;
+    }
+
+    div.wrapper {
+      margin: 0 auto;
+
+      /* continents */
+      > ul {
+        margin: 0 auto;
+        width: 700px;
+        padding: 0;
+
+        > li:first-child {
+          border-left: 1px solid #AAA;
+        }
+
+        > li {
+          border-right: 1px solid #AAA;
+        }
+
+        li:hover {
+          background: #eee;
+          background: -webkit-gradient(linear, left top, left bottom, from(#eee), to(#f8f8f8));
+          background: -moz-linear-gradient(top, #eee, #f8f8f8);
+        }
+
+        li {
+          font-family: 'Port Lligat Slab';
+          width: 135px;
+          padding: 10px 0 0 0;
+          height: 30px;
+          text-align: center;
+          font-size: 2em;
+          display: inline-block;
+          list-style-type: none;
+          cursor: pointer;
+
+          /* countries */
+          ul {
+            margin: 3px 3px 0 0;
+            display: none;
+            position: absolute;
+            background: #fff;
+            opacity: 0.98;
+            top: 39px;
+            border: 1px solid #aaa;
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            border-radius: 3px;
+            -webkit-box-shadow: 0 3px 5px rgba(0,0,0,0.2);
+            -moz-box-shadow: 0 3px 5px rgba(0,0,0,0.2);
+            box-shadow: 0 3px 5px rgba(0,0,0,0.2);
+
+            li {
+              text-transform: none;
+              font-size: 0.8em;
+              padding: 4px 0;
+              height: 21px;
+
+              /* articles */
+              ul {
+                display: none;
+                position: relative;
+                left: 137px;
+                top: -26px;
+                width: 360px;
+
+                li {
+                  font-size: 0.7em;
+                  width: 360px;
+                  padding-top: 5px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

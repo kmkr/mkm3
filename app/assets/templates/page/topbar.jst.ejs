@@ -1,38 +1,38 @@
-<div class="navbar navbar-fixed-top">
-  <div class="navbar-inner">
-    <div class="container">
-      <div class="container nav-collapse">
-        <ul class="continents sf-menu nav secondary-nav">
-          <% for (var i = 0; i < continents.length; i++) { %>
-            <% var continent = continents[i]; %>
-            <li class="divider-vertical"></li>
-            <li class="continent dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <%= continent.get('title') %>
-              <b class="caret"></b>
-            </a>
-          <ul class="dropdown-menu">
-            <% countries.filter(function(country) { %>
-              <% if (country.get('continent_id') === continent.get('id')) { %>
-                <li>
-                <%= country.get('title') %>
-                <ul>
-                  <% articles.filter(function(article) { %>
-                    <% if (article.get('country_id') === country.get('id')) { %>
-                      <li><a href="#articles/<%= article.get('id') %>"><%= article.get('title') %></a></li>
-                    <% } %>
+<div class="fadeout"></div>
 
-                  <% }); %>
-                </ul>
-                </li>
-              <% } %>
+<div class="flybar">
+  <span class="logo">
+    <a href="#">MKM</a>
+  </span>
+
+  <div class="wrapper">
+    <ul>
+    <% for (var i = 0; i < continents.length; i++) { %>
+      <% var continent = continents[i]; %>
+      <li>
+        <%= continent.get('title') %>
+        <b class="caret"></b>
+        <ul>
+      <% countries.filter(function(country) { %>
+        <% if (country.get('continent_id') === continent.get('id')) { %>
+          <li>
+          <%= country.get('title') %>
+          <ul>
+            <% articles.filter(function(article) { %>
+              <% if (article.get('country_id') === country.get('id')) { %>
+                <li><a href="#articles/<%= article.get('id') %>"><%= article.get('title') %></a></li>
+                <li><a href="#articles/<%= article.get('id') %>"><%= article.get('title') %></a></li>
+                <li><a href="#articles/<%= article.get('id') %>"><%= article.get('title') %></a></li>
+              <% } %>
+
             <% }); %>
           </ul>
           </li>
-        <% } %>
-        <li class="divider-vertical"></li>
-        </ul>
-      </div>
-    </div>
-  </div>
+        <% } %>
+      <% }); %>
+    </ul>
+    </li>
+  <% } %>
+  </ul>
+</div>
 </div>
