@@ -21,8 +21,6 @@
             <% articles.filter(function(article) { %>
               <% if (article.get('country_id') === country.get('id')) { %>
                 <li><a href="#articles/<%= article.get('id') %>"><%= article.get('title') %></a></li>
-                <li><a href="#articles/<%= article.get('id') %>"><%= article.get('title') %></a></li>
-                <li><a href="#articles/<%= article.get('id') %>"><%= article.get('title') %></a></li>
               <% } %>
 
             <% }); %>
