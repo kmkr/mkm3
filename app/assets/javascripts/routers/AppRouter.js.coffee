@@ -74,7 +74,7 @@ class mkm.routers.AppRouter extends Backbone.Router
     @view.leave() if @view?.leave
     @view.destroy() if @view
     @view = newView
-    $("#page-content").html(@view.render().el)
+    $("#page-content").html(@view.render().el).hide().fadeIn(600)
     @view.init() if @view.init
 
 
