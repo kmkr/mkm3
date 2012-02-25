@@ -1,15 +1,4 @@
 .view-topbar {
-  .fadeout {
-    z-index: 50;
-    position: fixed;
-    left: 0;
-    top: 0;
-    right: 0;
-    height: 45px;
-    background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 1)), to(rgba(255, 255, 255, 0.5)));
-    background: -moz-linear-gradient(top, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
-  }
-
   .flybar {
     position: fixed;
     z-index: 100;
