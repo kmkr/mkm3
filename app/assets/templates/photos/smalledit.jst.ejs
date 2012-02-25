@@ -10,9 +10,12 @@
       <input name="caption" type="text" placeholder="Caption" value="<%= model.get('caption') %>" />
       <input name="widescreenCaption" type="text" placeholder="Caption as widescreen image" value="<%= model.get('widescreenCaption') %>" />
       <label class="checkbox">
-        <% console.log(model.get('useAsArticleImage')); %>
-        <input name="useAsArticleImage" type="checkbox" <%= model.get('useAsArticleImage') ? 'checked' : '' %> />
+        <input name="useAsArticlePhoto" type="checkbox" <%= model.get('useAsArticlePhoto') ? 'checked' : '' %> />
         Show in right column?
+      </label>
+      <label class="checkbox">
+        <input name="useAsFrontpagePhoto" type="checkbox" <%= model.get('useAsFrontpagePhoto') ? 'checked' : '' %> />
+        Show on front page? (photo must be cropped)
       </label>
 
       <button class="btn update-photo">
