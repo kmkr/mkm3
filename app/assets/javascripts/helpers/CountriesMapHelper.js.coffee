@@ -7,7 +7,7 @@ class mkm.helpers.CountriesMapHelper extends mkm.helpers.AbstractMapHelper
 
   renderMap: ->
     super({
-      scrollwheel: false
+      disableDefaultUI: true
     })
 
   initMap: ->
