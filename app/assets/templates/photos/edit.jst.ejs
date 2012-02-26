@@ -1,11 +1,24 @@
-<img class="photo" src="<%= photo.get('photo').url %>" />
+<h1 class="page-header">
+  Photo settings
+</h1>
+<div class="fields"></div>
 
-<button class="btn btn-primary">
-  <i class="icon-upload"></i>
-  Store cropped version
-</button>
+<h1 class="page-header">
+  Widescreen settings
+  <small>Create a widescreen version of the photo by selecting which area to use</small>
+</h1>
 
-<div class="loader">
+<form class="crop">
+  <button class="crop-photo btn btn-primary">
+    <i class="icon-upload icon-white"></i>
+    Store cropped version
+  </button>
+</form>
+
+<div class="loader crop-loader">
   <p>This may take a minute...</p>
   <img src="assets/loader.gif" />
 </div>
+
+<img class="photo" src="<%= photo.get('photo').url %>" />
+

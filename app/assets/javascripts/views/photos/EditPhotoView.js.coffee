@@ -1,15 +1,16 @@
 class mkm.views.photos.EditPhotoView extends Backbone.View
   template: JST['photos/edit']
   className: 'editPhotoView'
+  views: []
 
   events: ->
-    "click button"    : "saveCropped"
+    "click .crop-photo"    : "saveCropped"
 
   saveCropped: (e) =>
     e.preventDefault()
 
     @$('button').hide()
-    @$('.loader').show()
+    @$('.crop-loader').show()
     @model.save({
       crop_x: @x
       crop_y: @y
@@ -37,6 +38,7 @@ class mkm.views.photos.EditPhotoView extends Backbone.View
       addClass: 'jcrop-light'
       onSelect: @showCoords
       onChange: @showCoords
+      boxWidth: 920
       aspectRatio: 2.5
       # TODO: jCrop fikser ikke dette. må manuelt finne ut scale-rate
       minSize: [940, 376]
@@ -53,5 +55,8 @@ class mkm.views.photos.EditPhotoView extends Backbone.View
 
   render: ->
     $(@el).html(@template({photo: @model}))
+    v = new mkm.views.photos.SmallEditablePhotoView({model: @model})
+    @$('.fields').html(v.render().el)
+    @views.push(v)
     @initCrop()
     @
