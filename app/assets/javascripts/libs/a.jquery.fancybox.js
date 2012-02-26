@@ -210,7 +210,7 @@
 		close: function (a) {
 			F.cancel();
 
-			if (!F.current || false === F.trigger('beforeClose')) {
+			if (!F.current || false === F.trigger('beforeClose', F.current)) {
 				return;
 			}
 
@@ -715,7 +715,7 @@
 			} else {
 				$(".fancybox-wrap").stop().trigger('onReset').remove();
 
-				F.trigger('afterClose');
+				F.trigger('afterClose', F.current);
 			}
 
 			F.unbindEvents();
@@ -854,7 +854,7 @@
 			F.coming = null;
 
 			//Give a chance for helpers or callbacks to update elements
-			F.trigger('beforeShow');
+			F.trigger('beforeShow', F.current);
 
 			//Set initial dimensions and hide
 			F._setDimension();

@@ -3,9 +3,10 @@ class mkm.views.articles.ShowArticleView extends Backbone.View
   className: 'showArticleView'
   views: []
 
-  initialize: ->
+  initialize: (opts = {}) ->
     _.extend(@, new mkm.helpers.ArticleMapHelper())
     @model.bind('change:published', @updatePublishedStatus)
+    @displayPhoto = opts.displayPhoto
 
   leave: ->
     @model.unbind('change:published', @updatePublishedStatus)
@@ -31,7 +32,7 @@ class mkm.views.articles.ShowArticleView extends Backbone.View
     @views.push(thumbnailPhotoView)
     @$('.photos').html(thumbnailPhotoView.render().el)
 
-    thumbnailMatrixView = new mkm.views.photos.ThumbnailMatrixView({ collection: @model.get('photos')})
+    thumbnailMatrixView = new mkm.views.photos.ThumbnailMatrixView({ collection: @model.get('photos'), displayPhoto: @displayPhoto})
     @views.push(thumbnailMatrixView)
     @$('.thumbmatrix').html(thumbnailMatrixView.render().el)
 
