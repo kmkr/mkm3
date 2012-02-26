@@ -1,12 +1,12 @@
 <div class="thumbnail">
   <div class="thumb-wrapper">
-  <a data-id="<%= model.id %>" data-fancybox-group="<%= thumbCollectionId %>" href="<%= model.get('photo').large.url %>" title="En fin tittel her..."> 
+    <a data-id="<%= model.id %>" data-fancybox-group="<%= thumbCollectionId %>" href="<%= model.get('photo').large.url %>" title="<%= model.get('caption') %>" />
     <img src="<%= model.get('photo').small.url %>" />
   </span>
   </a>
 </div>
   <div class="caption">
-    <p>Her skal det stå en tekst ... </p>
+    <p><%= model.get('caption') %></p>
     <% if (mkm.config.logged_in) { %>
       <p>
     <a href="#" class="btn btn-danger btn-mini delete-photo" data-id="<%= model.id %>"><i class="icon-trash icon-white"></i>Delete</a>

@@ -9,6 +9,7 @@ class mkm.views.ImageScrollView extends Backbone.View
       effect: 'boxRandom'
       randomStart: true
       pauseTime: 8000
+      captionOpacity: 0.7
     })
 
   render: ->
