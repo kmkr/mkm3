@@ -9,7 +9,7 @@ class mkm.views.TopBarView extends Backbone.View
     mkm.collections.articles.on('add remove', @render)
 
   renderMenu: ->
-    @$('ul li').mouseenter(->
+    @$('ul:nth-child(1) > li').mouseenter(->
       clearTimeout($(@).data('timeout')) if $(@).data('timeout')
       $(@).find('> ul').slideDown(120)
     ).mouseleave(->
@@ -19,10 +19,9 @@ class mkm.views.TopBarView extends Backbone.View
       $(@).data('timeout', timeout)
     )
 
-    @$('ul li ul').mouseenter(->
-      $(@).find('> ul').slideDown(120)
-    ).mouseleave(->
-      $(@).find('> ul').slideUp(90))
+    
+    @$('ul > li > ul > li').mouseenter(-> $(@).find('> ul').fadeIn(160))
+      .mouseleave(-> $(@).find('> ul').fadeOut(120))
 
   render: =>
     $(@el).html(@template({

@@ -87,7 +87,11 @@
             -moz-box-shadow: 0 3px 5px rgba(0,0,0,0.2);
             box-shadow: 0 3px 5px rgba(0,0,0,0.2);
 
+            li:last-child {
+              border-bottom: 0;
+            }
             li {
+              border-bottom: 1px solid #aaa;
               display: list-item;
               text-transform: none;
               font-size: 0.8em;
