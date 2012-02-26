@@ -22,5 +22,11 @@ body {
   footer {
     margin-bottom: 30px;
   }
+
+  #map {
+    div a, div div div span, div div a div img {
+      display: none;
+    }
+  }
 }
 
