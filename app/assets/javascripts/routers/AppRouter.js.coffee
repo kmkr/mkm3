@@ -62,7 +62,7 @@ class mkm.routers.AppRouter extends Backbone.Router
     if model = mkm.collections[key].get(id)
       return model
     else
-      mkm.helpers.flash('error', "No such #{key}")
+      mkm.helpers.flash('error', "No such #{key.replace(/s$/, "")}")
       @navigate(fallback, true)
 
   _getArticle: (id, fallback = '') ->
