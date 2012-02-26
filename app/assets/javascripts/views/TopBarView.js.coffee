@@ -30,6 +30,11 @@ class mkm.views.TopBarView extends Backbone.View
         $(@).data('timeout', timeout)
       )
 
+  addClickListeners: ->
+    @$('li li li').each(->
+      link = $(@).find('a').attr('href')
+      $(@).click(-> mkm.routers.router.navigate(link, true)))
+
   render: =>
     $(@el).html(@template({
       countries: mkm.collections.countries.models
@@ -37,4 +42,5 @@ class mkm.views.TopBarView extends Backbone.View
       articles: mkm.collections.articles.models
     }))
     @renderMenu()
+    @addClickListeners()
     @
