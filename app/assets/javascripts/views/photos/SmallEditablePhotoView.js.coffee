@@ -14,8 +14,11 @@ class mkm.views.photos.SmallEditablePhotoView extends Backbone.View
       useAsArticleImage: @$('[name=useAsArticleImage]').is(':checked')
     }, {
       success: =>
-        console.log(@model.get('caption'))
-        console.log(@model)
+        mkm.helpers.flash('info' ,"Successfully updated photo")
+        @$('.loader').hide()
+        @$('.update-photo').show()
+      error: ->
+        mkm.helpers.flash('error', "Error while updating photo.")
         @$('.loader').hide()
         @$('.update-photo').show()
     })

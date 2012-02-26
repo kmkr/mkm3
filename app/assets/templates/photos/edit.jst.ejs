@@ -8,17 +8,16 @@
   <small>Create a widescreen version of the photo by selecting which area to use</small>
 </h1>
 
-<form class="crop">
+<img class="photo" src="<%= photo.get('photo').url %>" />
+
+<div class="form-actions crop">
   <button class="crop-photo btn btn-primary">
     <i class="icon-upload icon-white"></i>
     Store cropped version
   </button>
-</form>
+</div>
 
 <div class="loader crop-loader">
   <p>This may take a minute...</p>
   <img src="assets/loader.gif" />
 </div>
-
-<img class="photo" src="<%= photo.get('photo').url %>" />
-
