@@ -88,6 +88,7 @@
             box-shadow: 0 3px 5px rgba(0,0,0,0.2);
 
             li {
+              display: list-item;
               text-transform: none;
               font-size: 0.8em;
               padding: 4px 0;
@@ -99,12 +100,14 @@
                 position: relative;
                 left: 137px;
                 top: -26px;
-                width: 360px;
+                width: 375px;
 
                 li {
+                  text-align: left;
                   font-size: 0.7em;
-                  width: 360px;
+                  width: 365px;
                   padding-top: 5px;
+                  padding-left: 10px;
                 }
               }
             }
