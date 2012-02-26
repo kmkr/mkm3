@@ -52,6 +52,7 @@ class mkm.routers.AppRouter extends Backbone.Router
       @swap(new mkm.views.countries.EditCountryView({model: country}))
 
   swap: (newView) ->
+    mkm.helpers.flash('clear')
     @view.leave() if @view?.leave
     @view.destroy() if @view
     @view = newView

@@ -21,6 +21,8 @@ class mkm.views.articles.ShowArticleView extends Backbone.View
     @initMap({ readOnly: true })
     @imgsc.init()
     @updateFbContent()
+    unless @model.published()
+      mkm.helpers.flash('info', 'This article is not yet published')
 
   updatePublishedStatus: =>
     text = "Not yet published."
