@@ -4,7 +4,11 @@ class ArticlesController < ApplicationController
   before_filter :authenticate_user!, :except => :index
 
   def index
-    articles = Article.all.includes(:photos)
+    if user_signed_in?
+      articles = Article.all.includes(:photos)
+    else
+      articles = Article.published.includes(:photos)
+    end
 
     respond_with articles
   end
@@ -12,9 +16,11 @@ class ArticlesController < ApplicationController
   def show
     article = Article.includes(:photos).find(params[:id])
 
-    respond_to do |format|
-      format.json { render :json => article }
-      format.html { redirect_to "#articles/#{article.id}" }
+    if article.is_published? or user_signed_in
+      respond_to do |format|
+        format.json { render :json => article }
+        format.html { redirect_to "#articles/#{article.id}" }
+      end
     end
   end
 
