@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController
   respond_to :json
+  respond_to :html, :only => :show
   before_filter :authenticate_user!, :except => :index
 
   def index
@@ -11,7 +12,10 @@ class ArticlesController < ApplicationController
   def show
     article = Article.includes(:photos).find(params[:id])
 
-    respond_with article
+    respond_to do |format|
+      format.json { render :json => article }
+      format.html { redirect_to "#articles/#{article.id}" }
+    end
   end
 
   def destroy
