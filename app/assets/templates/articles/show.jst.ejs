@@ -6,7 +6,9 @@
 
     <small>
     <div class="pull-right">
-      <div class="fb-like" data-href="http://www.mkm.tc/articles/<%= article.id %>" data-send="false" data-layout="button_count" data-width="75" data-show-faces="false" data-action="recommend"></div>
+      <% var url = "http://www.mkm.tc/#articles/" + article.id; %>
+      <% if (article.id < 13) { url = url.replace(/#articles/, "articles"); } %>
+      <div class="fb-like" data-href="<%= url %>" data-send="false" data-layout="button_count" data-width="75" data-show-faces="false" data-action="recommend"></div>
     </div>
       Dated <%= mkm.helpers.date.format(article.get('start_date')) %>.
       <span class="publish-info">
@@ -41,12 +43,3 @@
 
 </article>
 
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1&appId=184754434896410";
-    fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));
-</script>
