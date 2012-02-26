@@ -14,3 +14,4 @@ class mkm.helpers.CountriesMapHelper extends mkm.helpers.AbstractMapHelper
   initMap: ->
     super
     @placeMarkers()
+    @map.setCenter(new google.maps.LatLng(17.978733, 29.179688))
