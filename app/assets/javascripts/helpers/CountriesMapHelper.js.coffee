@@ -8,7 +8,9 @@ class mkm.helpers.CountriesMapHelper extends mkm.helpers.AbstractMapHelper
   renderMap: ->
     super({
       zoom: 1
+      minZoom: 1
       disableDefaultUI: true
+      zoomControl: true
     })
 
   initMap: ->
