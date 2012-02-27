@@ -30,7 +30,7 @@
 
 .editPhotoView {
   img.photo {
-    max-width: 50000px;
+    max-width: none;
   }
 
   form.crop {
@@ -40,26 +40,31 @@
 
 .thumbnailsPhotoView {
   .thumbnail {
+    .thumb-wrapper {
+      text-align: center;
+    }
     margin-bottom: 30px;
   }
 }
 
 .thumbnailMatrixView {
   clear: both;
-  height: 900px;
   border-top: 1px solid #ccc;
   padding-top: 10px;
   margin-top: 25px;
 
   .thumbnailPhotoView {
     .thumbnail {
+      img {
+        max-width: none;
+      }
       margin-top: 15px;
-      height: 275px;
+      height: 235px;
       .thumb-wrapper {
         height: 190px;
         overflow: hidden;
       }
-  }
+    }
 
   }
 
