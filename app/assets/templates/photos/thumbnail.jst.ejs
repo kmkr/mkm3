@@ -1,9 +1,8 @@
 <div class="thumbnail">
   <div class="thumb-wrapper">
-    <a data-id="<%= model.id %>" data-fancybox-group="<%= thumbCollectionId %>" href="<%= model.get('photo').large.url %>" title="<%= model.get('caption') %>" />
+    <a data-id="<%= model.id %>" data-fancybox-group="<%= thumbCollectionId %>" href="<%= model.get('photo').large.url %>" title="<%= model.get('caption') %>">
     <img src="<%= model.get('photo').small.url %>" />
-  </span>
-  </a>
+    </a>
 </div>
   <div class="caption">
     <p><%= model.get('caption') %></p>
