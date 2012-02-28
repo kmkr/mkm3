@@ -33,7 +33,7 @@ class mkm.views.articles.ShowArticleView extends Backbone.View
 
   render: ->
     $(@el).html(@template({article: @model}))
-    @imgsc = new mkm.views.ImageScrollView({photos: @model.get('photos').onlyCropped() })
+    @imgsc = new mkm.views.ImageScrollView({collection: new mkm.collections.PhotoCollection(@model.get('photos').onlyCropped()) })
     @views.push(@imgsc)
     @$('.imagescroll').html(@imgsc.render().el)
 

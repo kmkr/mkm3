@@ -6,3 +6,6 @@ class mkm.collections.PhotoCollection extends Backbone.Collection
 
   articlePhotos: ->
     @filter((p) -> p.get('useAsArticlePhoto'))
+
+  frontpagePhotos: ->
+    @filter((p) -> p.get('useAsFrontpagePhoto') and p.isCropped())

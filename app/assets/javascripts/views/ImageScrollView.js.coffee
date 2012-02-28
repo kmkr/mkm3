@@ -1,8 +1,11 @@
 class mkm.views.ImageScrollView extends Backbone.View
   template: JST['page/imagescroll']
 
-  initialize: (opts) ->
-    @collection = new mkm.collections.PhotoCollection(opts.photos)
+  # whether or not the images should link to the article
+  link: false
+
+  initialize: (opts = {}) ->
+    @link = opts.link if opts.link
 
   init: ->
     @$('.nivoSlider').nivoSlider({
@@ -13,7 +16,6 @@ class mkm.views.ImageScrollView extends Backbone.View
     })
 
   render: ->
-    photos = @collection.onlyCropped()
-    if photos.length isnt 0
-      $(@el).html(@template({photos: @collection.onlyCropped()}))
+    if @collection.length isnt 0
+      $(@el).html(@template({photos: @collection, link: @link}))
     @

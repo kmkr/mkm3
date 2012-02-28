@@ -1,7 +1,13 @@
 <div class="slider-wrapper theme-default">
   <div class="nivoSlider">
     <% photos.forEach(function(photo) { %>
+      <% if (link) { %>
+      <a href="#articles/<%= photo.get('article').id %>">
+      <% } %>
       <img src="<%= photo.get('photo').cropped.url %>" title="<%= photo.get('widescreenCaption') %>" />
+    <% if (link) { %>
+    </a>
+    <% } %>
     <% }); %>
   </div>
 </div>

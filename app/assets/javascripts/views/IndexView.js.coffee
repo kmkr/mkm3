@@ -12,17 +12,18 @@ class mkm.views.IndexView extends Backbone.View
 
   getPhotos: ->
     photos = []
+    coll = new mkm.collections.PhotoCollection()
     mkm.collections.articles.forEach((article) ->
       article.get('photos').forEach((photo) ->
-        photos.push(photo)
+        coll.add(photo)
       )
     )
 
-    photos
+    coll.frontpagePhotos()
 
   render: ->
     $(@el).html(@template)
-    @imgsc = new mkm.views.ImageScrollView({ photos: @getPhotos() })
+    @imgsc = new mkm.views.ImageScrollView({ collection: @getPhotos(), link: true })
     @views.push(@imgsc)
     @$('.imagescroll').html(@imgsc.render().el)
     @
