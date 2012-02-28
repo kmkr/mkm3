@@ -24,7 +24,8 @@ class mkm.views.photos.SmallEditablePhotoView extends Backbone.View
     @model.save({
       caption: @$('[name=caption]').val()
       widescreenCaption: @$('[name=widescreenCaption]').val()
-      useAsArticleImage: @$('[name=useAsArticleImage]').is(':checked')
+      useAsArticlePhoto: @$('[name=useAsArticlePhoto]').is(':checked')
+      useAsFrontPagePhoto: @$('[name=useAsArticlePhoto]').is(':checked')
     }, {
       success: =>
         mkm.helpers.flash('info' ,"Successfully updated photo")
