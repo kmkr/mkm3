@@ -6,5 +6,9 @@ CarrierWave.configure do |config|
     :region                 => 'eu-west-1'
   }
 
-  config.fog_directory = 'mkm3development'
+  if Rails.env.production?
+    config.fog_directory = 'mkm3production'
+  else
+    config.fog_directory = 'mkm3development'
+  end
 end
