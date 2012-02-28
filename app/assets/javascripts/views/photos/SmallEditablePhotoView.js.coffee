@@ -27,7 +27,6 @@ class mkm.views.photos.SmallEditablePhotoView extends Backbone.View
       useAsArticlePhoto: @$('[name=useAsArticlePhoto]').is(':checked')
       useAsFrontpagePhoto: @$('[name=useAsFrontpagePhoto]').is(':checked')
     }, {
-      wait: true
       success: =>
         mkm.helpers.flash('info' ,"Successfully updated photo")
         @toggleLoad()
@@ -40,8 +39,8 @@ class mkm.views.photos.SmallEditablePhotoView extends Backbone.View
     e.preventDefault()
     @toggleLoad()
     @model.destroy({
+      wait: true
       success: =>
-        wait: true
         mkm.helpers.flash('info' ,"Successfully deleted photo")
         @toggleLoad()
       error: =>
