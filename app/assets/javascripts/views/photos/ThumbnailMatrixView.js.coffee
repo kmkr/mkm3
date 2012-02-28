@@ -68,7 +68,7 @@ class mkm.views.photos.ThumbnailMatrixView extends Backbone.View
     thumbCollectionId = "thumbs_#{new Date().getTime()}"
     @collection.forEach((photo, index) =>
       colNum++
-      t = new mkm.views.photos.ThumbnailPhotoView({model: photo, thumbCollectionId: thumbCollectionId})
+      t = new mkm.views.photos.ThumbnailPhotoView({model: photo, thumbCollectionId: thumbCollectionId, size: 'small'})
       page.find('ul').append($(t.render().el).addClass('span3'))
       @views.push(t)
 

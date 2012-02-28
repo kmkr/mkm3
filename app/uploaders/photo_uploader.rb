@@ -33,24 +33,24 @@ class PhotoUploader < CarrierWave::Uploader::Base
   # end
 
   # Create different versions of your uploaded files:
-  version :thumb do
+  version :thumbnail do
     process :auto_orient
     process :resize_to_limit => [170, 170]
   end
 
   version :small do
     process :auto_orient
-    process :resize_to_limit => [400, 400]
+    process :resize_to_fit => [250, 5000] # requires two args
   end
 
   version :medium do
     process :auto_orient
-    process :resize_to_limit => [650, 650]
+    process :resize_to_limit => [450, 450]
   end
 
   version :large do
     process :auto_orient
-    process :resize_to_limit => [1300, 1300]
+    process :resize_to_limit => [1400, 1400]
   end
   
   version :cropped, :if => :is_cropped? do

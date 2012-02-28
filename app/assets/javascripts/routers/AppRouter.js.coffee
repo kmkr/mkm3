@@ -43,7 +43,7 @@ class mkm.routers.AppRouter extends Backbone.Router
 
   newPhoto: (aId) ->
     if article = @_getArticle(aId)
-      @swap(new mkm.views.photos.NewPhotoView({model: model}))
+      @swap(new mkm.views.photos.NewPhotoView({model: article}))
 
   newCountry: ->
     @swap(new mkm.views.countries.EditCountryView({model: new mkm.models.Country()}))

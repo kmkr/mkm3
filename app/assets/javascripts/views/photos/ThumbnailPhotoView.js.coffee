@@ -6,6 +6,7 @@ class mkm.views.photos.ThumbnailPhotoView extends Backbone.View
 
   initialize: (options = {}) ->
     @thumbCollectionId = options.thumbCollectionId or "thumb"
+    @size = options.size or 'small'
     @model.bind('destroy', @rem)
 
   leave: ->
@@ -25,5 +26,5 @@ class mkm.views.photos.ThumbnailPhotoView extends Backbone.View
     @model.destroy({ wait: true })
 
   render: ->
-    $(@el).html(@template({model: @model, thumbCollectionId: @thumbCollectionId}))
+    $(@el).html(@template({model: @model, thumbCollectionId: @thumbCollectionId, size: @size}))
     @

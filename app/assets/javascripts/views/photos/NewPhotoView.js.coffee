@@ -42,7 +42,9 @@ class mkm.views.photos.NewPhotoView extends Backbone.View
           fileName = encodeURIComponent(files[parsedFiles].fileName)
           # the image seems to be ok, send it to the server
           image = encodeURIComponent($.base64Encode(imageBinary))
-          postData = "binary_data=#{image}&file_name=#{fileName}"
+          postData =
+            binary: image
+            fileName: fileName
 
           parsedFiles++
 
@@ -76,18 +78,26 @@ class mkm.views.photos.NewPhotoView extends Backbone.View
     else
       mkm.helpers.flash('info', "File uploaded successfully, #{@filesWaiting.length} files left. Please wait... ")
 
+  _writeToResults: (msg) ->
+    l = $('<p>').html(msg)
+    @$('.results').append(l)
+
   transferFile: (postData) ->
     $.ajax({
       type: "POST"
       url: "/articles/#{@model.id}/photos"
-      data: postData
+      data: "binary_data=#{postData.binary}&file_name=#{postData.fileName}"
       success: =>
-
-        @model.fetch({success: => @updateProgress()})
+        @model.fetch({
+          success: =>
+            @updateProgress()
+            @_writeToResults("Uploaded: #{postData.fileName}")
+        })
         unless @filesWaiting.length is 0
           setTimeout(@transferNextFile, 6000)
       error: (jqXhr, status, error) =>
-        mkm.helpers.flash('error', "Error while uploading pictures #{status} - #{error}")
+        mkm.helpers.flash('error', "Error uploading picture #{postData.fileName} (#{error})")
+        @_writeToResults("ERROR: #{postData.fileName}")
         @reset()
     })
 

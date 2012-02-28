@@ -10,7 +10,8 @@
     margin: 0 auto;
     width: 300px;
     height: 100px;
-    border: 1px solid black;
+    border: 1px solid #ccc;
+    border-radius: 6px;
 
     p {
       text-align: center;
@@ -18,7 +19,7 @@
   }
 
   .dropArea.over {
-    border: 5px;
+    background-color: #eee;
   }
 
   .loader {
