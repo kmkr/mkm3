@@ -19,7 +19,6 @@ class mkm.helpers.AbstractMapHelper
       title: title
       map: @map
     })
-    @map.setCenter(position)
     @marker
 
   addListeners: ->

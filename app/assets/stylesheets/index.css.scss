@@ -4,8 +4,14 @@
 
     .nivo-caption {
       p {
-        font-size: 1.8em;
+        font-size: 2em;
       }
+
+      bottom: 40px;
+    }
+
+    .nivo-controlNav {
+      display: none;
     }
 
   }
@@ -15,6 +21,13 @@
 
   #map {
     height: 390px;
+  }
+
+
+  .hero-unit {
+    -moz-box-shadow: 0 0 3px #888;
+    -webkit-box-shadow: 0 0 3px #888;
+    box-shadow: 0 0 3px #888;
   }
 
 }
