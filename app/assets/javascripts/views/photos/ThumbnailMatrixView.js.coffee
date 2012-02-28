@@ -4,8 +4,8 @@ class mkm.views.photos.ThumbnailMatrixView extends Backbone.View
   currentPage: 0
   pages: 0
   views: []
-  columns: 3
-  rows: 2
+  columns: 4
+  rows: 4
 
   initialize: (opts = {}) ->
     @collection.bind('remove', @render)
@@ -69,7 +69,7 @@ class mkm.views.photos.ThumbnailMatrixView extends Backbone.View
     @collection.forEach((photo, index) =>
       colNum++
       t = new mkm.views.photos.ThumbnailPhotoView({model: photo, thumbCollectionId: thumbCollectionId})
-      page.find('ul').append($(t.render().el).addClass('span4'))
+      page.find('ul').append($(t.render().el).addClass('span3'))
       @views.push(t)
 
       if colNum is @columns * @rows or index + 1 is @collection.length

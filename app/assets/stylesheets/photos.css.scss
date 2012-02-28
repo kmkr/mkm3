@@ -58,11 +58,14 @@
       img {
         max-width: none;
       }
-      margin-top: 15px;
-      height: 235px;
+      margin-top: 8px;
       .thumb-wrapper {
-        height: 190px;
+        height: 170px;
         overflow: hidden;
+      }
+
+      .caption {
+        display: none;
       }
     }
 
