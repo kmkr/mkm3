@@ -79,9 +79,11 @@ class mkm.views.photos.NewPhotoView extends Backbone.View
     else
       mkm.helpers.flash('info', "File uploaded successfully, #{@filesWaiting.length} files left. Please wait... ")
 
-  _writeToResults: (msg) ->
-    l = $('<p>').html(msg)
-    @$('.results').append(l)
+  _writeToResults: (msg, status = success) ->
+    label = $('<span>'.addClass("label label-#{status}").text(status)
+    p = $('<p>').html(msg)
+    p.prepend(label)
+    @$('.results').append(p)
 
   transferFile: (postData) ->
     $.ajax({
@@ -98,7 +100,7 @@ class mkm.views.photos.NewPhotoView extends Backbone.View
           setTimeout(@transferNextFile, 6000)
       error: (jqXhr, status, error) =>
         mkm.helpers.flash('error', "Error uploading picture #{postData.fileName} (#{error})")
-        @_writeToResults("ERROR: #{postData.fileName}")
+        @_writeToResults("ERROR: #{postData.fileName}", warning)
         @reset()
     })
 
