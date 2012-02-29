@@ -54,11 +54,12 @@ class mkm.views.photos.EditPhotoView extends Backbone.View
   setApi: (api) ->
     @api = api
 
+  init: ->
+    @initCrop()
 
   render: ->
     $(@el).html(@template({photo: @model}))
     v = new mkm.views.photos.SmallEditablePhotoView({model: @model})
     @$('.fields').html(v.render().el)
     @views.push(v)
-    @initCrop()
     @
