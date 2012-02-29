@@ -5,12 +5,34 @@ class mkm.views.photos.EditPhotoView extends Backbone.View
 
   events: ->
     "click .crop-photo"    : "saveCropped"
+    "click .delete-crop"   : "deleteCropped"
+
+  toggleLoad: ->
+    @$('button').toggle()
+    @$('.crop-loader').toggle()
+
+  deleteCropped: (e) =>
+    e.preventDefault()
+    @toggleLoad()
+
+    @model.save({
+      crop_x: null
+      crop_y: null
+      crop_h: null
+      crop_w: null
+    }, {
+      success: =>
+        mkm.helpers.flash('info' ,"Successfully removed crop.")
+        @render()
+      error: ->
+        mkm.helpers.flash('error', "Error while updating.")
+        @toggleLoad()
+    })
 
   saveCropped: (e) =>
     e.preventDefault()
 
-    @$('button').hide()
-    @$('.crop-loader').show()
+    @toggleLoad()
     @model.save({
       crop_x: @x
       crop_y: @y
@@ -19,12 +41,10 @@ class mkm.views.photos.EditPhotoView extends Backbone.View
     }, {
       success: =>
         mkm.helpers.flash('info' ,"Successfully cropped photo")
-        @$('button').show()
-        @$('.crop-loader').hide()
+        @toggleLoad()
       error: ->
         mkm.helpers.flash('error', "Error while uploading cropped version.")
-        @$('button').show()
-        @$('.crop-loader').hide()
+        @toggleLoad()
     })
 
   showCoords: (c) =>
