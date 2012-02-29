@@ -100,8 +100,9 @@ class mkm.views.photos.NewPhotoView extends Backbone.View
           setTimeout(@transferNextFile, 6000)
       error: (jqXhr, status, error) =>
         mkm.helpers.flash('error', "Error uploading picture #{postData.fileName} (#{error})")
-        @_writeToResults("ERROR: #{postData.fileName}", warning)
-        @reset()
+        @_writeToResults("ERROR: #{postData.fileName}", 'warning')
+        unless @filesWaiting.length is 0
+          setTimeout(@transferNextFile, 6000)
     })
 
   dragOver: (evt) ->
