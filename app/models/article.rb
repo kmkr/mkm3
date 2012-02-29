@@ -1,5 +1,5 @@
 class Article < ActiveRecord::Base
-  has_many :photos, :dependent => :destroy
+  has_many :photos, :dependent => :destroy, :order => :position
   scope :published, where("published <= ?", Time.now.end_of_day)
 
   def is_published?
