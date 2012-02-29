@@ -15,6 +15,7 @@ class mkm.views.photos.NewPhotoView extends Backbone.View
   fileDropped: (evt) =>
     evt.preventDefault()
     evt.stopPropagation()
+    $(evt.target).removeClass('over')
 
     if @ongoingTransfer
       mkm.helpers.flash('warning', 'Please wait until the current upload is complete')
