@@ -3,9 +3,11 @@ class mkm.views.ImageScrollView extends Backbone.View
 
   # whether or not the images should link to the article
   link: false
+  captionType: 'caption'
 
   initialize: (opts = {}) ->
     @link = opts.link if opts.link
+    @captionType = opts.captionType if opts.captionType
 
   init: ->
     @$('.nivoSlider').nivoSlider({
@@ -17,5 +19,5 @@ class mkm.views.ImageScrollView extends Backbone.View
 
   render: ->
     if @collection.length isnt 0
-      $(@el).html(@template({photos: @collection, link: @link}))
+      $(@el).html(@template({photos: @collection, link: @link, captionType: @captionType}))
     @
