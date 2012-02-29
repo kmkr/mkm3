@@ -34,7 +34,6 @@ class mkm.views.articles.EditArticleView extends Backbone.View
     )
 
   init: ->
-    console.log "init map"
     @initMap()
     @on('map:clicked', (resp) =>
       @model.set({ latitude: resp.latitude, longitude: resp.longitude })
