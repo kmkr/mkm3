@@ -3,7 +3,7 @@ class mkm.models.Photo extends Backbone.RelationalModel
     "/articles/#{@get('article_id')}/photos"
 
   isCropped: ->
-    if @get('crop_x') then true else false
+    _.isNumber(@get('crop_x'))
 
   cropped: ->
     [ @get('crop_x')
