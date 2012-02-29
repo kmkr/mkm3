@@ -79,7 +79,7 @@ class mkm.views.photos.NewPhotoView extends Backbone.View
     else
       mkm.helpers.flash('info', "File uploaded successfully, #{@filesWaiting.length} files left. Please wait... ")
 
-  _writeToResults: (msg, status = success) ->
+  _writeToResults: (msg, status = 'success') ->
     label = $('<span>').addClass("label label-#{status}").text(status)
     p = $('<p>').html(msg)
     p.prepend(label)
