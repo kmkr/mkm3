@@ -23,11 +23,16 @@ class mkm.views.photos.EditPhotoView extends Backbone.View
     }, {
       success: =>
         mkm.helpers.flash('info' ,"Successfully removed crop.")
+        @leave()
         @render()
+        @init()
       error: ->
         mkm.helpers.flash('error', "Error while updating.")
         @toggleLoad()
     })
+
+  leave: ->
+    @api.destroy()
 
   saveCropped: (e) =>
     e.preventDefault()
