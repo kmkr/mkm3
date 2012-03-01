@@ -77,7 +77,7 @@ class mkm.views.photos.NewPhotoView extends Backbone.View
 
     if @filesWaiting.length is 0
       if @numErrors is 0
-        mkm.helpers.flash('info', "All files uploaded successfully"
+        mkm.helpers.flash('info', "All files uploaded successfully")
       else
         mkm.helpers.flash('error', "#{@numErrors} of #{@totalFiles} completed, see log below for details.")
 
