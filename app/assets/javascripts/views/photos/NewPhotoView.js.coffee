@@ -5,6 +5,7 @@ class mkm.views.photos.NewPhotoView extends Backbone.View
   filesWaiting: []
   filesComplete: 0
   ongoingTransfer: false
+  numErrors: 0
 
   events:
     "drop .dropArea"        : "fileDropped"
@@ -62,6 +63,7 @@ class mkm.views.photos.NewPhotoView extends Backbone.View
     @filesWaiting = []
     @filesComplete = 0
     @ongoingTransfer = false
+    @numErrors = 0
     @$('.progress').removeClass('active')
     @$('.progress .bar').width('0')
     @$('.loader').hide()
@@ -74,7 +76,11 @@ class mkm.views.photos.NewPhotoView extends Backbone.View
     @$('.progress .bar').width("#{(@filesComplete / @totalFiles) * 100}%")
 
     if @filesWaiting.length is 0
-      mkm.helpers.flash('info', "All files uploaded successfully ")
+      if @numErrors is 0
+        mkm.helpers.flash('info', "All files uploaded successfully"
+      else
+        mkm.helpers.flash('error', "#{@numErrors} of #{@totalFiles} completed, see log below for details.")
+
       @reset()
     else
       mkm.helpers.flash('info', "File uploaded successfully, #{@filesWaiting.length} files left. Please wait... ")
@@ -100,6 +106,8 @@ class mkm.views.photos.NewPhotoView extends Backbone.View
           setTimeout(@transferNextFile, 6000)
       error: (jqXhr, status, error) =>
         mkm.helpers.flash('error', "Error uploading picture #{postData.fileName} (#{error})")
+        @updateProgress()
+        @numErrors++
         @_writeToResults("ERROR: #{postData.fileName}", 'warning')
         unless @filesWaiting.length is 0
           setTimeout(@transferNextFile, 6000)
