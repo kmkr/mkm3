@@ -27,7 +27,7 @@ class mkm.views.IndexView extends Backbone.View
       collection: @getPhotos()
       link: true
       captionType: 'widescreenCaption'
-      nivoextensions:
+      nivoExtensions:
         directionNav: false
     })
     @views.push(@imgsc)
