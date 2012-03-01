@@ -8,7 +8,7 @@ mkm.helpers.lightboxHelper = {
       closeSpeed     : "fast"
       helpers:
         title:
-          type: "outside"
+          type: "inside"
         overlay:
           opacity: 0.8
           css: 'background-color': "#000"
