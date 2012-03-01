@@ -23,7 +23,13 @@ class mkm.views.IndexView extends Backbone.View
 
   render: ->
     $(@el).html(@template)
-    @imgsc = new mkm.views.ImageScrollView({ collection: @getPhotos(), link: true, captionType: 'widescreenCaption' })
+    @imgsc = new mkm.views.ImageScrollView({
+      collection: @getPhotos()
+      link: true
+      captionType: 'widescreenCaption'
+      nivoextensions:
+        directionNav: false
+    })
     @views.push(@imgsc)
     @$('.imagescroll').html(@imgsc.render().el)
     @

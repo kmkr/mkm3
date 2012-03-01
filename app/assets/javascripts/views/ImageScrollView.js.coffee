@@ -8,14 +8,16 @@ class mkm.views.ImageScrollView extends Backbone.View
   initialize: (opts = {}) ->
     @link = opts.link if opts.link
     @captionType = opts.captionType if opts.captionType
+    @nivoExtensions = opts.nivoExtensions
 
   init: ->
-    @$('.nivoSlider').nivoSlider({
+    opts = _.extend({
       effect: 'boxRandom'
       randomStart: true
-      pauseTime: 8000
+      pauseTime: 14000
       captionOpacity: 0.7
-    })
+    }, @nivoExtensions)
+    @$('.nivoSlider').nivoSlider(opts)
 
   render: ->
     if @collection.length isnt 0
