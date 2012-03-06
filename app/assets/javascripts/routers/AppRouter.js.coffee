@@ -4,6 +4,7 @@ class mkm.routers.AppRouter extends Backbone.Router
     ""                        : "index"
     "articles/new"            : "newArticle"
     "articles/:id/photos/new" : "newPhoto"
+    "articles/:id/photos/edit": "editPhotos"
     "articles/:aId/photos/:pId/edit": "editPhoto"
     "articles/:aId/photos/:pId": "showPhoto"
     "articles/:id/edit"       : "editArticle"
@@ -37,6 +38,10 @@ class mkm.routers.AppRouter extends Backbone.Router
     if article = @_getArticle(aId)
       if photo = @_getPhoto(article, pId, "articles/#{article.id}")
         @swap(new mkm.views.photos.EditPhotoView({model: photo}))
+
+  editPhotos: (id) ->
+    if article = @_getArticle(id)
+      @swap(new mkm.views.photos.SortableEditablePhotosView({collection: article.get('photos')}))
 
   newArticle: ->
     @swap(new mkm.views.articles.EditArticleView({model: new mkm.models.Article()}))
