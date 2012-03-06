@@ -31,24 +31,49 @@ class mkm.views.articles.ShowArticleView extends Backbone.View
 
     @$('.publish-info').html(text)
 
-  render: ->
-    $(@el).html(@template({article: @model}))
+  initLightbox: ->
+    mkm.helpers.lightboxHelper.init(@$('.thumb-wrapper > a'), {
+      afterShow: (lightbox) =>
+        #@paginate(Math.ceil((lightbox.index + 1) / (@columns*@rows)))
+      beforeShow: (lightbox) =>
+        id = $(lightbox.element).attr('data-id')
+        p = @model.get('photos').get(id)
+        mkm.routers.router.navigate("articles/#{p.get('article').id}/photos/#{p.id}")
+      beforeClose: (lightbox) =>
+        mkm.routers.router.navigate("articles/#{@model.id}")
+    })
+
+
+  initImageScroll: ->
     @imgsc = new mkm.views.ImageScrollView({collection: new mkm.collections.PhotoCollection(@model.get('photos').onlyCropped()) })
     @views.push(@imgsc)
     @$('.imagescroll').html(@imgsc.render().el)
 
+  initLargeThumbs: ->
     thumbnailPhotoView = new mkm.views.photos.ThumbnailsPhotoView({ collection: @model.get('photos').articlePhotos()})
     @views.push(thumbnailPhotoView)
     @$('.photos').html(thumbnailPhotoView.render().el)
 
-    thumbnailMatrixView = new mkm.views.photos.ThumbnailMatrixView({ collection: @model.get('photos'), displayPhoto: @displayPhoto})
+  initSmallThumbs: ->
+    thumbnailMatrixView = new mkm.views.photos.ThumbnailMatrixView({ collection: new mkm.collections.PhotoCollection(@model.get('photos').withoutArticlePhotos())})
     @views.push(thumbnailMatrixView)
     @$('.thumbmatrix').html(thumbnailMatrixView.render().el)
 
+  initAdminbar: ->
     adminBarView = new mkm.views.articles.AdministerArticleBarView({ model: @model })
     @views.push(adminBarView)
     @$('.adminbar').html(adminBarView.render().el)
 
-    @updatePublishedStatus()
+  init: ->
+    if @displayPhoto
+      @$(".thumb-wrapper > a[data-id=#{@displayPhoto.id}]").click()
 
+  render: ->
+    $(@el).html(@template({article: @model}))
+    @initImageScroll()
+    @initLargeThumbs()
+    @initSmallThumbs()
+    @initAdminbar()
+    @initLightbox()
+    @updatePublishedStatus()
     @

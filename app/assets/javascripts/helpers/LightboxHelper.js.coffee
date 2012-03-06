@@ -14,6 +14,4 @@ mkm.helpers.lightboxHelper = {
           css: 'background-color': "#000"
     $(selector).fancybox(_.extend(opts, callbacks))
 
-  open: (url) ->
-    $.fancybox.open(url)
 }

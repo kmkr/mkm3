@@ -9,7 +9,6 @@ class mkm.views.photos.ThumbnailMatrixView extends Backbone.View
 
   initialize: (opts = {}) ->
     @collection.bind('remove', @render)
-    @displayPhoto = opts.displayPhoto
 
   events:
     "click .next"   : "paginateNext"
@@ -65,10 +64,9 @@ class mkm.views.photos.ThumbnailMatrixView extends Backbone.View
     colNum = 0
     pageNum = 1
     page = @createPage(pageNum)
-    thumbCollectionId = "thumbs_#{new Date().getTime()}"
     @collection.forEach((photo, index) =>
       colNum++
-      t = new mkm.views.photos.ThumbnailPhotoView({model: photo, thumbCollectionId: thumbCollectionId, size: 'small'})
+      t = new mkm.views.photos.ThumbnailPhotoView({model: photo, size: 'small'})
       page.find('ul').append($(t.render().el).addClass('span3'))
       @views.push(t)
 
@@ -81,20 +79,6 @@ class mkm.views.photos.ThumbnailMatrixView extends Backbone.View
     )
     @paginate(@currentPage)
 
-    mkm.helpers.lightboxHelper.init(@$('.thumb-wrapper > a'), {
-      afterShow: (lightbox) =>
-        @paginate(Math.ceil((lightbox.index + 1) / (@columns*@rows)))
-      beforeShow: (lightbox) =>
-        id = $(lightbox.element).attr('data-id')
-        p = @collection.get(id)
-        mkm.routers.router.navigate("articles/#{p.get('article').id}/photos/#{p.id}")
-      beforeClose: (lightbox) =>
-        id = $(lightbox.element).attr('data-id')
-        p = @collection.get(id)
-        mkm.routers.router.navigate("articles/#{p.get('article').id}")
-    })
 
-    if @displayPhoto
-      mkm.helpers.lightboxHelper.open(@displayPhoto.get('photo').large.url)
 
     @
