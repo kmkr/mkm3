@@ -16,6 +16,7 @@ class mkm.views.ImageScrollView extends Backbone.View
       randomStart: true
       pauseTime: 14000
       captionOpacity: 0.7
+      pauseOnHover: false
     }, @nivoExtensions)
     @$('.nivoSlider').nivoSlider(opts)
 
