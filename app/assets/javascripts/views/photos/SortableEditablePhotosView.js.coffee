@@ -38,8 +38,11 @@ class mkm.views.photos.SortableEditablePhotosView extends Backbone.View
     )
 
   removeRow: (photo) =>
-    @$("[data-photo-id=#{photo.id}]").remove()
-    @updatePosition()
+    item = @$("[data-photo-id=#{photo.id}]")
+    item.hide('fade', =>
+      item.remove()
+      @updatePosition()
+    )
 
   # todo: consider listening for changes on model directly
   # will perhaps require one additional level of views
