@@ -6,6 +6,12 @@ class mkm.views.photos.SortableEditablePhotosView extends Backbone.View
   events:
     "click .save-position"        : "saveUpdated"
 
+  initialize: ->
+    @collection.on('remove', @updatePosition)
+
+  leave: ->
+    @collection.off('remove', @updatePosition)
+
   saveUpdated: ->
     total = @collection.length
     completed = 0
@@ -14,7 +20,7 @@ class mkm.views.photos.SortableEditablePhotosView extends Backbone.View
         success: =>
           @$('.bar').width("#{(++completed / total) * 100}%")
           if completed is total
-            @$('.save-all-wrapper').hide('fade')
+            @$('.save-all-wrapper').hide('fade', -> $(@).width('0'))
       )
     )
 
@@ -34,12 +40,15 @@ class mkm.views.photos.SortableEditablePhotosView extends Backbone.View
   # todo: consider listening for changes on model directly
   # will perhaps require one additional level of views
   updatePosition: =>
+    currentPos = 0
     @$('.sortableElement').each((i, elem) =>
       id = $(elem).attr('data-photo-id')
       $(elem).find('.position p').text(i+1)
       $(elem).effect('highlight')
-      @collection.get(id).set({position: i+1})
-      p = @collection.get(id)
+      # Can be deleted
+      if item = @collection.get(id)
+        item.set({position: currentPos++})
+        console.log "Item %s får posisjon %s", item.get('caption'), currentPos
     )
     @$('.save-all-wrapper').show().effect('highlight')
     

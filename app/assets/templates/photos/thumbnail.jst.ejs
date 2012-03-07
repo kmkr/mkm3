@@ -6,13 +6,5 @@
 </div>
   <div class="caption">
     <p><%= model.get('caption') %></p>
-    <% if (mkm.config.logged_in) { %>
-      <p>
-    <a href="#" class="btn btn-danger btn-mini delete-photo" data-id="<%= model.id %>"><i class="icon-trash icon-white"></i>Delete</a>
-    <a href="#articles/<%= model.get('article').id %>/photos/<%= model.id %>/edit" class="btn btn-mini"><i class="icon-pencil"></i>Edit</a>
-    </p>
-  <% } %>
   </div>
-
-  <img class="loader" src="assets/loader.gif" />
 </div>
