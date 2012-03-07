@@ -17,12 +17,6 @@ class mkm.views.articles.ShowArticleView extends Backbone.View
     if photo = @model.get('photos').at(0)
       $("meta[property='og:image']").attr('content', photo.get('photo').small.url)
 
-  init: ->
-    @initMap({ readOnly: true })
-    @imgsc.init()
-    @updateFbContent()
-    unless @model.published()
-      mkm.helpers.flash('info', 'This article is not yet published')
 
   updatePublishedStatus: =>
     text = "Not yet published."
@@ -67,6 +61,12 @@ class mkm.views.articles.ShowArticleView extends Backbone.View
   init: ->
     if @displayPhoto
       @$(".thumb-wrapper > a[data-id=#{@displayPhoto.id}]").click()
+
+    @initMap({ readOnly: true })
+    @imgsc.init()
+    @updateFbContent()
+    unless @model.published()
+      mkm.helpers.flash('info', 'This article is not yet published')
 
   render: ->
     $(@el).html(@template({article: @model}))
