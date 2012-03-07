@@ -34,10 +34,11 @@ class mkm.views.photos.SortableEditablePhotosView extends Backbone.View
       @collection.get(id).set({position: i+1})
       p = @collection.get(id)
     )
+    @$('.save-all-wrapper').show().effect('highlight')
     
 
   makeSortable: ->
-    $(@el).sortable().bind('sortupdate', @updatePosition)
+    @$('.photos').sortable().bind('sortupdate', @updatePosition)
 
   render: ->
     $(@el).html(@template)
