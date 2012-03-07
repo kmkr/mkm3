@@ -1,8 +1,13 @@
 <div class="row">
     <div class="span3">
       <a href="#articles/<%= model.get('article').id %>/photos/<%= model.id %>/edit" class="thumbnail">
-      <img src="<%= model.get('photo').small.url %>" />
-    </a>
+        <img src="<%= model.get('photo').small.url %>" />
+      </a>
+      <div class="labels">
+        <% if (model.isCropped()) { %>
+          <span class="label label-info">Cropped</span>
+        <% } %>
+      </div>
     </div>
 
   <div class="span5">

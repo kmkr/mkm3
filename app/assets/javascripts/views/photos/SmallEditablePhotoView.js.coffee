@@ -1,6 +1,8 @@
 class mkm.views.photos.SmallEditablePhotoView extends Backbone.View
   template: JST['photos/smalledit']
 
+  className: 'smallEditablePhoto'
+
   initialize: ->
     @model.on('destroy', @hide)
 
