@@ -12,3 +12,6 @@ class mkm.collections.PhotoCollection extends Backbone.Collection
 
   frontpagePhotos: ->
     @filter((p) -> p.get('useAsFrontpagePhoto') and p.isCropped())
+
+  comparator: (photo) ->
+    photo.get('position')
