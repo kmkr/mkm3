@@ -7,10 +7,10 @@ class mkm.views.photos.SortableEditablePhotosView extends Backbone.View
     "click .save-position"        : "saveUpdated"
 
   initialize: ->
-    @collection.on('remove', @updatePosition)
+    @collection.on('remove', @removeRow)
 
   leave: ->
-    @collection.off('remove', @updatePosition)
+    @collection.off('remove', @removeRow)
 
   saveUpdated: ->
     total = @collection.length
@@ -37,6 +37,10 @@ class mkm.views.photos.SortableEditablePhotosView extends Backbone.View
       @$('.photos').append(d)
     )
 
+  removeRow: (photo) =>
+    @$("[data-photo-id=#{photo.id}]").remove()
+    @updatePosition()
+
   # todo: consider listening for changes on model directly
   # will perhaps require one additional level of views
   updatePosition: =>
@@ -48,7 +52,6 @@ class mkm.views.photos.SortableEditablePhotosView extends Backbone.View
       # Can be deleted
       if item = @collection.get(id)
         item.set({position: currentPos++})
-        console.log "Item %s får posisjon %s", item.get('caption'), currentPos
     )
     @$('.save-all-wrapper').show().effect('highlight')
     
