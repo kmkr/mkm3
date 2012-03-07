@@ -1,11 +1,11 @@
 <div class="row">
     <div class="span3">
-      <a rel="tooltip" title="Click to crop image" href="#articles/<%= model.get('article').id %>/photos/<%= model.id %>/edit" class="thumbnail">
+      <a href="#articles/<%= model.get('article').id %>/photos/<%= model.id %>/edit" class="thumbnail">
       <img src="<%= model.get('photo').small.url %>" />
     </a>
     </div>
 
-  <div class="span4">
+  <div class="span5">
     <form class="well">
       <input name="caption" type="text" placeholder="Caption" value="<%= model.get('caption') %>" />
       <input name="widescreenCaption" type="text" placeholder="Caption as frontpage image" value="<%= model.get('widescreenCaption') %>" />
@@ -18,14 +18,22 @@
         Show on front page? (photo must be cropped)
       </label>
 
-      <button class="btn update-photo">
-        <i class="icon-ok-circle"></i>
-        Update
-      </button>
-      <button class="btn btn-danger delete-photo">
-        <i class="icon-trash icon-white"></i>
-        Delete
-      </button>
+      <div class="btn-toolbar">
+        <div class="btn-group">
+          <button class="btn update-photo">
+            <i class="icon-ok-circle"></i>
+            Update photo
+          </button>
+          <a href="#articles/<%= model.get('article').id %>/photos/<%= model.id %>/edit" class="btn">
+            <i class="icon-resize-small"></i>
+            Crop photo
+          </a>
+          <button class="btn btn-danger delete-photo">
+            <i class="icon-trash icon-white"></i>
+            Delete
+          </button>
+        </div>
+      </div>
       <img class="loader" src="/assets/loader.gif" />
     </form>
   </div>

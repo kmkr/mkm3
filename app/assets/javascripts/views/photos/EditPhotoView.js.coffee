@@ -84,7 +84,5 @@ class mkm.views.photos.EditPhotoView extends Backbone.View
 
   render: ->
     $(@el).html(@template({photo: @model}))
-    v = new mkm.views.photos.SmallEditablePhotoView({model: @model})
-    @$('.fields').html(v.render().el)
-    @views.push(v)
+    @$('.delete-crop').attr('disabled', 'disabled') unless @model.isCropped()
     @

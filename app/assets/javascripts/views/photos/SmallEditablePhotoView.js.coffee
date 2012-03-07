@@ -50,5 +50,4 @@ class mkm.views.photos.SmallEditablePhotoView extends Backbone.View
 
   render: ->
     $(@el).html(@template({ model: @model }))
-    @$('a[rel=tooltip]').tooltip()
     @
