@@ -32,7 +32,7 @@ class mkm.views.photos.SmallEditablePhotoView extends Backbone.View
       success: =>
         mkm.helpers.flash('info' ,"Successfully updated photo")
         @toggleLoad()
-      error: ->
+      error: =>
         mkm.helpers.flash('error', "Error while updating photo.")
         @toggleLoad()
     })
