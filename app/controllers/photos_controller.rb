@@ -32,6 +32,7 @@ class PhotosController < ApplicationController
 
     if photo.isCropped and params[:crop_x]
       needRecreate = true
+    end
 
     if params[:crop_x]
       if photo.crop_x != params[:crop_x] or photo.crop_y != params[:crop_y] or photo.crop_h != params[:crop_h] or photo.crop_w != params[:crop_w]
