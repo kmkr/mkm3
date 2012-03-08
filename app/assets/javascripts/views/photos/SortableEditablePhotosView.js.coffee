@@ -15,10 +15,11 @@ class mkm.views.photos.SortableEditablePhotosView extends Backbone.View
   saveUpdated: ->
     total = @collection.length
     completed = 0
-    @collection.forEach((photo) ->
+    @collection.forEach((photo) =>
       photo.save({},
         success: =>
           @$('.bar').width("#{(++completed / total) * 100}%")
+          @collection.sort()
           if completed is total
             @$('.save-all-wrapper').hide('fade', -> $(@).width('0'))
       )
