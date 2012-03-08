@@ -2,7 +2,7 @@ class mkm.helpers.CountriesMapHelper extends mkm.helpers.AbstractMapHelper
   placeMarkers: ->
     mkm.collections.articles.each((article) =>
       position = new google.maps.LatLng(article.get('latitude'), article.get('longitude'))
-      m = @placeMarker(position, article.get('title'))
+      m = @placeMarker(position, article.escape('title'))
       @addLinkToArticleOnClick(m, article)
     )
 
