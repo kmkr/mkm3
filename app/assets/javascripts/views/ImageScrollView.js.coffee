@@ -12,7 +12,7 @@ class mkm.views.ImageScrollView extends Backbone.View
 
   init: ->
     opts = _.extend({
-      effect: 'boxRandom'
+      effect: 'fade'
       randomStart: true
       pauseTime: 14000
       captionOpacity: 0.7
