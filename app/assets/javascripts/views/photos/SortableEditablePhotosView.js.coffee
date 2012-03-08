@@ -51,8 +51,7 @@ class mkm.views.photos.SortableEditablePhotosView extends Backbone.View
     @$('.sortableElement').each((i, elem) =>
       id = $(elem).attr('data-photo-id')
       $(elem).find('.position p').text(i+1)
-      $(elem).effect('highlight')
-      # Can be deleted
+      # The item can have been deleted
       if item = @collection.get(id)
         item.set({position: currentPos++})
     )
