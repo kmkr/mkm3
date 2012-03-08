@@ -93,15 +93,6 @@
 }
 
 .sortableEditablePhotos {
-  .position {
-    text-align: center;
-    p {
-      margin-top: 70px;
-      font-size: 40px;
-      font-weight: bold;
-    }
-  }
-
   .save-all-wrapper {
     position: fixed;
     left: 15px;
@@ -112,5 +103,14 @@
     padding: 10px;
     text-align: center;
     display: none;
+  }
+}
+
+.sortableEditablePhoto {
+  .sortableElement {
+    border: 1px solid black;
+    img {
+
+    }
   }
 }

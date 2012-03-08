@@ -21,21 +21,19 @@ class mkm.views.photos.SortableEditablePhotosView extends Backbone.View
           @$('.bar').width("#{(++completed / total) * 100}%")
           @collection.sort()
           if completed is total
+            mkm.helpers.flash('info', 'Positions updated successfully')
             @$('.save-all-wrapper').hide('fade', -> $(@).width('0'))
+
+        error: ->
+          mkm.helpers.flash('error', 'Problems when updating position. Please do a page refresh and retry.')
       )
     )
 
   renderPhotos: ->
-    @collection.forEach((photo, index) =>
-      v = new mkm.views.photos.SmallEditablePhotoView({model: photo})
+    @collection.forEach((photo) =>
+      v = new mkm.views.photos.SortableEditablePhotoView({model: photo})
       @views.push(v)
-      d = $('<div>').addClass('row sortableElement').attr('data-photo-id', photo.id)
-      spanPosit = $('<div>').addClass('span3 position').html("<p>#{index+1}</p>")
-      spanPhoto = $('<div>').addClass('span9')
-      spanPhoto.append(v.render().el)
-      d.append(spanPosit)
-      d.append(spanPhoto)
-      @$('.photos').append(d)
+      @$('.photos').append(v.render().el)
     )
 
   removeRow: (photo) =>
@@ -45,25 +43,23 @@ class mkm.views.photos.SortableEditablePhotosView extends Backbone.View
       @updatePosition()
     )
 
-  # todo: consider listening for changes on model directly
-  # will perhaps require one additional level of views
   updatePosition: =>
     currentPos = 0
     @$('.sortableElement').each((i, elem) =>
-      id = $(elem).attr('data-photo-id')
-      $(elem).find('.position p').text(i+1)
+      id = Number($(elem).attr('data-photo-id'))
       # The item can have been deleted
       if item = @collection.get(id)
         item.set({position: currentPos++})
+        console.log "Satt pos %s", item.get('position')
     )
     @$('.save-all-wrapper').show().effect('highlight')
     
 
   makeSortable: ->
-    @$('.photos').sortable().bind('sortupdate', @updatePosition)
+    @sortable = @$('.photos').sortable({opacity: 0.8}).bind('sortupdate', @updatePosition)
 
   render: ->
     $(@el).html(@template)
     @renderPhotos()
-    @makeSortable()
+    #@makeSortable()
     @
