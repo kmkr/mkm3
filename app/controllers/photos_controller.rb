@@ -30,7 +30,7 @@ class PhotosController < ApplicationController
 
     needRecreate = false
 
-    if photo.isCropped and params[:crop_x]
+    if photo.isCropped and !params[:crop_x]
       needRecreate = true
     end
 

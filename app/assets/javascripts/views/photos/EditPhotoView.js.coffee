@@ -26,7 +26,7 @@ class mkm.views.photos.EditPhotoView extends Backbone.View
         @leave()
         @render()
         @init()
-      error: ->
+      error: =>
         mkm.helpers.flash('error', "Error while updating.")
         @toggleLoad()
     })
