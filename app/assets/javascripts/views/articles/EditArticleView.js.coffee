@@ -14,7 +14,7 @@ class mkm.views.articles.EditArticleView extends Backbone.View
       title: @$('#title').val()
       start_date: @$('#startDate').val()
       end_date: @$('#endDate').val()
-      country_id: @$('#country option:selected').val()
+      country_id: Number(@$('#country option:selected').val())
       body: @$('#article-body').val()
       published: @$('#published').val()
     }, {
