@@ -7,7 +7,7 @@
     <div class="control-group">
       <label class="control-label" for="title">Title</label>
       <div class="controls">
-        <input type="text" class="span6" id="title" value="<%= article.get('title') %>" />
+        <input type="text" class="span6" id="title" value="<%= article.escape('title') %>" />
       </div>
     </div>
 
@@ -39,7 +39,7 @@
       <label class="control-label" for="article-body">Body</label>
       <div class="controls">
         <textarea id="article-body">
-          <%= article.get('body') %>
+          <%= article.escape('body') %>
         </textarea>
       </div>
     </div>

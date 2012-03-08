@@ -10,17 +10,17 @@
     <% for (var i = 0; i < continents.length; i++) { %>
       <% var continent = continents[i]; %>
       <li>
-        <%= continent.get('title') %>
+        <%= continent.escape('title') %>
         <b class="caret"></b>
         <ul>
       <% countries.filter(function(country) { %>
         <% if (country.get('continent_id') === continent.get('id')) { %>
           <li>
-          <%= country.get('title') %>
+          <%= country.escape('title') %>
           <ul>
             <% articles.filter(function(article) { %>
               <% if (article.get('country_id') === country.get('id')) { %>
-                <li><a href="#articles/<%= article.get('id') %>"><%= article.get('title') %></a></li>
+                <li><a href="#articles/<%= article.get('id') %>"><%= article.escape('title') %></a></li>
               <% } %>
 
             <% }); %>

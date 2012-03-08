@@ -1,7 +1,7 @@
 <article>
   <div>
     <header class="page-header">
-      <h1><%= article.get('title') %></h1>
+      <h1><%= article.escape('title') %></h1>
     </header>
 
     <small>
@@ -28,7 +28,7 @@
 
     <div class="row">
     <section class="span7 body">
-      <%= superTextile(article.get('body')) %>
+      <%= superTextile(article.escape('body')) %>
     </section>
 
     <div class="span5 photos"></div>

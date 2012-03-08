@@ -12,8 +12,8 @@
 
   <div class="span5">
     <form class="well">
-      <input name="caption" type="text" placeholder="Caption" value="<%= model.get('caption') %>" />
-      <input name="widescreenCaption" type="text" placeholder="Caption as frontpage image" value="<%= model.get('widescreenCaption') %>" />
+      <input name="caption" type="text" placeholder="Caption" value="<%= model.escape('caption') %>" />
+      <input name="widescreenCaption" type="text" placeholder="Caption as frontpage image" value="<%= model.escape('widescreenCaption') %>" />
       <label class="checkbox">
         <input name="useAsArticlePhoto" type="checkbox" <%= model.get('useAsArticlePhoto') ? 'checked' : '' %> />
         Show in right column?
