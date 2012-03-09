@@ -1,17 +1,23 @@
 class mkm.views.photos.SmallEditablePhotoView extends Backbone.View
   template: JST['photos/smalledit']
 
-  className: 'smallEditablePhoto'
+  className: 'smallEditablePhoto span3'
 
   initialize: ->
     @model.on('destroy', @hide)
+    @model.on('change', @updatePos)
 
   leave: ->
     @model.off('destroy', @hide)
+    @model.off('change', @updatePos)
 
   events:
     "click .update-photo"     : "update"
     "click .delete-photo"     : "delete"
+
+  updatePos: =>
+    @$('.position').text(@model.get('position'))
+
 
   hide: =>
     $(@el).hide('slow')

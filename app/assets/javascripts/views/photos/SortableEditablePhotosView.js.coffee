@@ -31,7 +31,7 @@ class mkm.views.photos.SortableEditablePhotosView extends Backbone.View
 
   renderPhotos: ->
     @collection.forEach((photo) =>
-      v = new mkm.views.photos.SortableEditablePhotoView({model: photo})
+      v = new mkm.views.photos.SmallEditablePhotoView({model: photo})
       @views.push(v)
       @$('.photos').append(v.render().el)
     )
@@ -50,7 +50,6 @@ class mkm.views.photos.SortableEditablePhotosView extends Backbone.View
       # The item can have been deleted
       if item = @collection.get(id)
         item.set({position: currentPos++})
-        console.log "Satt pos %s", item.get('position')
     )
     @$('.save-all-wrapper').show().effect('highlight')
     
