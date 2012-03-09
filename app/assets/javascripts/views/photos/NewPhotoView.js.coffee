@@ -103,7 +103,8 @@ class mkm.views.photos.NewPhotoView extends Backbone.View
             @_writeToResults("Uploaded: #{postData.fileName}")
           error: (jqXhr, status, error) =>
             @updateProgress()
-            @_writeToResults("Uploaded: #{postData.fileName} but was unable to read back the new photo. After the uploads are finished, you need to refresh the site to see this photo. Error message: '#{error}'")
+            @_writeToResults("Uploaded: #{postData.fileName} but was unable to read back the new photo. After the uploads are finished, you need to refresh the site to see this photo. Error message: '#{status}'")
+            console.log("Error re-fetching #{postData.fileName}. Status: #{status}, Error: #{error}")
         })
         unless @filesWaiting.length is 0
           setTimeout(@transferNextFile, 6000)
