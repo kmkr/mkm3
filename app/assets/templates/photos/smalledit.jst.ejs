@@ -1,8 +1,10 @@
 <div data-photo-id="<%= model.id %>">
   <div class="thumbnail">
-    <a href="#articles/<%= model.get('article').id %>/photos/<%= model.id %>/edit" class="thumb-wrapper">
-      <img src="<%= model.get('photo').small.url %>" />
-    </a>
+    <div class="thumb-wrapper">
+      <a href="#articles/<%= model.get('article').id %>/photos/<%= model.id %>/edit">
+        <img src="<%= model.get('photo').small.url %>" />
+      </a>
+    </div>
   </div>
 <div class="labels">
   <% if (model.isCropped()) { %>
