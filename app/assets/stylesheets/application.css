@@ -9,7 +9,7 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require bootstrap/bootstrap
+ *= require bootstrap/bootstrap.css
  *= require page
  *= require_tree .
 */
