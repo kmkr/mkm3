@@ -1,45 +1,42 @@
-<div class="row">
-    <div class="span3">
-      <a href="#articles/<%= model.get('article').id %>/photos/<%= model.id %>/edit" class="thumbnail">
-        <img src="<%= model.get('photo').small.url %>" />
+<div data-photo-id="<%= model.id %>">
+<a href="#articles/<%= model.get('article').id %>/photos/<%= model.id %>/edit" class="thumbnail">
+  <img src="<%= model.get('photo').small.url %>" />
+</a>
+<div class="labels">
+  <% if (model.isCropped()) { %>
+    <span class="label label-info">Cropped</span>
+  <% } %>
+  <span class="label label-info">Position <span class="position"><%= model.get('position') %></span></span>
+</div>
+
+<form class="well">
+  <input name="caption" class="input-medium" type="text" placeholder="Caption" value="<%= model.escape('caption') %>" />
+  <input name="widescreenCaption" class="input-medium" type="text" placeholder="Caption as frontpage image" value="<%= model.escape('widescreenCaption') %>" />
+  <label class="checkbox">
+    <input name="useAsArticlePhoto" type="checkbox" <%= model.get('useAsArticlePhoto') ? 'checked' : '' %> />
+    Show in right column?
+  </label>
+  <label class="checkbox">
+    <input name="useAsFrontpagePhoto" type="checkbox" <%= model.get('useAsFrontpagePhoto') ? 'checked' : '' %> />
+    Show on front page? (photo must be cropped)
+  </label>
+
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-mini update-photo">
+        <i class="icon-ok-circle"></i>
+        Save
+      </button>
+      <a href="#articles/<%= model.get('article').id %>/photos/<%= model.id %>/edit" class="btn btn-mini">
+        <i class="icon-resize-small"></i>
+        Crop
       </a>
-      <div class="labels">
-        <% if (model.isCropped()) { %>
-          <span class="label label-info">Cropped</span>
-        <% } %>
-      </div>
+      <button class="btn btn-mini btn-danger delete-photo">
+        <i class="icon-trash icon-white"></i>
+        Delete
+      </button>
     </div>
-
-  <div class="span5">
-    <form class="well">
-      <input name="caption" type="text" placeholder="Caption" value="<%= model.escape('caption') %>" />
-      <input name="widescreenCaption" type="text" placeholder="Caption as frontpage image" value="<%= model.escape('widescreenCaption') %>" />
-      <label class="checkbox">
-        <input name="useAsArticlePhoto" type="checkbox" <%= model.get('useAsArticlePhoto') ? 'checked' : '' %> />
-        Show in right column?
-      </label>
-      <label class="checkbox">
-        <input name="useAsFrontpagePhoto" type="checkbox" <%= model.get('useAsFrontpagePhoto') ? 'checked' : '' %> />
-        Show on front page? (photo must be cropped)
-      </label>
-
-      <div class="btn-toolbar">
-        <div class="btn-group">
-          <button class="btn update-photo">
-            <i class="icon-ok-circle"></i>
-            Update photo
-          </button>
-          <a href="#articles/<%= model.get('article').id %>/photos/<%= model.id %>/edit" class="btn">
-            <i class="icon-resize-small"></i>
-            Crop photo
-          </a>
-          <button class="btn btn-danger delete-photo">
-            <i class="icon-trash icon-white"></i>
-            Delete
-          </button>
-        </div>
-      </div>
-      <img class="loader" src="/assets/loader.gif" />
-    </form>
   </div>
+  <img class="loader" src="/assets/loader.gif" />
+</form>
 </div>

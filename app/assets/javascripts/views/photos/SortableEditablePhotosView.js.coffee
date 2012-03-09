@@ -44,8 +44,8 @@ class mkm.views.photos.SortableEditablePhotosView extends Backbone.View
     )
 
   updatePosition: =>
-    currentPos = 0
-    @$('.sortableElement').each((i, elem) =>
+    currentPos = 1
+    @$('.smallEditablePhoto > div').each((i, elem) =>
       id = Number($(elem).attr('data-photo-id'))
       # The item can have been deleted
       if item = @collection.get(id)
@@ -56,10 +56,10 @@ class mkm.views.photos.SortableEditablePhotosView extends Backbone.View
     
 
   makeSortable: ->
-    @sortable = @$('.photos').sortable({opacity: 0.8}).bind('sortupdate', @updatePosition)
+    @$('.photos').sortable({opacity: 0.8}).bind('sortupdate', @updatePosition)
 
   render: ->
     $(@el).html(@template)
     @renderPhotos()
-    #@makeSortable()
+    @makeSortable()
     @

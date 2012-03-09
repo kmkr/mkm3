@@ -107,10 +107,8 @@
 }
 
 .sortableEditablePhoto {
-  .sortableElement {
-    border: 1px solid black;
-    img {
-
-    }
+  .thumbnail {
+    height: 150px;
+    overflow: hidden;
   }
 }

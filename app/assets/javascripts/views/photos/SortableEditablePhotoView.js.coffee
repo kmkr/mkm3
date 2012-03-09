@@ -1,7 +1,7 @@
 class mkm.views.photos.SortableEditablePhotoView extends Backbone.View
   template: JST['photos/sortableeditablephoto']
   views: []
-  className: 'sortableEditablePhoto'
+  className: 'sortableEditablePhoto span3 sortableElement'
 
   initialize: ->
     @model.on('change', @updatePos)
@@ -16,7 +16,7 @@ class mkm.views.photos.SortableEditablePhotoView extends Backbone.View
   renderEditablePhoto: ->
     v = new mkm.views.photos.SmallEditablePhotoView({model: @model})
     @views.push(v)
-    @$('.small-editable-photo').html(v.render().el)
+    @$el.html(v.render().el)
 
   render: ->
     $(@el).html(@template({model: @model}))
