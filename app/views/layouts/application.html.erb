@@ -47,6 +47,10 @@
             <i class="icon-map-marker"></i>
             New country
           <% end %>
+          <%= link_to '#countries', :class => 'btn btn-mini' do %>
+            <i class="icon-list"></i>
+            Show and edit countries
+          <% end %>
           <%= link_to destroy_user_session_path, :class => 'btn btn-mini', :method => :delete do %>
             <i class="icon-remove-circle"></i>
             Log out

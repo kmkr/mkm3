@@ -11,6 +11,7 @@ class mkm.routers.AppRouter extends Backbone.Router
     "articles/:id"            : "showArticle"
     "countries/:id/edit"      : "editCountry"
     "countries/new"           : "newCountry"
+    "countries"               : "showCountries"
     "contact"                 : "contact"
     "*path"                   : "notFound"
 
@@ -56,6 +57,9 @@ class mkm.routers.AppRouter extends Backbone.Router
   editCountry: (id) ->
     if country = @_getCountry(id)
       @swap(new mkm.views.countries.EditCountryView({model: country}))
+
+  showCountries: ->
+    @swap(new mkm.views.countries.IndexCountriesView({collection: mkm.collections.countries}))
 
   contact: ->
     @swap(new mkm.views.ContactUsView())

@@ -13,4 +13,10 @@ class CountriesController < ApplicationController
     country.save
     respond_with country
   end
+
+  def destroy
+    country = Country.find(params[:id])
+    country.destroy
+    respond_with country
+  end
 end

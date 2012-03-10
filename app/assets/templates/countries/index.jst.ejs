@@ -1,0 +1,5 @@
+<ul>
+  <% countries.forEach(function(country) { %>
+    <li data-id="<%= country.id %>"><%= country.escape('title') %><button class="delete-country btn btn-danger"><i class="icon-trash"></i>Delete</button></li>
+  <% }); %>
+</ul>
