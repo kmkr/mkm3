@@ -1,7 +1,11 @@
 <div data-photo-id="<%= model.id %>">
-<a href="#articles/<%= model.get('article').id %>/photos/<%= model.id %>/edit" class="thumbnail">
-  <img src="<%= model.get('photo').small.url %>" />
-</a>
+  <div class="thumbnail">
+    <div class="thumb-wrapper">
+      <a href="#articles/<%= model.get('article').id %>/photos/<%= model.id %>/edit">
+        <img src="<%= model.get('photo').small.url %>" />
+      </a>
+    </div>
+  </div>
 <div class="labels">
   <% if (model.isCropped()) { %>
     <span class="label label-success">Cropped</span>
@@ -11,14 +15,14 @@
 
 <form class="well">
   <input name="caption" class="input-medium" type="text" placeholder="Caption" value="<%= model.escape('caption') %>" />
-  <input name="widescreenCaption" class="input-medium" type="text" placeholder="Caption as frontpage image" value="<%= model.escape('widescreenCaption') %>" />
+  <input name="widescreenCaption" class="input-medium" type="text" placeholder="Caption on frontpage" value="<%= model.escape('widescreenCaption') %>" />
   <label class="checkbox">
     <input name="useAsArticlePhoto" type="checkbox" <%= model.get('useAsArticlePhoto') ? 'checked' : '' %> />
     Show in right column?
   </label>
   <label class="checkbox">
     <input name="useAsFrontpagePhoto" type="checkbox" <%= model.get('useAsFrontpagePhoto') ? 'checked' : '' %> />
-    Show on front page? (photo must be cropped)
+    Show on front page? (must be cropped)
   </label>
 
   <div class="btn-toolbar">

@@ -41,12 +41,14 @@ class mkm.views.photos.NewPhotoView extends Backbone.View
       binaryReader.onload = ((theImg) =>
         return (evt) =>
           imageBinary = evt.target.result
-          fileName = encodeURIComponent(files[parsedFiles].fileName)
+          f = files[parsedFiles]
+          fileName = f.fileName or f.name
+          encodedFileName = encodeURIComponent(fileName)
           # the image seems to be ok, send it to the server
           image = encodeURIComponent($.base64Encode(imageBinary))
           postData =
             binary: image
-            fileName: fileName
+            fileName: encodedFileName
 
           parsedFiles++
 

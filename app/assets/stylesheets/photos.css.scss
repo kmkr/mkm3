@@ -87,7 +87,7 @@
 
 .smallEditablePhoto {
   .labels {
-    margin-top: 5px;
+    margin: 5px;
     text-align: center;
   }
 }
@@ -105,8 +105,8 @@
     display: none;
   }
 
-  .thumbnail {
-    height: 150px;
+  .thumb-wrapper {
+    height: 140px;
     overflow: hidden;
   }
 }
