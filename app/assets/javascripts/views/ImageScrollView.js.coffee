@@ -6,6 +6,7 @@ class mkm.views.ImageScrollView extends Backbone.View
   captionType: 'caption'
 
   initialize: (opts = {}) ->
+    console.log("initialized ImageScrollView med %o", opts)
     @link = opts.link if opts.link
     @captionType = opts.captionType if opts.captionType
     @nivoExtensions = opts.nivoExtensions
@@ -22,5 +23,6 @@ class mkm.views.ImageScrollView extends Backbone.View
 
   render: ->
     if @collection.length isnt 0
+      console.log("sender inn captiontype %o", @captionType)
       $(@el).html(@template({photos: @collection, link: @link, captionType: @captionType}))
     @
