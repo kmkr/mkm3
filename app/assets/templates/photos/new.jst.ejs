@@ -1,9 +1,16 @@
-<h1>New photo</h1>
+<ul class="breadcrumb">
+  <li>
+  <a href="#articles/<%= article.id %>"><%= article.escape('title') %></a> <span class="divider">/</span>
+  </li>
+  <li class="active">
+  <a href="#">New photo</a>
+  </li>
+</ul>
 
-<a href="#articles/<%= article.id %>" class="btn">
-  <i class="icon-arrow-left"></i>
-  Back to article
-</a>
+<h1 class="page-header">
+  New photo
+  <small>Multiple photos can be added for upload at the same time. No versions of IE are supported.</small>
+</h1>
 
 <div class="progress progress-info progress-striped">
   <div class="bar"></div>

@@ -58,7 +58,7 @@ class mkm.views.photos.SortableEditablePhotosView extends Backbone.View
     @$('.photos').sortable({opacity: 0.8}).bind('sortupdate', @updatePosition)
 
   render: ->
-    $(@el).html(@template)
+    $(@el).html(@template({article: @collection.article}))
     @renderPhotos()
     @makeSortable()
     @
