@@ -4,9 +4,7 @@
       <% if (link) { %>
       <a href="#articles/<%= photo.get('article').id %>">
       <% } %>
-      <% if (photo.id === 393) { console.log(photo); console.log(captionType); } %>
-      <% if (!photo.has(captionType) || photo.escape(captionType).length === 0) { captionType = 'caption'; } %>
-      <img src="<%= photo.get('photo').cropped.url %>" title="<%= photo.escape(captionType) %>" />
+      <img src="<%= photo.get('photo').cropped.url %>" title="<%= photo.escape(photo.escape(captionType) ? captionType : "caption") %>" />
     <% if (link) { %>
     </a>
     <% } %>
