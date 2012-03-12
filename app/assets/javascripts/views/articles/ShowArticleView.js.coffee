@@ -10,9 +10,10 @@ class mkm.views.articles.ShowArticleView extends Backbone.View
 
   leave: ->
     @model.unbind('change:published', @updatePublishedStatus)
+    clearTimeout(@timeout)
 
   updateFbContent: ->
-    setTimeout("FB.XFBML.parse()", 1000)
+    @timeout = setTimeout("FB.XFBML.parse()", 1000)
     $("meta[property='og:title']").attr('content', @model.escape('title'))
     if photo = @model.get('photos').at(0)
       $("meta[property='og:image']").attr('content', photo.get('photo').small.url)
