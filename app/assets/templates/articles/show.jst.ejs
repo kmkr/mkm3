@@ -10,7 +10,7 @@
       <% if (article.id < 13) { url = url.replace(/#articles/, "articles"); } %>
       <div class="fb-like" data-href="<%= url %>" data-send="false" data-layout="button_count" data-width="75" data-show-faces="false" data-action="recommend"></div>
     </div>
-      Dated <%= mkm.helpers.date.format(article.get('start_date')) %>.
+      <%= article.country().escape('title') %>, <%= mkm.helpers.date.format(article.get('start_date')) %>.
       <span class="publish-info">
         Not yet published
       </span>

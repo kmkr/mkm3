@@ -13,3 +13,5 @@ class mkm.models.Article extends Backbone.RelationalModel
   published: ->
     if @get('published') then true else false
 
+  country: ->
+    mkm.collections.countries.find((country) => console.log(_.indexOf(country.articles(), @)); _.indexOf(country.articles(), @) > -1)
