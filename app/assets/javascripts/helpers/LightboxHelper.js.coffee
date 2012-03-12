@@ -5,7 +5,8 @@ mkm.helpers.lightboxHelper = {
       prevEffect    : "fade"
       nextEffect    : "fade"
       openSpeed     : "fast"
-      closeSpeed     : "fast"
+      closeSpeed    : "fast"
+      type          : 'image'
       helpers:
         title:
           type: "inside"
