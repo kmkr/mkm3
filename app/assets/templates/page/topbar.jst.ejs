@@ -7,30 +7,31 @@
 
   <div class="wrapper">
     <ul>
-    <% for (var i = 0; i < continents.length; i++) { %>
-      <% var continent = continents[i]; %>
+    <% _.forEach(continents, function(continent) { %>
       <li>
         <%= continent.escape('title') %>
-        <b class="caret"></b>
-        <ul>
-      <% countries.filter(function(country) { %>
-        <% if (country.get('continent_id') === continent.get('id')) { %>
-          <li>
-          <%= country.escape('title') %>
+        <% var countries = continent.countries(); %>
+        <% if (countries.length > 0) { %>
+          <b class="caret"></b>
           <ul>
-            <% articles.filter(function(article) { %>
-              <% if (article.get('country_id') === country.get('id')) { %>
-                <li><a href="#articles/<%= article.get('id') %>"><%= article.escape('title') %></a></li>
-              <% } %>
+            <% _.forEach(countries, function(country) { %>
+              <% var articles = country.articles(); %>
+              <% if (articles.length > 0) { %>
+                <li>
+                  <%= country.escape('title') %>
+                  <ul>
+                    <% _.forEach(articles, function(article) { %>
+                      <li><a href="#articles/<%= article.get('id') %>"><%= article.escape('title') %></a></li>
+                    <% }); %>
 
+                  </ul>
+                </li>
+              <% } %>
             <% }); %>
           </ul>
-          </li>
         <% } %>
-      <% }); %>
+      </li>
+    <% }); %>
     </ul>
-    </li>
-  <% } %>
-  </ul>
-</div>
+  </div>
 </div>
