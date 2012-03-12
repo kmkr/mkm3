@@ -94,22 +94,22 @@
               display: list-item;
               text-transform: none;
               font-size: 0.8em;
-              padding: 10px 0;
-              height: 21px;
+              padding: 8px 0;
+              height: 20px;
 
               /* articles */
               ul {
                 display: none;
                 position: relative;
                 left: 137px;
-                top: -32px;
+                top: -30px;
                 width: 375px;
 
                 li {
                   cursor: pointer;
                   font-size: 0.8em;
-                  width: 365px;
-                  padding: 10px;
+                  width: 370px;
+                  padding: 8px 3px;
                   height: auto;
                 }
               }
