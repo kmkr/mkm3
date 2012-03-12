@@ -7,6 +7,7 @@ class mkm.views.articles.ShowArticleView extends Backbone.View
     _.extend(@, new mkm.helpers.ArticleMapHelper())
     @model.bind('change:published', @updatePublishedStatus)
     @displayPhoto = opts.displayPhoto
+    @title = @model.get('title')
 
   leave: ->
     @model.unbind('change:published', @updatePublishedStatus)
