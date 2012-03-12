@@ -94,7 +94,7 @@
               display: list-item;
               text-transform: none;
               font-size: 0.8em;
-              padding: 4px 0;
+              padding: 10px 0;
               height: 21px;
 
               /* articles */
@@ -102,15 +102,14 @@
                 display: none;
                 position: relative;
                 left: 137px;
-                top: -26px;
+                top: -32px;
                 width: 375px;
 
                 li {
                   cursor: pointer;
                   font-size: 0.8em;
                   width: 365px;
-                  padding-top: 5px;
-                  padding-left: 10px;
+                  padding: 10px;
                   height: auto;
                 }
               }
