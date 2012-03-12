@@ -41,7 +41,7 @@ class mkm.views.articles.ShowArticleView extends Backbone.View
 
 
   initImageScroll: ->
-    @imgsc = new mkm.views.ImageScrollView({collection: new mkm.collections.PhotoCollection(@model.get('photos').onlyCropped()) })
+    @imgsc = new mkm.views.ImageScrollView({collection: @model.get('photos').onlyCropped() })
     @views.push(@imgsc)
     @$('.imagescroll').html(@imgsc.render().el)
 
@@ -51,7 +51,7 @@ class mkm.views.articles.ShowArticleView extends Backbone.View
     @$('.photos').html(thumbnailPhotoView.render().el)
 
   initSmallThumbs: ->
-    thumbnailMatrixView = new mkm.views.photos.ThumbnailMatrixView({ collection: new mkm.collections.PhotoCollection(@model.get('photos').withoutArticlePhotos())})
+    thumbnailMatrixView = new mkm.views.photos.ThumbnailMatrixView({ collection: @model.get('photos').withoutArticlePhotos()})
     @views.push(thumbnailMatrixView)
     @$('.thumbmatrix').html(thumbnailMatrixView.render().el)
 

@@ -7,7 +7,7 @@
 
   <div class="wrapper">
     <ul>
-    <% _.forEach(continents, function(continent) { %>
+    <% continents.forEach(function(continent) { %>
       <li>
         <%= continent.escape('title') %>
         <% var countries = continent.countries(); %>

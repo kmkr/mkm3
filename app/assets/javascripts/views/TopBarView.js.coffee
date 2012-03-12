@@ -37,9 +37,7 @@ class mkm.views.TopBarView extends Backbone.View
 
   render: =>
     $(@el).html(@template({
-      countries: mkm.collections.countries.models
-      continents: mkm.collections.continents.models
-      articles: mkm.collections.articles.models
+      continents: mkm.collections.continents
     }))
     @renderMenu()
     @addClickListeners()
