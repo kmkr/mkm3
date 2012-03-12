@@ -11,7 +11,7 @@
       <li>
         <%= continent.escape('title') %>
         <% var countries = continent.countries(); %>
-        <% if (countries.length > 0) { %>
+        <% if (countries.length > 0 && continent.hasArticles()) { %>
           <b class="caret"></b>
           <ul>
             <% _.forEach(countries, function(country) { %>
