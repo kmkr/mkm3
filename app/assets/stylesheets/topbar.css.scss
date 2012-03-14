@@ -18,9 +18,20 @@
     left: 40px;
     right: 40px;
     top: 5px;
-    background: #EEE;
-    background: -webkit-gradient(linear, left top, left bottom, from(#F8F8F8), to(#f6f8ff));
-    background: -moz-linear-gradient(top, #F8F8F8, #f6f8ff);
+    background: #f8f8f8;
+background-image: linear-gradient(bottom, rgb(240,86,62) 5%, rgb(248,248,248) 100%);
+background-image: -o-linear-gradient(bottom, rgb(240,86,62) 5%, rgb(248,248,248) 100%);
+background-image: -moz-linear-gradient(bottom, rgb(240,86,62) 5%, rgb(248,248,248) 100%);
+background-image: -webkit-linear-gradient(bottom, rgb(240,86,62) 5%, rgb(248,248,248) 100%);
+background-image: -ms-linear-gradient(bottom, rgb(240,86,62) 5%, rgb(248,248,248) 100%);
+
+background-image: -webkit-gradient(
+  linear,
+  left bottom,
+  left top,
+  color-stop(0.05, rgb(240,86,62)),
+  color-stop(1, rgb(248,248,248))
+);
     border: 1px solid #AAA;
     border-top: 1px solid #BBB;
     border-bottom: 1px solid #888;
@@ -34,6 +45,15 @@
     .logo {
       height: 40px;
       float: left;
+      a {
+        letter-spacing: -1px;
+        color: #888;
+        font-size: 25px;
+        font-weight: bold;
+        position: relative;
+        top: 8px;
+        left: 10px;
+      } 
     }
 
     div.wrapper {
