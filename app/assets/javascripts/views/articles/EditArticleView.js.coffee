@@ -20,7 +20,7 @@ class mkm.views.articles.EditArticleView extends Backbone.View
     }, {
       success: =>
         mkm.collections.articles.add(@model) unless mkm.collections.articles.any((article) => @model.id == article.id)
-        mkm.helpers.flash('info', "Article successfully saved")
+        mkm.helpers.flash('success', "Article successfully saved")
         mkm.routers.router.navigate("articles/#{@model.id}", true)
       error: (model, resp) =>
         mkm.helpers.flash('error', "Unable to save article (#{resp.statusText})")

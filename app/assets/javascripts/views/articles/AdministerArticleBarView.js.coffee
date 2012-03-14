@@ -3,7 +3,7 @@ class mkm.views.articles.AdministerArticleBarView extends Backbone.View
 
   initialize: ->
     @model.bind('destroy', ->
-      mkm.helpers.flash('info', "Article removed")
+      mkm.helpers.flash('success', "Article removed successfully")
       mkm.routers.router.navigate("", true)
     )
 
@@ -43,7 +43,7 @@ class mkm.views.articles.AdministerArticleBarView extends Backbone.View
       published: new Date()
     }, {
       success: =>
-        mkm.helpers.flash('info', 'Article is published')
+        mkm.helpers.flash('success', 'Article is now published!')
       wait: true
     })
 

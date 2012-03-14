@@ -36,7 +36,7 @@ class mkm.views.photos.SmallEditablePhotoView extends Backbone.View
       useAsFrontpagePhoto: @$('[name=useAsFrontpagePhoto]').is(':checked')
     }, {
       success: =>
-        mkm.helpers.flash('info' ,"Successfully updated photo")
+        mkm.helpers.flash('success' ,"Successfully updated photo")
         @toggleLoad()
       error: =>
         mkm.helpers.flash('error', "Error while updating photo.")
@@ -49,7 +49,7 @@ class mkm.views.photos.SmallEditablePhotoView extends Backbone.View
     @model.destroy({
       wait: true
       success: =>
-        mkm.helpers.flash('info' ,"Successfully deleted photo")
+        mkm.helpers.flash('success' ,"Successfully deleted photo")
         @toggleLoad()
       error: =>
         mkm.helpers.flash('error', "Unable to delete photo.")

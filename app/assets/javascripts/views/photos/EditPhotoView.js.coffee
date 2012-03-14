@@ -22,7 +22,7 @@ class mkm.views.photos.EditPhotoView extends Backbone.View
       crop_w: null
     }, {
       success: =>
-        mkm.helpers.flash('info' ,"Successfully removed crop.")
+        mkm.helpers.flash('success' ,"Successfully removed crop.")
         @leave()
         @render()
         @init()
@@ -45,7 +45,7 @@ class mkm.views.photos.EditPhotoView extends Backbone.View
       crop_w: @w
     }, {
       success: =>
-        mkm.helpers.flash('info' ,"Successfully cropped photo")
+        mkm.helpers.flash('success' ,"Successfully cropped photo")
         @toggleLoad()
       error: ->
         mkm.helpers.flash('error', "Error while uploading cropped version.")

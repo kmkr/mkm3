@@ -21,7 +21,7 @@ class mkm.views.photos.SortableEditablePhotosView extends Backbone.View
           @$('.bar').width("#{(++completed / total) * 100}%")
           @collection.sort()
           if completed is total
-            mkm.helpers.flash('info', 'Positions updated successfully')
+            mkm.helpers.flash('success', 'Positions updated successfully')
             @$('.save-all-wrapper').hide('fade', -> $(@).width('0'))
 
         error: ->
