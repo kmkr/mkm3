@@ -28,8 +28,8 @@ class mkm.views.articles.ShowArticleView extends Backbone.View
     @$('.publish-info').html(text)
 
   initLightbox: ->
+    numExcludedFromMatrix = @model.get('photos').articlePhotos().length
     mkm.helpers.lightboxHelper.init(@$('.thumb-wrapper > a'), {
-      numExcludedFromMatrix = @model.get('photos').articlePhotos().length
       afterShow: (lightbox) =>
         @thumbnailMatrixView.paginateToPhoto(lightbox.index - numExcludedFromMatrix)
       beforeShow: (lightbox) =>
