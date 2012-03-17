@@ -8,6 +8,9 @@
     height: 35px;
     background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 1)), to(rgba(255, 255, 255, 0.5)));
     background: -moz-linear-gradient(top, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+    background: -o-linear-gradient(top, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+    background: -ms-linear-gradient(top, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+    background: linear-gradient(top, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
   }
 
   .flybar {
@@ -19,28 +22,29 @@
     right: 40px;
     top: 5px;
     background: #f8f8f8;
-    background-image: linear-gradient(bottom, rgb(255,249,229) 23%, rgb(255,216,138) 72%);
-    background-image: -o-linear-gradient(bottom, rgb(255,249,229) 23%, rgb(255,216,138) 72%);
-    background-image: -moz-linear-gradient(bottom, rgb(255,249,229) 23%, rgb(255,216,138) 72%);
-    background-image: -webkit-linear-gradient(bottom, rgb(255,249,229) 23%, rgb(255,216,138) 72%);
-    background-image: -ms-linear-gradient(bottom, rgb(255,249,229) 23%, rgb(255,216,138) 72%);
+    background-image: linear-gradient(bottom, rgb(201,233,255) 100%, rgb(242,248,252) 47%);
+    background-image: -o-linear-gradient(bottom, rgb(201,233,255) 100%, rgb(242,248,252) 47%);
+    background-image: -moz-linear-gradient(bottom, rgb(201,233,255) 100%, rgb(242,248,252) 47%);
+    background-image: -webkit-linear-gradient(bottom, rgb(201,233,255) 100%, rgb(242,248,252) 47%);
+    background-image: -ms-linear-gradient(bottom, rgb(201,233,255) 100%, rgb(242,248,252) 47%);
 
     background-image: -webkit-gradient(
       linear,
         left bottom,
           left top,
-            color-stop(0.23, rgb(255,249,229)),
-              color-stop(0.72, rgb(255,216,138))
+            color-stop(1, rgb(201,233,255)),
+              color-stop(0.47, rgb(242,248,252))
               );
+
     border: 1px solid #AAA;
     border-top: 1px solid #BBB;
     border-bottom: 1px solid #888;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     border-radius: 3px;
-    -webkit-box-shadow: 0 3px 8px rgba(0,0,0,0.1);
-    -moz-box-shadow: 0 3px 8px rgba(0,0,0,0.1);
-    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+    -webkit-box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+    -moz-box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+    box-shadow: 0 3px 8px rgba(0,0,0,0.2);
 
     .logo {
       height: 40px;
