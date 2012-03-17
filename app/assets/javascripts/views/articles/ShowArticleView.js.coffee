@@ -29,8 +29,9 @@ class mkm.views.articles.ShowArticleView extends Backbone.View
 
   initLightbox: ->
     mkm.helpers.lightboxHelper.init(@$('.thumb-wrapper > a'), {
+      numExcludedFromMatrix = @model.get('photos').articlePhotos().length
       afterShow: (lightbox) =>
-        #@paginate(Math.ceil((lightbox.index + 1) / (@columns*@rows)))
+        @thumbnailMatrixView.paginateToPhoto(lightbox.index - numExcludedFromMatrix)
       beforeShow: (lightbox) =>
         id = $(lightbox.element).attr('data-id')
         p = @model.get('photos').get(id)
@@ -51,9 +52,9 @@ class mkm.views.articles.ShowArticleView extends Backbone.View
     @$('.photos').html(thumbnailPhotoView.render().el)
 
   initSmallThumbs: ->
-    thumbnailMatrixView = new mkm.views.photos.ThumbnailMatrixView({ collection: @model.get('photos').withoutArticlePhotos()})
-    @views.push(thumbnailMatrixView)
-    @$('.thumbmatrix').html(thumbnailMatrixView.render().el)
+    @thumbnailMatrixView = new mkm.views.photos.ThumbnailMatrixView({ collection: @model.get('photos').withoutArticlePhotos()})
+    @views.push(@thumbnailMatrixView)
+    @$('.thumbmatrix').html(@thumbnailMatrixView.render().el)
 
   initAdminbar: ->
     adminBarView = new mkm.views.articles.AdministerArticleBarView({ model: @model })

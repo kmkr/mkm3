@@ -42,6 +42,9 @@ class mkm.views.photos.ThumbnailMatrixView extends Backbone.View
     @$('.pagination li').removeClass('active')
     @$('.pagination li').eq(index).addClass('active')
 
+  paginateToPhoto: (index) ->
+    @paginate(Math.ceil((index + 1) / (@column * @rows)))
+
   createPage: (index) ->
     p = $('<div>').addClass('page').attr('data-index', index)
     ul = $('<ul>').addClass('thumbnails')
