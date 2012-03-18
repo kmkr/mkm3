@@ -28,9 +28,7 @@
     background: -o-linear-gradient(top, #b31346, #cd3467);
     background: linear-gradient(top, #b31346, #cd3467);
 
-    border: 1px solid #AAA;
-    border-top: 1px solid #BBB;
-    border-bottom: 1px solid #888;
+    border: 1px solid #870c34;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     border-radius: 3px;
@@ -132,12 +130,12 @@
 
         > li {
           color: #ddd;
-          border-right: 1px solid #AAA;
+          border-right: 1px solid #870c34;
           &:hover {
             background: #cd3467;
           }
           &:first-child {
-            border-left: 1px solid #AAA;
+            border-left: 1px solid #870c34;
           }
         }
 
