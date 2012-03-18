@@ -3,12 +3,17 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 body {
   padding-top: 50px; /* to make the container go all the way to the bottom of the topbar */
+  background-color: #fbfbfb;
 
   footer {
-    margin-top: 60px;
+    margin-top: 25px;
     border-top: 1px solid #ccc;
     padding-top: 5px;
     opacity: 0.7;
+    margin-bottom: 30px;
+    p {
+      font-size: 0.9em;
+    }
   }
 
   .loader {
@@ -17,10 +22,6 @@ body {
 
   .clear-both {
     clear: both;
-  }
-
-  footer {
-    margin-bottom: 30px;
   }
 
   #map {
@@ -47,6 +48,18 @@ body {
   .nivoSlider {
     width: 940px;
     height: 376px;
+  }
+
+  .padding-wrapper {
+    padding: 10px;
+    background: #fff;
+    -moz-box-shadow: 0 0 1px #888;
+    -webkit-box-shadow: 0 0 1px #888;
+    box-shadow: 0 0 1px #888;
+    border-radius: 3px;
+    width: 960px;
+    margin: 10px auto;
+
   }
 
 }

@@ -1,12 +1,18 @@
 .view-topbar {
+  position: fixed;
+  top: 9px;
+  left: 0;
+  right: 0;
+  height: 40px;
+
   .fadeout {
-    z-index: 50;
     position: fixed;
+    z-index: 50;
     left: 0;
     top: 0;
     right: 0;
-    height: 35px;
-    background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 1)), to(rgba(255, 255, 255, 0.5)));
+    height: 40px;
+    background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 1)), to(rgba(255, 255, 255, 0)));
     background: -moz-linear-gradient(top, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
     background: -o-linear-gradient(top, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
     background: -ms-linear-gradient(top, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
@@ -14,34 +20,29 @@
   }
 
   .flybar {
-    position: fixed;
-    z-index: 100;
+    position: relative;
+    z-index: 1000000;
     height: 35px;
-    min-width: 490px;
-    left: 40px;
-    right: 40px;
-    top: 5px;
-    background: #cd3467;
-    background: -webkit-gradient(linear, left top, left bottom, from(#b31346), to(#cd3467));
-    background: -moz-linear-gradient(top, #b31346, #cd3467);
-    background: -ms-linear-gradient(top, #b31346, #cd3467);
-    background: -o-linear-gradient(top, #b31346, #cd3467);
-    background: linear-gradient(top, #b31346, #cd3467);
+    margin: 0 auto;
+    width: 980px;
 
-    border: 1px solid #870c34;
+    background: #FAFAFA;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     border-radius: 3px;
-    -webkit-box-shadow: 0 3px 8px rgba(0,0,0,0.2);
-    -moz-box-shadow: 0 3px 8px rgba(0,0,0,0.2);
-    box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+    -moz-box-shadow: 0 0 2px #888;
+    -webkit-box-shadow: 0 0 2px #888;
+    box-shadow: 0 0 2px #888;
 
     .logo {
       height: 40px;
       float: left;
       a {
+        span {
+          color: #FEA5BF;
+        }
         letter-spacing: -2px;
-        color: #870c34;
+        color: #888;
         font-size: 25px;
         font-weight: bold;
         position: relative;
@@ -60,8 +61,6 @@
         padding: 0;
 
         li:hover {
-          background: #fbf8fa;
-          opacity: 1;
         }
 
         li {
@@ -83,20 +82,18 @@
             background: #fff;
             opacity: 0.98;
             top: 35px;
-            border: 1px solid #aaa;
             -webkit-border-radius: 3px;
             -moz-border-radius: 3px;
             border-radius: 3px;
-            -webkit-box-shadow: 0 3px 5px rgba(0,0,0,0.2);
-            -moz-box-shadow: 0 3px 5px rgba(0,0,0,0.2);
-            box-shadow: 0 3px 5px rgba(0,0,0,0.2);
+            -webkit-box-shadow: 0 0px 2px #888;
+            -moz-box-shadow: 0 0 2px #888;
+            box-shadow: 0 0 2px #888;
 
             li:last-child {
               border-bottom: 0;
             }
             li {
-              color: #333;
-              border-bottom: 1px solid #aaa;
+              border-bottom: 1px solid #ddd;
               display: list-item;
               text-transform: none;
               font-size: 0.8em;
@@ -125,13 +122,9 @@
         /* continent li only */
 
         > li {
-          color: #ddd;
-          border-right: 1px solid #870c34;
-          &:hover {
-            background: #cd3467;
-          }
-          &:first-child {
-            border-left: 1px solid #870c34;
+          border-right: 1px solid #bbb;
+          &:last-child {
+            border-right: 0;
           }
         }
 
