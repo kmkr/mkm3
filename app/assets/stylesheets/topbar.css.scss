@@ -39,7 +39,7 @@
       float: left;
       a {
         span {
-          color: #FEA5BF;
+          color: #e56265;
         }
         letter-spacing: -2px;
         color: #888;
@@ -60,12 +60,12 @@
         width: 700px;
         padding: 0;
 
-        li:hover {
-          color: #FEA5BF;
+        > li:hover {
+          color: #d90d12;
         }
 
         li {
-          color: #7b7b7b;
+          color: #585858;
           font-family: 'Port Lligat Slab';
           width: 135px;
           padding: 5px 0 0 0;
