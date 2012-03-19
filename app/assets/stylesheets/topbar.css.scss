@@ -26,7 +26,7 @@
     margin: 0 auto;
     width: 980px;
 
-    background: #FAFAFA;
+    background: #f3f3f3;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     border-radius: 3px;
@@ -61,9 +61,11 @@
         padding: 0;
 
         li:hover {
+          color: #FEA5BF;
         }
 
         li {
+          color: #7b7b7b;
           font-family: 'Port Lligat Slab';
           width: 135px;
           padding: 5px 0 0 0;
