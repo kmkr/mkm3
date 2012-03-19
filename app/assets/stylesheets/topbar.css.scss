@@ -1,5 +1,6 @@
 .view-topbar {
   position: fixed;
+  z-index: 500;
   top: 9px;
   left: 0;
   right: 0;
@@ -21,7 +22,7 @@
 
   .flybar {
     position: relative;
-    z-index: 1000000;
+    z-index: 2000;
     height: 35px;
     margin: 0 auto;
     width: 980px;
