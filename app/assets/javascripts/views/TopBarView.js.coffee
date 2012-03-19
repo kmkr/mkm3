@@ -26,7 +26,7 @@ class mkm.views.TopBarView extends Backbone.View
       .mouseleave(->
         timeout = setTimeout(=>
           $(@).removeClass('active').find('> ul').fadeOut(120)
-        , 140)
+        , 100)
         $(@).data('timeout', timeout)
       )
 
