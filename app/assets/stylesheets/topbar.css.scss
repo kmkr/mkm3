@@ -61,11 +61,10 @@
         width: 700px;
         padding: 0;
 
-        li:hover {
-          color: #fd6993;
-        }
-
         li {
+          &.active {
+            color: #fd6993;
+          }
           color: #585858;
           font-family: 'Port Lligat Slab';
           width: 135px;

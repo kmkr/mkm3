@@ -11,22 +11,22 @@ class mkm.views.TopBarView extends Backbone.View
   renderMenu: ->
     @$('ul:nth-child(1) > li').mouseenter(->
       clearTimeout($(@).data('timeout')) if $(@).data('timeout')
-      $(@).find('> ul').slideDown(120)
+      $(@).addClass('active').find('> ul').slideDown(120)
     ).mouseleave(->
       timeout = setTimeout(=>
-        $(@).find('> ul').slideUp(90)
-      , 100)
+        $(@).removeClass('active').find('> ul').slideUp(90)
+      , 140)
       $(@).data('timeout', timeout)
     )
 
     
     @$('ul > li > ul > li').mouseenter(->
       clearTimeout($(@).data('timeout')) if $(@).data('timeout')
-      $(@).find('> ul').fadeIn(160))
+      $(@).addClass('active').find('> ul').fadeIn(160))
       .mouseleave(->
         timeout = setTimeout(=>
-          $(@).find('> ul').fadeOut(120)
-        , 100)
+          $(@).removeClass('active').find('> ul').fadeOut(120)
+        , 140)
         $(@).data('timeout', timeout)
       )
 

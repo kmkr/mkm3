@@ -8,7 +8,7 @@
   <div class="wrapper">
     <ul>
     <% continents.forEach(function(continent) { %>
-      <li>
+      <li class="dropdown">
         <%= continent.escape('title') %>
         <% var countries = continent.countries(); %>
         <% if (countries.length > 0 && continent.hasArticles()) { %>
