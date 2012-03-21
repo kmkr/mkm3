@@ -68,6 +68,10 @@
       .caption {
         display: none;
       }
+
+      &:hover {
+        border-color: #FD6993;
+      }
     }
 
   }
