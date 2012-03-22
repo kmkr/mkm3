@@ -15,12 +15,12 @@ class ArticlesController < ApplicationController
 
   def show
     @article = Article.includes(:photos).find(params[:id])
+    logger.warn("Inne i show Header: '#{request.env["HTTP_USER_AGENT"]}'")
 
     if @article.is_published? or user_signed_in
       respond_to do |format|
         format.json { render :json => @article }
         format.html {
-          logger.warn request.env["HTTP_USER_AGENT"]
           puts request.env["HTTP_USER_AGENT"]
           if request.env["HTTP_USER_AGENT"].match(/facebookexternalhit/)
             logger.warn "render show"
