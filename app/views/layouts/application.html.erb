@@ -26,8 +26,11 @@
     <meta property="og:site_name" content="MKM" />
     <meta property="fb:admins" content="799665505" />
 
-    <meta property="og:title" content="" />
-    <meta property="og:image" content="" />
+    <% title, image_url = "", "" %>
+    <% title = @article.title if @article %>
+    <% image_url = @article.photos.first.photo.small if @article and @article.photos.length > 0 %>
+    <meta property="og:title" content="<%= title %>" />
+    <meta property="og:image" content="<%= image_url %>" />
 
   </head>
   <body>

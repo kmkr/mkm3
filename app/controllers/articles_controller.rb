@@ -1,7 +1,7 @@
 class ArticlesController < ApplicationController
   respond_to :json
   respond_to :html, :only => :show
-  before_filter :authenticate_user!, :except => :index
+  before_filter :authenticate_user!, :except => [ :index, :show ]
 
   def index
     if user_signed_in?
@@ -14,12 +14,18 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    article = Article.includes(:photos).find(params[:id])
+    @article = Article.includes(:photos).find(params[:id])
 
-    if article.is_published? or user_signed_in
+    if @article.is_published? or user_signed_in
       respond_to do |format|
-        format.json { render :json => article }
-        format.html { redirect_to "#articles/#{article.id}" }
+        format.json { render :json => @article }
+        format.html {
+          if request.env["HTTP_USER_AGENT"].match(/facebookexternalhit/)
+            render
+          else
+            redirect_to "#articles/#{@article.id}"
+          end
+        }
       end
     end
   end
