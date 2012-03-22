@@ -21,7 +21,7 @@ class ArticlesController < ApplicationController
         format.json { render :json => @article }
         format.html {
           if request.env["HTTP_USER_AGENT"].match(/facebookexternalhit/)
-            render
+            render :show
           else
             redirect_to "#articles/#{@article.id}"
           end
