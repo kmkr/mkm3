@@ -15,21 +15,17 @@ class ArticlesController < ApplicationController
 
   def show
     @article = Article.includes(:photos).find(params[:id])
-    logger.warn("Inne i show Header: '#{request.env["HTTP_USER_AGENT"]}'")
 
     if @article.is_published? or user_signed_in
+      # fb scraping /articles/id
+      if request.env["HTTP_USER_AGENT"].match(/facebookexternalhit/) or 1==1
+        render :show
+        return
+      end
+
       respond_to do |format|
         format.json { render :json => @article }
-        format.html {
-          puts request.env["HTTP_USER_AGENT"]
-          if request.env["HTTP_USER_AGENT"].match(/facebookexternalhit/)
-            logger.warn "render show"
-            render :show
-          else
-            logger.warn "render redirect"
-            redirect_to "#articles/#{@article.id}"
-          end
-        }
+        format.html { redirect_to "#articles/#{@article.id}" }
       end
     end
   end
