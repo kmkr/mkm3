@@ -22,17 +22,18 @@
     </style>
     <![endif]-->
 
-    <meta property="og:type" content="article" />
     <meta property="og:site_name" content="MKM" />
     <meta property="fb:admins" content="799665505" />
 
-    <% title, image_url, description, url = "MKM", "", "MKM Travel blog", root_url %>
+    <% title, image_url, description, url, content = "MKM", "", "MKM Travel blog", root_url, 'page' %>
     <% if @article %>
       <% title = @article.title %>
       <% image_url = @article.photos.first.photo.small if @article.photos.length > 0 %>
       <% description = truncate(@article.body, :length => 270) %>
       <% url = article_url(@article) %>
+      <% content = 'article' %>
     <% end %>
+    <meta property="og:type" content="<%= content %>" />
     <meta property="og:title" content="<%= title %>" />
     <meta property="og:image" content="<%= image_url %>" />
     <meta property="og:description" content="<%= description %>" />
