@@ -26,13 +26,17 @@
     <meta property="og:site_name" content="MKM" />
     <meta property="fb:admins" content="799665505" />
 
-    <% title, image_url, description = "", "", "" %>
-    <% title = @article.title if @article %>
-    <% image_url = @article.photos.first.photo.small if @article and @article.photos.length > 0 %>
-    <% description = truncate(@article.body, :length => 270) if @article %>
+    <% title, image_url, description, url = "", "", "", "" %>
+    <% if @article %>
+      <% title = @article.title %>
+      <% image_url = @article.photos.first.photo.small if @article.photos.length > 0 %>
+      <% description = truncate(@article.body, :length => 270) %>
+      <% url = article_url(@article) %>
+    <% end %>
     <meta property="og:title" content="<%= title %>" />
     <meta property="og:image" content="<%= image_url %>" />
     <meta property="og:description" content="<%= description %>" />
+    <meta property="og:url" content="<%= url %>" />
 
   </head>
   <body>

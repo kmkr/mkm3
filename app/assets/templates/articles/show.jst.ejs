@@ -6,8 +6,7 @@
 
     <small>
     <div class="pull-right">
-      <% var url = "http://www.mkm.tc/#articles/" + article.id; %>
-      <% if (article.id === 8 || article.id === 9 || article.id === 10 || article.id === 11) { url = url.replace(/#articles/, "articles"); } %>
+      <% var url = "http://www.mkm.tc/articles/" + article.id; %>
       <div class="fb-like" data-href="<%= url %>" data-send="false" data-layout="button_count" data-width="75" data-show-faces="false" data-action="recommend"></div>
     </div>
       <%= article.country().escape('title') %>, <%= mkm.helpers.date.format(article.get('start_date')) %>.
