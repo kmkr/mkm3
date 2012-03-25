@@ -2,7 +2,7 @@
   <div class="nivoSlider">
     <% photos.forEach(function(photo) { %>
       <% if (link) { %>
-      <a href="#articles/<%= photo.get('article').id %>">
+      <a href="/articles/<%= photo.get('article').id %>">
       <% } %>
       <img src="<%= photo.get('photo').cropped.url %>" title="<%= photo.escape(photo.escape(captionType) ? captionType : "caption") %>" />
     <% if (link) { %>

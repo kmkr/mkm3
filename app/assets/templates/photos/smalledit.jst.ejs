@@ -1,7 +1,7 @@
 <div data-photo-id="<%= model.id %>">
   <div class="thumbnail">
     <div class="thumb-wrapper">
-      <a href="#articles/<%= model.get('article').id %>/photos/<%= model.id %>/edit">
+      <a href="/articles/<%= model.get('article').id %>/photos/<%= model.id %>/edit">
         <img src="<%= model.get('photo').small.url %>" />
       </a>
     </div>
@@ -31,7 +31,7 @@
         <i class="icon-ok-circle"></i>
         Save
       </button>
-      <a href="#articles/<%= model.get('article').id %>/photos/<%= model.id %>/edit" class="btn btn-mini">
+      <a href="/articles/<%= model.get('article').id %>/photos/<%= model.id %>/edit" class="btn btn-mini">
         <i class="icon-resize-small"></i>
         Crop
       </a>

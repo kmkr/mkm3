@@ -52,6 +52,16 @@
       <div class="content">
           <div id="alerts"></div>
           <div id="page-content">
+            <script type="text/javascript">
+$(function() {
+    mkm.collections.articles = new mkm.collections.ArticleCollection(<%= raw @articles %>);
+    mkm.collections.countries = new mkm.collections.CountryCollection(<%= raw @countries %>);
+    mkm.collections.continents = new mkm.collections.ContinentCollection(<%= raw @continentz %>);
+    mkm.routers.router = new mkm.routers.AppRouter();
+    Backbone.history.start({pushState: true})
+    });
+            </script>
+            <%= javascript_include_tag "/backbone_pushstate_router.js" %>
             <%= yield %>
           </div>
       </div>
@@ -60,24 +70,24 @@
 
       <footer>
         <% if user_signed_in? %>
-          <%= link_to '#articles/new', :class => 'btn btn-mini' do %>
+          <%= link_to '/articles/new', :class => 'btn btn-mini' do %>
             <i class="icon-pencil"></i>
             New article
           <% end %>
-          <%= link_to '#countries/new', :class => 'btn btn-mini' do %>
+          <%= link_to '/countries/new', :class => 'btn btn-mini' do %>
             <i class="icon-map-marker"></i>
             New country
           <% end %>
-          <%= link_to '#countries', :class => 'btn btn-mini' do %>
+          <%= link_to '/countries', :class => 'btn btn-mini' do %>
             <i class="icon-list"></i>
             Show and edit countries
           <% end %>
-          <%= link_to destroy_user_session_path, :class => 'btn btn-mini', :method => :delete do %>
+          <%= link_to destroy_user_session_path, :class => 'btn btn-mini new-pageload', :method => :delete do %>
             <i class="icon-remove-circle"></i>
             Log out
           <% end %>
         <% else %>
-          <%= link_to new_user_session_path, :class => 'btn btn-mini' do %>
+          <%= link_to new_user_session_path, :class => 'btn btn-mini new-pageload' do %>
             <i class="icon-lock"></i>
             Log in
           <% end %>
@@ -90,7 +100,7 @@
         your own wish. However, give credit to the original author(s) where
         it's fair and appropriate. Photographs are not affected by the same
         license,
-        please <a href="#contact">contact us</a> if you want to use any of the
+        please <a href="/contact">contact us</a> if you want to use any of the
         photographs. 
       </footer>
 

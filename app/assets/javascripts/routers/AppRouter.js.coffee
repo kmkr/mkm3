@@ -13,6 +13,7 @@ class mkm.routers.AppRouter extends Backbone.Router
     "countries/new"           : "newCountry"
     "countries"               : "showCountries"
     "contact"                 : "contact"
+    "users/sign_in"           : "signIn"
     "*path"                   : "notFound"
 
   index: ->
@@ -64,6 +65,9 @@ class mkm.routers.AppRouter extends Backbone.Router
   contact: ->
     @swap(new mkm.views.ContactUsView())
 
+  signIn: ->
+    @swap(new mkm.views.SignInView())
+
   swap: (newView) ->
     mkm.helpers.flash('clear')
     @view.leave() if @view?.leave
@@ -78,8 +82,6 @@ class mkm.routers.AppRouter extends Backbone.Router
     title = "MKM"
     title += " :: #{view.title}" if view.title
     title
-
-
 
   _getModel: (key, id, fallback) ->
     if model = mkm.collections[key].get(id)

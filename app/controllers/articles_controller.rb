@@ -25,7 +25,7 @@ class ArticlesController < ApplicationController
 
       respond_to do |format|
         format.json { render :json => @article }
-        format.html { redirect_to "#articles/#{@article.id}" }
+        format.html
       end
     end
   end

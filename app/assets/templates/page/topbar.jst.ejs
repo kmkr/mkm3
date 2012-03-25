@@ -2,7 +2,7 @@
 
 <div class="flybar">
   <span class="logo">
-    <a href="#"><span>M</span>KM</a>
+    <a href="/"><span>M</span>KM</a>
   </span>
 
   <div class="wrapper">
@@ -21,7 +21,7 @@
                   <%= country.escape('title') %>
                   <ul>
                     <% _.forEach(articles, function(article) { %>
-                      <li><a href="#articles/<%= article.get('id') %>"><%= article.escape('title') %></a></li>
+                      <li><a href="/articles/<%= article.get('id') %>"><%= article.escape('title') %></a></li>
                     <% }); %>
 
                   </ul>

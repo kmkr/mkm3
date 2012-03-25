@@ -1,0 +1,29 @@
+<h1 class="page-header">Sign in</h1>
+
+<form action="/users/sign_in" class="new_user form-horizontal" id="new_user" method="post">
+  <div class="control-group">
+    <label class="control-label" for="user_email">Email</label>
+    <div class="controls">
+      <input id="user_email" name="user[email]" size="30" type="email" />
+    </div>
+  </div>
+
+  <div class="control-group">
+    <label class="control-label" for="user_password">Password</label>
+    <div class="controls">
+      <input id="user_password" name="user[password]" size="30" type="password" />
+    </div>
+  </div>
+
+  <div class="control-group">
+    <label class="control-label" for="user_remember_me">Remember me</label>
+    <input name="user[remember_me]" type="hidden" value="0">
+    <div class="controls">
+      <input id="user_remember_me" name="user[remember_me]" type="checkbox" value="1">
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <input name="commit" type="submit" class="btn btn-primary" value="Sign in">
+  </div>
+</form>
