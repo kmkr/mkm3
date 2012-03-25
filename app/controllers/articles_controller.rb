@@ -18,7 +18,7 @@ class ArticlesController < ApplicationController
 
     if @article.is_published? or user_signed_in
       # fb scraping /articles/id
-      if request.env["HTTP_USER_AGENT"].match(/facebookexternalhit/) or 1==1
+      if request.env["HTTP_USER_AGENT"].match(/facebookexternalhit/)
         render :show
         return
       end
