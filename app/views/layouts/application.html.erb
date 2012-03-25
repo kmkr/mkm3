@@ -26,7 +26,7 @@
     <meta property="og:site_name" content="MKM" />
     <meta property="fb:admins" content="799665505" />
 
-    <% title, image_url, description, url = "MKM", "", "MKM Travel blog", root_path %>
+    <% title, image_url, description, url = "MKM", "", "MKM Travel blog", root_url %>
     <% if @article %>
       <% title = @article.title %>
       <% image_url = @article.photos.first.photo.small if @article.photos.length > 0 %>
