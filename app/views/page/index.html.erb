@@ -1,9 +1,10 @@
 <script type="text/javascript">
-function() {
-  if (var match = window.location.hash.match(/#articles\/(\d+)/)) {
-    window.location = "/articles/" + match[1];
+(function () {
+  var match;
+  if (match = window.location.hash.match(/#articles\/(\d+)/)) {
+    $("meta[property='og:title']").attr("content", "En tittel");
   }
-}();
+})();
 $(function() {
   mkm.collections.articles = new mkm.collections.ArticleCollection(<%= raw @articles %>)
   mkm.collections.countries = new mkm.collections.CountryCollection(<%= raw @countries %>)
