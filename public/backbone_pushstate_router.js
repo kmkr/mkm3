@@ -10,7 +10,7 @@ $(function() {
       var protocol = this.protocol + "//";
 
       // Only internal links are interesting
-      if (!href.match(/^http/) && !href.match(/^#/)) {
+      if (href.match(/\/\w+/) && !href.match(/^http/) && !href.match(/^#/)) {
 
         // Stop the event bubbling to ensure the link will not cause a page refresh.
         evt.preventDefault();
