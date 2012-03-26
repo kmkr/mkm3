@@ -16,6 +16,9 @@ class mkm.views.articles.ShowArticleView extends Backbone.View
   updateFbContent: ->
     @timeout = setTimeout("FB.XFBML.parse()", 1000)
     $("meta[property='og:title']").attr('content', @model.escape('title'))
+    $("meta[property='og:description']").attr('content', "#{@model.escape('body')[0..270]} ...")
+    $("meta[property='og:type']").attr('content', "article")
+    $("meta[property='og:url']").attr('content', "http://www.mkm.tc/articles/#{@model.get('id')}")
     if photo = @model.get('photos').at(0)
       $("meta[property='og:image']").attr('content', photo.get('photo').small.url)
 
