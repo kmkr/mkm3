@@ -1,3 +1,5 @@
+@import 'variables';
+
 .view-topbar {
   position: fixed;
   z-index: 500;
@@ -31,19 +33,19 @@
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     border-radius: 3px;
-    -moz-box-shadow: 0 0 2px #888;
-    -webkit-box-shadow: 0 0 2px #888;
-    box-shadow: 0 0 2px #888;
+    -moz-box-shadow: 0 0 2px $grayLight;
+    -webkit-box-shadow: 0 0 2px $grayLight;
+    box-shadow: 0 0 2px $grayLight;
 
     .logo {
       height: 40px;
       float: left;
       a {
         span {
-          color: #fd6993;
+          color: $linkColor;
         }
         letter-spacing: -3px;
-        color: #888;
+        color: $grayLight;
         font-size: 25px;
         font-weight: bold;
         position: relative;
@@ -63,7 +65,7 @@
 
         li {
           &.active {
-            color: #fd6993;
+            color: $linkColor;
           }
           color: #585858;
           font-family: 'Port Lligat Slab';
@@ -81,15 +83,15 @@
             width: 135px;
             display: none;
             position: absolute;
-            background: #fff;
+            background: $white;
             opacity: 0.98;
             top: 35px;
             -webkit-border-radius: 3px;
             -moz-border-radius: 3px;
             border-radius: 3px;
-            -webkit-box-shadow: 0 0px 2px #888;
-            -moz-box-shadow: 0 0 2px #888;
-            box-shadow: 0 0 2px #888;
+            -webkit-box-shadow: 0 0px 2px $grayLight;
+            -moz-box-shadow: 0 0 2px $grayLight;
+            box-shadow: 0 0 2px $grayLight;
 
             li:last-child {
               border-bottom: 0;

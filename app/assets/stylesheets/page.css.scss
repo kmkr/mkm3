@@ -1,6 +1,5 @@
-// Place all the styles related to the page controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@import 'variables';
+
 body {
   padding-top: 50px; /* to make the container go all the way to the bottom of the topbar */
   background: #fffcfc;
@@ -26,9 +25,9 @@ body {
 
   #map {
     padding: 5px;
-    -moz-box-shadow: 0 0 3px #888;
-    -webkit-box-shadow: 0 0 3px #888;
-    box-shadow: 0 0 3px #888;
+    -moz-box-shadow: 0 0 3px $gray;
+    -webkit-box-shadow: 0 0 3px $gray;
+    box-shadow: 0 0 3px $gray;
     opacity: 0.8;
     height: 200px;
     border: 1px solid #ccc;
@@ -54,9 +53,9 @@ body {
     padding: 10px;
     border: 1px solid #ececec;
     background: #fff;
-    -moz-box-shadow: 0 0 1px #888;
-    -webkit-box-shadow: 0 0 1px #888;
-    box-shadow: 0 0 1px #888;
+    -moz-box-shadow: 0 0 1px $grayLight;
+    -webkit-box-shadow: 0 0 1px $grayLight;
+    box-shadow: 0 0 1px $grayLight;
     border-radius: 3px;
     width: 964px;
     margin: 10px auto;

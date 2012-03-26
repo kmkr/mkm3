@@ -1,3 +1,5 @@
+@import 'variables';
+
 .showArticleView {
 
   article > div {
@@ -36,7 +38,7 @@
 
   small {
     font-size: 0.9em;
-    color: #999;
+    color: $grayLight;
   }
 
   section.body {
