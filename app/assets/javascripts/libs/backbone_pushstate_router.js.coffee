@@ -1,5 +1,5 @@
 # Use absolute URLs  to navigate to anything not in your Router.
-$ ->
+$(->
   # Use delegation to avoid initial DOM selection and allow all matching elements to bubble
   $(document).delegate("a", "click", (evt) ->
     # Get the anchor href and protcol
@@ -12,3 +12,4 @@ $ ->
       evt.preventDefault()
       mkm.routers.router.navigate(href, true)
   )
+)
