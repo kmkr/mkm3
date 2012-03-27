@@ -30,7 +30,7 @@ function superTextile(s) {
     r = r.replace(re,'<a href="$2">$1</a>');
 
     // dashes
-    r = r.replace(/\s-\s/, " &#8211; ").replace(/\s--\s/, " &#8212; ");
+    r = r.replace(/[^\w]-[^\w]/, " &#8211; ").replace(/[^\w]--[^\w]/, " &#8212; ");
 
     // images
     re = new RegExp('!\\b(.+?)\\(\\b(.+?)\\b\\)!','g');
