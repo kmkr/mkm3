@@ -96,9 +96,7 @@ function convert_textile(t) {
   	}
   	m=m.replace(/\[(\d+)\]/g,'<sup><a href="#fn$1">$1<\/a><\/sup>');
   	m=m.replace(/([A-Z]+)\((.*?)\)/g,'<acronym title="$2">$1<\/acronym>');
-    console.log(m);
-  	m=m.replace(/\"([^\(]+)\(([^\)]*)\)\":((http|https|mailto):\S+)/g,'<a href="$3" title="$2">$1<\/a>');
-    console.log(m);
+  	m=m.replace(/\"([^\(]+)\(([^\)]*)\)\":((http|https|mailto):(\w|-|_|!|&|%|<|>|\=|;|@|\/|:|\?|\$|#|{|}|\||~|`|(\.(?!\s)))+)/g,'<a href="$3" title="$2">$1<\/a>');
   	m = make_image(m,/!([^!\s]+)!:(\S+)/);
   	m = make_image(m,/!([^!\s]+)!/);
   	m=m.replace(/"([^\"]+)":(\S+)/g,function($0,$1,$2){return tag("a",qat('href',aliases[$2]),$1)});
