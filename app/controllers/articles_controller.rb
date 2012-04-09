@@ -14,6 +14,7 @@ class ArticlesController < ApplicationController
   end
 
   def show
+    @article = nil
     begin
       @article = Article.includes(:photos).find(params[:id])
     rescue ActiveRecord::RecordNotFound
@@ -21,7 +22,7 @@ class ArticlesController < ApplicationController
       return
     end
 
-    if @article.is_published? or user_signed_in
+    if @article.is_published? or user_signed_in?
       # fb scraping /articles/id
       if request.env["HTTP_USER_AGENT"].match(/facebookexternalhit/)
         render :show
