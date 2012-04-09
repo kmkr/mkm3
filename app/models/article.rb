@@ -3,7 +3,7 @@ class Article < ActiveRecord::Base
   scope :published, where("published <= ?", Time.now.end_of_day)
 
   def is_published?
-    self.published <= Time.now.end_of_day
+    self.published and self.published <= Time.now.end_of_day
   end
 
   def as_json(options = {})
