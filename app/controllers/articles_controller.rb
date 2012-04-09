@@ -32,6 +32,8 @@ class ArticlesController < ApplicationController
         format.json { render :json => @article }
         format.html
       end
+    else
+      head :authorization_required
     end
   end
 
