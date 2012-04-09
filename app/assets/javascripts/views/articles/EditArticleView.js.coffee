@@ -10,6 +10,7 @@ class mkm.views.articles.EditArticleView extends Backbone.View
 
   save: (evt) ->
     evt.preventDefault()
+    @$('.loader').show()
     @model.save({
       title: @$('#title').val()
       start_date: @$('#startDate').val()
@@ -19,10 +20,12 @@ class mkm.views.articles.EditArticleView extends Backbone.View
       published: @$('#published').val()
     }, {
       success: =>
+        @$('.loader').hide()
         mkm.collections.articles.add(@model) unless mkm.collections.articles.any((article) => @model.id == article.id)
         mkm.helpers.flash('success', "Article successfully saved")
         mkm.routers.router.navigate("articles/#{@model.id}", true)
       error: (model, resp) =>
+        @$('.loader').hide()
         mkm.helpers.flash('error', "Unable to save article (#{resp.statusText})")
     })
 
