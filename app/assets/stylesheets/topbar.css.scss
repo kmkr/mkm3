@@ -108,8 +108,8 @@
               ul {
                 display: none;
                 position: relative;
-                left: 137px;
-                top: -30px;
+                left: 138px;
+                top: -29px;
                 width: 375px;
 
                 li {
@@ -134,5 +134,12 @@
 
       }
     }
+  }
+}
+
+// if the screen is sufficiently small, make the rightmost article uls appear on the left side
+@media all and (max-width: 1460px) {
+  .view-topbar .wrapper > ul > li:nth-child(1n + 4) ul ul {
+    left: -378px !important;
   }
 }
