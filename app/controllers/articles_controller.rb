@@ -14,10 +14,10 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    @article = Article.includes(:photos).find(params[:id])
-
-    unless @article
-      head :not_found
+    begin
+      @article = Article.includes(:photos).find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      redirect_to root_path
       return
     end
 
