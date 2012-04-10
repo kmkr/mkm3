@@ -18,6 +18,7 @@ class ArticlesController < ApplicationController
     begin
       @article = Article.includes(:photos).find(params[:id])
     rescue ActiveRecord::RecordNotFound
+      flash[:error] = "Greide ikke finne artikkelen du ba om."
       redirect_to root_path
       return
     end
@@ -34,7 +35,8 @@ class ArticlesController < ApplicationController
         format.html
       end
     else
-      head :authorization_required
+      flash[:notice] = "Artikkelen du ba om er ikke publisert."
+      redirect_to root_path
     end
   end
 

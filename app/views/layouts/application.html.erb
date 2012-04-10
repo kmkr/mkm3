@@ -108,7 +108,9 @@ $(function() {
       <% [:notice, :error, :alert].each do |level| %>
         <% unless flash[level].blank? %>
           <script>
-mkm.helpers.flash(<%= "'#{flash_class(level)}'" %>, <%= "'#{flash[level]}'" %>)
+$(function() {
+mkm.helpers.flash(<%= "'#{flash_class(level)}'" %>, <%= "'#{flash[level]}'" %>);
+});
           </script>
         <% end %>
       <% end %>
