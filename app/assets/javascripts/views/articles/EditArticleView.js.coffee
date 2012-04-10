@@ -1,5 +1,6 @@
 class mkm.views.articles.EditArticleView extends Backbone.View
   template: JST['articles/edit']
+  className: 'editArticleView'
   views: []
 
   initialize: ->
@@ -10,7 +11,7 @@ class mkm.views.articles.EditArticleView extends Backbone.View
 
   save: (evt) ->
     evt.preventDefault()
-    @$('.loader').show()
+    @$('.save-article').attr('disabled', 'disabled')
     @model.save({
       title: @$('#title').val()
       start_date: @$('#startDate').val()
@@ -20,12 +21,11 @@ class mkm.views.articles.EditArticleView extends Backbone.View
       published: @$('#published').val()
     }, {
       success: =>
-        @$('.loader').hide()
         mkm.collections.articles.add(@model) unless mkm.collections.articles.any((article) => @model.id == article.id)
         mkm.helpers.flash('success', "Article successfully saved")
         mkm.routers.router.navigate("articles/#{@model.id}", true)
       error: (model, resp) =>
-        @$('.loader').hide()
+        @$('.save-article').removeAttr('disabled')
         mkm.helpers.flash('error', "Unable to save article (#{resp.statusText})")
     })
 
