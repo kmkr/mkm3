@@ -11,7 +11,7 @@ end
 
 gem 'ejs'
 
-gem 'carrierwave', '0.5.7'
+gem 'carrierwave', '0.6.1'
 gem 'fog'
 gem 'rmagick'
 
