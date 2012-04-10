@@ -7,7 +7,7 @@ $(->
     protocol = this.protocol + "//"
 
     # Only internal links are interesting
-    if (href.match(/\//) or href.match(/\/\w+/)) and !href.match(/^http/) and !href.match(/^#/)
+    if (href.match(/\//) or href.match(/\/\w+/)) and !href.match(/^http/) and !href.match(/^#$/)
       # Stop the event bubbling to ensure the link will not cause a page refresh.
       evt.preventDefault()
       mkm.routers.router.navigate(href, true)
