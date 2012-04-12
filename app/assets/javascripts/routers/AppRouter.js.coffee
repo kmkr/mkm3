@@ -75,8 +75,7 @@ class mkm.routers.AppRouter extends Backbone.Router
     @view = newView
     $("#page-content").html(@view.render().el).hide().fadeIn(600)
     @view.init() if @view.init
-    $('#menu').html(new mkm.views.TopBarView().render().el)
-    $('title').text(@_getTitleFromView(@view))
+    document.title = @_getTitleFromView(@view)
 
   _getTitleFromView: (view) ->
     title = "MKM"
