@@ -95,6 +95,11 @@
     text-align: center;
   }
 
+  form {
+    // setting a height avoids the box to change during loading
+    height: 180px;
+  }
+
   .toolbar-wrapper {
     text-align: center;
   }
