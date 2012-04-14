@@ -15,6 +15,7 @@ class mkm.views.photos.SortableEditablePhotosView extends Backbone.View
   saveUpdated: ->
     total = @collection.length
     completed = 0
+    @$('.save-all-wrapper button').hide()
     @collection.forEach((photo) =>
       photo.save({},
         success: =>
@@ -22,9 +23,11 @@ class mkm.views.photos.SortableEditablePhotosView extends Backbone.View
           @collection.sort()
           if completed is total
             mkm.helpers.flash('success', 'Positions updated successfully')
-            @$('.save-all-wrapper').hide('fade', -> $(@).width('0'))
+            @$('.save-all-wrapper button').show()
+            @$('.save-all-wrapper').hide('fade')
 
         error: ->
+          @$('.save-all-wrapper button').show()
           mkm.helpers.flash('error', 'Problems when updating position. Please do a page refresh and retry.')
       )
     )
