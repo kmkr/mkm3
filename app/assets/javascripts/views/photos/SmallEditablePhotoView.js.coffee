@@ -24,7 +24,7 @@ class mkm.views.photos.SmallEditablePhotoView extends Backbone.View
 
   toggleLoad: ->
     @$('.loader').toggle()
-    @$('.btn-toolbar,a').toggle()
+    @$('.btn-toolbar').toggle()
 
   update: (e) =>
     e.preventDefault()
