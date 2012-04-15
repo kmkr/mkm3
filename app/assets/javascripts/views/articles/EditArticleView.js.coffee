@@ -12,6 +12,7 @@ class mkm.views.articles.EditArticleView extends Backbone.View
   save: (evt) ->
     evt.preventDefault()
     @$('.save-article').attr('disabled', 'disabled')
+    @$('.loader').show()
     @model.save({
       title: @$('#title').val()
       start_date: @$('#startDate').val()
@@ -26,6 +27,7 @@ class mkm.views.articles.EditArticleView extends Backbone.View
         mkm.routers.router.navigate("articles/#{@model.id}", true)
       error: (model, resp) =>
         @$('.save-article').removeAttr('disabled')
+        @$('.loader').hide()
         mkm.helpers.flash('error', "Unable to save article (#{resp.statusText})")
     })
 
