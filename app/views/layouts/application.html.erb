@@ -53,6 +53,7 @@
       <div class="content">
           <div id="alerts"></div>
           <div id="page-content">
+            <%= yield %>
             <script type="text/javascript">
 $(function() {
     mkm.collections.articles = new mkm.collections.ArticleCollection(<%= raw @articles.to_json %>);
@@ -63,7 +64,6 @@ $(function() {
     Backbone.history.start({pushState: true})
     });
             </script>
-            <%= yield %>
           </div>
       </div>
 
