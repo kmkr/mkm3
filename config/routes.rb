@@ -8,6 +8,8 @@ Mkm3::Application.routes.draw do
   end
   resources :countries
 
+  get 'sitemap', :to => 'sitemap#show'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
