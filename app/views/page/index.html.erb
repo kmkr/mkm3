@@ -1,4 +1,6 @@
-<div id="noscript">
+<noscript>
+  <%= render 'page/nonjavascript_disclaimer' %>
+
   <%# This is a search engine version of the article %>
   <h1>Welcome!</h1>
   <p>
@@ -30,17 +32,4 @@
     <% end %>
   </ul>
 
-  <div style="border: 1px solid red; padding: 20px;">
-    <p style="font-size: 20px;">
-    You are currently viewing the non-javascript version of MKM. This is a
-    severly limited version of the site, and primary meant for search engines.
-    </p>
-    <p style="margin-top: 15px; font-size: 15px; text-align: center;">
-    Please enable javascript to have any use of this site. <%= link_to 'This guide', 'http://support.google.com/bin/answer.py?hl=en&answer=23852' %> will help you.
-    </p>
-  </div>
-</div>
-
-<script>
-  $('#noscript').hide();
-</script>
+</noscript>

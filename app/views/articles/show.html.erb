@@ -1,14 +1,17 @@
-<div id="noscript">
+<noscript>
+  <%= render 'page/nonjavascript_disclaimer' %>
+
+  <nav>
+    <ul>
+      <li><%= link_to 'Home', root_path %></li>
+    </ul>
+  </nav>
+
   <article>
-  <%# This is a search engine version of the article %>
   <header>
     <h1><%= @article.title %></h1>
   </header>
 
   <%= raw RedCloth.new(@article.body).to_html %>
   </article>
-</div>
-
-<script>
-  $('#noscript').hide();
-</script>
+</noscript>
