@@ -1,5 +1,38 @@
-<ul>
-  <% for article in @articles %>
-    <li><%= link_to article.title, article_path(article) %></li>
-  <% end %>
-</ul>
+<div id="noscript">
+  <%# This is a search engine version of the article %>
+  <h1>Welcome!</h1>
+  <p>
+  Greetings and welcome to Malene &amp; KM's travel blog. We gather
+  our best travel experiences together with images and stories from
+  the trips in articles on this site and are happy to share them
+  with the rest of the world.  Feel free to read the articles,
+  browse the images and share the content.
+  </p>
+
+
+  <h1>Articles</h1>
+
+  <ul>
+    <% for continent in @continents %>
+      <li><%= continent.title %>
+      <ul>
+        <% for country in continent.countries %>
+          <li><%= country.title %>
+          <ul>
+            <% for article in country.articles %>
+              <li><%= link_to article.title, article_path(article) %></li>
+            <% end %>
+          </ul>
+          </li>
+        <% end %>
+      </ul>
+      </li>
+    <% end %>
+  </ul>
+
+  <p>You are currently viewing the non-javascript version of MKM. This is a severly limited version of the site, and primary meant for search engines. Please enable javascript.</p> 
+</div>
+
+<script>
+  $('#noscript').hide();
+</script>
