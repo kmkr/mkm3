@@ -14,9 +14,9 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    @article = nil
     begin
       @article = Article.includes(:photos).find(params[:id])
+      @title = @article.title
     rescue ActiveRecord::RecordNotFound
       flash[:error] = "Greide ikke finne artikkelen du ba om."
       redirect_to root_path
