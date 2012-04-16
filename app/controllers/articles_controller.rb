@@ -24,16 +24,7 @@ class ArticlesController < ApplicationController
     end
 
     if @article.is_published? or user_signed_in?
-      # fb scraping /articles/id
-      if request.env["HTTP_USER_AGENT"].match(/facebookexternalhit/)
-        render :show
-        return
-      end
-
-      respond_to do |format|
-        format.json { render :json => @article }
-        format.html
-      end
+      respond_with @article
     else
       flash[:notice] = "Artikkelen du ba om er ikke publisert."
       redirect_to root_path
