@@ -3,13 +3,12 @@ class ApplicationController < ActionController::Base
   before_filter :load_data
 
   def load_data
-    @continents = Continent.order(:priority).includes(:countries)
-    @continentz = Continent.all.to_json
-    @countries = Country.all.to_json
+    @continents = Continent.all
+    @countries = Country.all
     if user_signed_in?
-      @articles = Article.all.to_json(:include => :photos)
+      @articles = Article.includes(:photos)
     else
-      @articles = Article.published.to_json(:include => :photos)
+      @articles = Article.published.includes(:photos)
     end
   end
 end

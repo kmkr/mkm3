@@ -55,9 +55,9 @@
           <div id="page-content">
             <script type="text/javascript">
 $(function() {
-    mkm.collections.articles = new mkm.collections.ArticleCollection(<%= raw @articles %>);
-    mkm.collections.countries = new mkm.collections.CountryCollection(<%= raw @countries %>);
-    mkm.collections.continents = new mkm.collections.ContinentCollection(<%= raw @continentz %>);
+    mkm.collections.articles = new mkm.collections.ArticleCollection(<%= raw @articles.to_json %>);
+    mkm.collections.countries = new mkm.collections.CountryCollection(<%= raw @countries.to_json %>);
+    mkm.collections.continents = new mkm.collections.ContinentCollection(<%= raw @continents.to_json %>);
     mkm.routers.router = new mkm.routers.AppRouter();
     $('#menu').html(new mkm.views.TopBarView().render().el)
     Backbone.history.start({pushState: true})
