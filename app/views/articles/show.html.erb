@@ -1,7 +1,12 @@
-<%# This is a search engine version of the article %>
-<h1><%= @article.title %></h1>
+<div id="noscript">
+  <%# This is a search engine version of the article %>
+  <h1><%= @article.title %></h1>
 
-<div>
-  <%# todo: should textilize the body %>
-  <%= @article.body %>
+  <div>
+    <%= raw RedCloth.new(@article.body).to_html %>
+  </div>
 </div>
+
+<script>
+  $('#noscript').hide();
+</script>

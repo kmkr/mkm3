@@ -31,6 +31,10 @@ gem 'jquery-rails'
 
 gem 'devise'
 
+# as crawlers do not run javascript, the article needs to be textilized before
+# viewing when search engines are browsing
+gem 'RedCloth'
+
 group :production do
   gem 'pg'
 end
