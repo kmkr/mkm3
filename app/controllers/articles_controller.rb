@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
-  respond_to :json
   respond_to :html, :only => :show
+  respond_to :json
   before_filter :authenticate_user!, :except => [ :index, :show ]
 
   def index
