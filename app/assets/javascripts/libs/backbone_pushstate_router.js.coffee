@@ -6,7 +6,10 @@ $(->
     href = $(this).attr("href")
     protocol = this.protocol + "//"
 
-    # Href is not necessarily present
+    # Href is not necessarily present and we cannot know where to navigate the
+    # user. In these cases, the <a> tag is certainly not a navigation link, but
+    # instead a clickable element - perhaps with JavaScript event listeners
+    # attached.
     return unless href
 
     # Only internal links are interesting
