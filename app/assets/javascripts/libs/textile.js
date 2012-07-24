@@ -154,7 +154,7 @@ function convert_textile(t) {
   function stp(b){if(b){inbqq=0;}if(inpr){html+="<\/p>"+le;inpr=0;}if(inbq && !inbqq){html+="<\/blockquote>"+le;inbq=0;}}
 
   function toolTips(t) {
-    return t.replace(/\[tt\]([^\|]+)\|([^\[]+)\[\/tt\]/g, '<a href="#" rel="tooltip" title="$2">$1<\/a>');
+    return t.replace(/\[tt\]([^\|]+)\|([^\[]+)\[\/tt\]/g, '<a rel="tooltip" title="$2">$1<\/a>');
   }
 
 return toolTips(convert(t));

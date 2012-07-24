@@ -75,7 +75,7 @@ class mkm.views.articles.ShowArticleView extends Backbone.View
       mkm.helpers.flash('info', 'This article is not yet published')
 
   initTooltips: ->
-    @$('a[rel=tooltip]').tooltip()
+    @$('[rel=tooltip]').tooltip()
 
   render: ->
     $(@el).html(@template({article: @model}))
