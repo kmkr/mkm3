@@ -9,8 +9,6 @@ class mkm.views.TopBarView extends Backbone.View
     mkm.collections.articles.on('add remove', @render)
 
   renderMenu: ->
-    return if Modernizr.touch
-
     @$('ul:nth-child(1) > li').mouseenter(->
       clearTimeout($(@).data('timeout')) if $(@).data('timeout')
       $(@).addClass('active').find('> ul').slideDown(120)
@@ -33,14 +31,18 @@ class mkm.views.TopBarView extends Backbone.View
       )
 
   addClickListeners: ->
+    col = @$('.collapse')
     @$('li li li').each(->
       link = $(@).find('a').attr('href')
-      $(@).click(-> mkm.routers.router.navigate(link, true)))
+      $(@).click(->
+        mkm.routers.router.navigate(link, true)
+        col.collapse('hide') if Modernizr.touch
+      ))
 
   render: =>
     $(@el).html(@template({
       continents: mkm.collections.continents
     }))
-    @renderMenu()
+    @renderMenu() unless Modernizr.touch
     @addClickListeners()
     @
