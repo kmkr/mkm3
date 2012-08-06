@@ -1,4 +1,5 @@
 @import 'variables';
+@import 'mixins';
 
 .view-topbar {
   position: fixed;
@@ -6,33 +7,15 @@
   top: 9px;
   left: 0;
   right: 0;
-  height: 40px;
-
-  .fadeout {
-    position: fixed;
-    z-index: 50;
-    left: 0;
-    top: 0;
-    right: 0;
-    height: 40px;
-    background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 1)), to(rgba(255, 255, 255, 0)));
-    background: -moz-linear-gradient(top, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
-    background: -o-linear-gradient(top, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
-    background: -ms-linear-gradient(top, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
-    background: linear-gradient(top, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
-  }
 
   .flybar {
     position: relative;
     z-index: 2000;
-    height: 35px;
     margin: 0 auto;
-    width: 980px;
+
 
     background-color: #f3f3f3;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    border-radius: 3px;
+    @include border-radius(3px);
     -moz-box-shadow: 0 0 2px $grayLight;
     -webkit-box-shadow: 0 0 2px $grayLight;
     box-shadow: 0 0 2px $grayLight;
@@ -53,6 +36,32 @@
         left: 10px;
       } 
     }
+  }
+}
+
+.no-touch .view-topbar {
+  .btn-navbar {
+    display: none;
+  }
+
+  height: 40px;
+
+  .fadeout {
+    position: fixed;
+    z-index: 50;
+    left: 0;
+    top: 0;
+    right: 0;
+    height: 40px;
+    @include gradient-vertical(rgba(255,255,255,1), rgba(255,255,255,0));
+  }
+
+  .flybar {
+    height: 35px;
+
+
+    width: 980px;
+
 
     div.wrapper {
       margin: 0 auto;
@@ -141,5 +150,13 @@
 @media all and (max-width: 1460px) {
   .view-topbar .wrapper > ul > li:nth-child(1n + 4) ul ul {
     left: -378px !important;
+  }
+}
+
+// Required to make the collapsing navbar work on regular desktops
+@media (min-width: 980px) {
+  .nav-collapse.collapse {
+    height: auto !important;
+    overflow: visible !important;
   }
 }

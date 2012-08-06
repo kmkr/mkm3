@@ -9,6 +9,8 @@ class mkm.views.TopBarView extends Backbone.View
     mkm.collections.articles.on('add remove', @render)
 
   renderMenu: ->
+    return if Modernizr.touch
+
     @$('ul:nth-child(1) > li').mouseenter(->
       clearTimeout($(@).data('timeout')) if $(@).data('timeout')
       $(@).addClass('active').find('> ul').slideDown(120)

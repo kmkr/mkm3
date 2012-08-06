@@ -5,33 +5,41 @@
     <a href="/"><span>M</span>KM</a>
   </span>
 
-  <div class="wrapper">
-    <ul>
-    <% continents.forEach(function(continent) { %>
-      <li class="dropdown">
-        <%= continent.escape('title') %>
-        <% var countries = continent.countries(); %>
-        <% if (countries.length > 0 && continent.hasArticles()) { %>
-          <b class="caret"></b>
-          <ul>
-            <% _.forEach(countries, function(country) { %>
-              <% var articles = country.articles(); %>
-              <% if (articles.length > 0) { %>
-                <li>
-                  <%= country.escape('title') %>
-                  <ul>
-                    <% _.forEach(articles, function(article) { %>
-                      <li><a href="/articles/<%= article.get('id') %>"><%= article.escape('title') %></a></li>
-                    <% }); %>
+  <button class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+  </button>
 
-                  </ul>
-                </li>
-              <% } %>
-            <% }); %>
-          </ul>
-        <% } %>
-      </li>
-    <% }); %>
-    </ul>
+  <div class="nav-collapse collapse">
+    <div class="wrapper">
+      <ul>
+      <% continents.forEach(function(continent) { %>
+        <li class="dropdown">
+          <%= continent.escape('title') %>
+          <% var countries = continent.countries(); %>
+          <% if (countries.length > 0 && continent.hasArticles()) { %>
+            <b class="caret"></b>
+            <ul>
+              <% _.forEach(countries, function(country) { %>
+                <% var articles = country.articles(); %>
+                <% if (articles.length > 0) { %>
+                  <li>
+                    <%= country.escape('title') %>
+                    <ul>
+                      <% _.forEach(articles, function(article) { %>
+                        <li><a href="/articles/<%= article.get('id') %>"><%= article.escape('title') %></a></li>
+                      <% }); %>
+
+                    </ul>
+                  </li>
+                <% } %>
+              <% }); %>
+            </ul>
+          <% } %>
+        </li>
+      <% }); %>
+      </ul>
+    </div>
   </div>
 </div>
