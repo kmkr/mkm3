@@ -5,6 +5,7 @@ html.touch {
   body {
     padding: 0;
       width: 100%;
+
     .padding-wrapper {
       padding: 5px;
       position: relative;
@@ -12,7 +13,7 @@ html.touch {
       right: 0;
       border: 0;
       margin: 25px 0;
-      width: 100%;
+      width: 96%;
       .container {
         margin: 0;
         width: 100%;
@@ -22,7 +23,7 @@ html.touch {
 
   .showArticleView {
     .body {
-      width: 97%;
+      width: 100%;
     }
     .photos {
       clear: both;
