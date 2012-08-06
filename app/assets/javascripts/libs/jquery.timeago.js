@@ -39,7 +39,7 @@
         minutes: "%d minutes",
         hour: "about an hour",
         hours: "about %d hours",
-        day: "a day",
+        day: "one day",
         days: "%d days",
         month: "about a month",
         months: "%d months",
