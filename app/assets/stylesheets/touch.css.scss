@@ -7,9 +7,12 @@ html.touch {
       width: 100%;
     .padding-wrapper {
       padding: 5px;
+      position: relative;
+      left: 0;
+      right: 0;
       border: 0;
       margin: 25px 0;
-      width: 96%;
+      width: 100%;
       .container {
         margin: 0;
         width: 100%;
@@ -19,7 +22,7 @@ html.touch {
 
   .showArticleView {
     .body {
-      width: 100%;
+      width: 97%;
     }
     .photos {
       clear: both;
@@ -49,7 +52,7 @@ html.touch {
 
 }
 
-@media (max-width: 979px) {
+.touch {
   .view-topbar {
     top: 0;
     width: 100%;
