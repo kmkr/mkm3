@@ -7,16 +7,38 @@
   top: 9px;
   left: 0;
   right: 0;
+  height: 40px;
+
+  .btn-navbar {
+    display: none;
+  }
+
+
+  .fadeout {
+    position: fixed;
+    z-index: 50;
+    left: 0;
+    top: 0;
+    right: 0;
+    height: 40px;
+    @include gradient-vertical(rgba(255,255,255,1), rgba(255,255,255,0));
+  }
 
   .flybar {
+
+    height: 35px;
+    width: 980px;
     position: relative;
     z-index: 2000;
     margin: 0 auto;
-
-
     background-color: #f3f3f3;
     @include border-radius(3px);
     @include box-shadow(0 0 2px $grayLight);
+
+    div.wrapper {
+      margin: 0 auto;
+    }
+
 
     .logo {
       height: 40px;
@@ -39,119 +61,86 @@
 }
 
 .no-touch .view-topbar {
-  .btn-navbar {
-    display: none;
-  }
-
-  height: 40px;
-
-  .fadeout {
-    position: fixed;
-    z-index: 50;
-    left: 0;
-    top: 0;
-    right: 0;
-    height: 40px;
-    @include gradient-vertical(rgba(255,255,255,1), rgba(255,255,255,0));
-  }
-
-  .flybar {
-    height: 35px;
-
-
-    width: 980px;
-
-
-    div.wrapper {
+  .wrapper {
+    /* continents */
+    > ul {
       margin: 0 auto;
+      width: 700px;
+      padding: 0;
 
-      /* continents */
-      > ul {
-        margin: 0 auto;
-        width: 700px;
-        padding: 0;
+      li {
+        &.active {
+          color: $linkColor;
+        }
+        color: #585858;
+        font-family: 'Port Lligat Slab';
+        width: 135px;
+        padding: 5px 0 0 0;
+        height: 30px;
+        text-align: center;
+        font-size: 2em;
+        display: inline-block;
+        list-style-type: none;
 
-        li {
-          &.active {
-            color: $linkColor;
-          }
-          color: #585858;
-          font-family: 'Port Lligat Slab';
+        /* countries */
+        ul {
+          margin: 3px 3px 0 0;
           width: 135px;
-          padding: 5px 0 0 0;
-          height: 30px;
-          text-align: center;
-          font-size: 2em;
-          display: inline-block;
-          list-style-type: none;
+          display: none;
+          position: absolute;
+          background: $white;
+          opacity: 0.98;
+          top: 35px;
+          @include border-radius(3px);
+          @include box-shadow(0 0 2px $grayLight);
 
-          /* countries */
-          ul {
-            margin: 3px 3px 0 0;
-            width: 135px;
-            display: none;
-            position: absolute;
-            background: $white;
-            opacity: 0.98;
-            top: 35px;
-            @include border-radius(3px);
-            @include box-shadow(0 0 2px $grayLight);
+          li:last-child {
+            border-bottom: 0;
+          }
+          li {
+            border-bottom: 1px solid #ddd;
+            display: list-item;
+            text-transform: none;
+            font-size: 0.8em;
+            padding: 8px 0;
+            height: 20px;
 
-            li:last-child {
-              border-bottom: 0;
-            }
-            li {
-              border-bottom: 1px solid #ddd;
-              display: list-item;
-              text-transform: none;
-              font-size: 0.8em;
-              padding: 8px 0;
-              height: 20px;
+            /* articles */
+            ul {
+              display: none;
+              position: relative;
+              left: 138px;
+              top: -29px;
+              width: 375px;
 
-              /* articles */
-              ul {
-                display: none;
-                position: relative;
-                left: 138px;
-                top: -29px;
-                width: 375px;
-
-                li {
-                  cursor: pointer;
-                  font-size: 0.8em;
-                  width: 369px;
-                  padding: 8px 3px;
-                  height: auto;
-                }
+              li {
+                cursor: pointer;
+                font-size: 0.8em;
+                width: 369px;
+                padding: 8px 3px;
+                height: auto;
               }
             }
           }
         }
-        /* continent li only */
-
-        > li {
-          border-right: 1px solid #bbb;
-          &:last-child {
-            border-right: 0;
-          }
-        }
-
       }
+      /* continent li only */
+
+      > li {
+        border-right: 1px solid #bbb;
+        &:last-child {
+          border-right: 0;
+        }
+      }
+
     }
   }
 }
+
 
 // if the screen is sufficiently small, make the rightmost article uls appear on the left side
 @media all and (max-width: 1460px) {
   .view-topbar .wrapper > ul > li:nth-child(1n + 4) ul ul {
     left: -378px !important;
-  }
-}
-
-// Required to make the collapsing navbar work on regular desktops
-@media (min-width: 980px) {
-  .nav-collapse.collapse {
-    height: auto !important;
-    overflow: visible !important;
   }
 }

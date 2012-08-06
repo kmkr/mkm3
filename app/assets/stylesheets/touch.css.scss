@@ -47,15 +47,16 @@ html.touch {
     }
   }
 
+}
+
+@media (max-width: 979px) {
   .view-topbar {
     top: 0;
     width: 100%;
-
-    .fadeout {
-      display: none;
-    }
+    height: auto;
 
     .btn-navbar {
+      display: inline-block;
       float: right;
       padding: 7px 10px;
       line-height: 18px;
@@ -71,8 +72,17 @@ html.touch {
       }
     }
 
-    .btn-navbar .icon-bar + .icon-bar {
-      margin-top: 3px;
+    .fadeout {
+      display: none;
+    }
+
+    .flybar {
+      height: auto;
+      width: auto;
+
+      div.wrapper {
+        margin: 0;
+      }
     }
   }
 }
