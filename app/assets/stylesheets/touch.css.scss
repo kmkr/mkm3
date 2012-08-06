@@ -1,0 +1,48 @@
+html.touch {
+  #menu {
+
+  }
+  body {
+    .padding-wrapper {
+      border: 0;
+      width: 100%;
+      margin: 0;
+      .container {
+        margin: 0;
+        width: 96%;
+      }
+    }
+  }
+  .showArticleView {
+    .body {
+      width: 100%;
+    }
+    .photos {
+      clear: both;
+      &.span5 {
+        width: 100%;
+      }
+    }
+    .imagescroll {
+      .nivoSlider {
+        width: 100%;
+        min-height: 150px;
+      }
+    }
+  }
+
+  .thumbnailsPhotoView {
+    .thumbnails {
+      .span5 {
+        width: 96%;
+      }
+    }
+  }
+
+  .view-topbar {
+
+    .flybar {
+      display: none;
+    }
+  }
+}
