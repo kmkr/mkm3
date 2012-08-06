@@ -5,14 +5,16 @@ html.touch {
 
   }
   body {
+    padding: 0;
       width: 100%;
     .padding-wrapper {
+      padding: 5px;
       border: 0;
-      width: 100%;
-      margin: 5px 0;
+      margin: 25px 0;
+      width: 96%;
       .container {
         margin: 0;
-        width: 96%;
+        width: 100%;
       }
     }
   }
@@ -43,6 +45,7 @@ html.touch {
   }
 
   .view-topbar {
+    top: 0;
     width: 100%;
 
     .fadeout {
