@@ -1,9 +1,7 @@
 @import "mixins";
 
 html.touch {
-  #menu {
 
-  }
   body {
     padding: 0;
       width: 100%;
@@ -18,6 +16,7 @@ html.touch {
       }
     }
   }
+
   .showArticleView {
     .body {
       width: 100%;
@@ -33,6 +32,10 @@ html.touch {
         width: 100%;
         min-height: 150px;
       }
+    }
+
+    .span12 {
+      width: 100%;
     }
   }
 
