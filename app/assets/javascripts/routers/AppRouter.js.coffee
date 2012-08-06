@@ -76,6 +76,7 @@ class mkm.routers.AppRouter extends Backbone.Router
     $("#page-content").html(@view.render().el).hide().fadeIn(600)
     @view.init() if @view.init
     document.title = @_getTitleFromView(@view)
+    $('html, body').animate({scrollTop: 0}, 'fast')
 
   _getTitleFromView: (view) ->
     title = "MKM"
