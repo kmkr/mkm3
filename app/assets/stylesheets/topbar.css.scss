@@ -16,9 +16,7 @@
 
     background-color: #f3f3f3;
     @include border-radius(3px);
-    -moz-box-shadow: 0 0 2px $grayLight;
-    -webkit-box-shadow: 0 0 2px $grayLight;
-    box-shadow: 0 0 2px $grayLight;
+    @include box-shadow(0 0 2px $grayLight);
 
     .logo {
       height: 40px;
@@ -95,12 +93,8 @@
             background: $white;
             opacity: 0.98;
             top: 35px;
-            -webkit-border-radius: 3px;
-            -moz-border-radius: 3px;
-            border-radius: 3px;
-            -webkit-box-shadow: 0 0px 2px $grayLight;
-            -moz-box-shadow: 0 0 2px $grayLight;
-            box-shadow: 0 0 2px $grayLight;
+            @include border-radius(3px);
+            @include box-shadow(0 0 2px $grayLight);
 
             li:last-child {
               border-bottom: 0;

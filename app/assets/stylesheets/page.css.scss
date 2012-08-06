@@ -1,4 +1,5 @@
 @import 'variables';
+@import 'mixins';
 
 body {
   padding-top: 50px; /* to make the container go all the way to the bottom of the topbar */
@@ -25,13 +26,11 @@ body {
 
   #map {
     padding: 5px;
-    -moz-box-shadow: 0 0 3px $gray;
-    -webkit-box-shadow: 0 0 3px $gray;
-    box-shadow: 0 0 3px $gray;
+    @include box-shadow(0 0 3px $gray);
+    @include border-radius(5px);
     opacity: 0.8;
     height: 200px;
     border: 1px solid #ccc;
-    border-radius: 5px;
     div a, div div div span, div div a div img {
       display: none;
     }
@@ -53,13 +52,10 @@ body {
     padding: 10px;
     border: 1px solid #ececec;
     background: #fff;
-    -moz-box-shadow: 0 0 1px $grayLight;
-    -webkit-box-shadow: 0 0 1px $grayLight;
-    box-shadow: 0 0 1px $grayLight;
-    border-radius: 3px;
+    @include box-shadow(0 0 1px $grayLight);
+    @include border-radius(3px);
     width: 964px;
     margin: 10px auto;
-
   }
 
 }

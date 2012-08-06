@@ -1,4 +1,5 @@
 @import 'variables';
+@import 'mixins';
 
 .newPhotoView {
   .progress {
@@ -10,7 +11,7 @@
     padding: 50px;
     height: 100px;
     border: 1px solid $grayLight;
-    border-radius: 6px;
+    @include border-radius(6px);
 
     p {
       text-align: center;
@@ -111,7 +112,7 @@
     left: 15px;
     top: 50%;
     width: 250px;
-    border-radius: 5px;
+    @include border-radius(5px);
     border: 1px solid $grayLighter;
     padding: 10px;
     text-align: center;
