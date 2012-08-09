@@ -2,6 +2,10 @@
   background:#fff url(/assets/nivo/loading.gif) no-repeat 50% 50%;
 }
 
+.theme-default .nivoSlider .nivo-controlNav {
+  padding: 10px 0;
+}
+
 .theme-default .nivo-controlNav a {
   background:url(/assets/nivo/bullets.png) no-repeat;
 }
