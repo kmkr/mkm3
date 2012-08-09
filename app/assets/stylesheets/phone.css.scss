@@ -3,8 +3,9 @@
 html.phone {
 
   body {
+
     padding: 0;
-      width: 100%;
+    width: 100%;
 
     .padding-wrapper {
       padding: 5px;
@@ -19,6 +20,13 @@ html.phone {
         width: 100%;
       }
     }
+
+    .imagescroll {
+      .nivoSlider {
+        width: 100%;
+        min-height: 150px;
+      }
+    }
   }
 
   .showArticleView {
@@ -29,12 +37,6 @@ html.phone {
       clear: both;
       &.span5 {
         width: 100%;
-      }
-    }
-    .imagescroll {
-      .nivoSlider {
-        width: 100%;
-        min-height: 150px;
       }
     }
 
