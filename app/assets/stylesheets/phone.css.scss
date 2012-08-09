@@ -1,6 +1,6 @@
 @import "mixins";
 
-html.touch {
+html.phone {
 
   body {
     padding: 0;
@@ -53,7 +53,7 @@ html.touch {
 
 }
 
-.touch {
+.phone {
   .view-topbar {
     top: 0;
     width: 100%;

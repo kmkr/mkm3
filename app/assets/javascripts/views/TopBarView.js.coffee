@@ -36,13 +36,13 @@ class mkm.views.TopBarView extends Backbone.View
       link = $(@).find('a').attr('href')
       $(@).click(->
         mkm.routers.router.navigate(link, true)
-        col.collapse('hide') if Modernizr.touch
+        col.collapse('hide') if Modernizr.phone
       ))
 
   render: =>
     $(@el).html(@template({
       continents: mkm.collections.continents
     }))
-    @renderMenu() unless Modernizr.touch
+    @renderMenu() unless Modernizr.phone
     @addClickListeners()
     @
