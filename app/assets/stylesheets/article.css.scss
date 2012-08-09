@@ -2,14 +2,8 @@
 
 .showArticleView {
 
-  article > div {
-    margin-bottom: 15px;
-  }
-
   .imagescroll {
     .nivoSlider {
-      width: 940px;
-      height: 376px;
 
       .nivo-directionNav {
         a {
@@ -26,7 +20,7 @@
           background-position: 0 50%;
           background-image: url('/assets/nivo/arrow-prev.png');
         }
-        
+
       }
     }
   }

@@ -1,0 +1,11 @@
+.theme-default .nivoSlider {
+  background:#fff url(/assets/nivo/loading.gif) no-repeat 50% 50%;
+}
+
+.theme-default .nivo-controlNav a {
+  background:url(/assets/nivo/bullets.png) no-repeat;
+}
+
+.theme-default .nivo-caption {
+  font-size: 1.3em;
+}
