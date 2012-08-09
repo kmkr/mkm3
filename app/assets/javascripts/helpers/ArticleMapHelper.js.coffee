@@ -4,6 +4,7 @@ class mkm.helpers.ArticleMapHelper extends mkm.helpers.AbstractMapHelper
       center: @getCenter()
       zoom: @getZoomLevel()
       scrollwheel: false
+      draggable: false
     }
 
   getZoomLevel: ->
