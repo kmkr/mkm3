@@ -18,7 +18,7 @@ class ArticlesController < ApplicationController
       @article = Article.includes(:photos).find(params[:id])
       @title = @article.title
     rescue ActiveRecord::RecordNotFound
-      flash[:error] = "Artikkelen du ba om finnes ikke."
+      flash[:error] = "The article you asked for does not exist"
       redirect_to root_path
       return
     end
@@ -26,7 +26,7 @@ class ArticlesController < ApplicationController
     if @article.is_published? or user_signed_in?
       respond_with @article
     else
-      flash[:notice] = "Artikkelen du ba om er ikke publisert."
+      flash[:notice] = "The article you asked for is not yet published"
       redirect_to root_path
     end
   end
