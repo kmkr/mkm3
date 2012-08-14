@@ -2,6 +2,11 @@
 
 .showArticleView {
 
+  article > div {
+    // This is the header wrapper, including page header, published and fb recommend
+    margin-bottom: 10px;
+  }
+
   .imagescroll {
     .nivoSlider {
 

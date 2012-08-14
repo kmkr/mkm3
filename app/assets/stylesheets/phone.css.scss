@@ -1,6 +1,6 @@
 @import "mixins";
 
-html.phone {
+.phone {
 
   body {
 
@@ -13,7 +13,7 @@ html.phone {
       left: 0;
       right: 0;
       border: 0;
-      margin: 25px 0;
+      margin: 35px 0;
       width: 96%;
       .container {
         margin: 0;
@@ -36,6 +36,10 @@ html.phone {
     .span12 {
       width: 100%;
     }
+
+    .nivo-caption {
+      font-size: 0.9em !important;
+    }
   }
 
   .thumbnailsPhotoView {
@@ -46,9 +50,6 @@ html.phone {
     }
   }
 
-}
-
-.phone {
   .view-topbar {
     top: 0;
     width: 100%;
@@ -84,4 +85,14 @@ html.phone {
       }
     }
   }
+
+  .indexView {
+    .imagescroll {
+      .nivo-caption {
+        font-size: 0.9em;
+        bottom: 5px;
+      }
+    }
+  }
+
 }
