@@ -20,77 +20,79 @@
         width: 100%;
       }
     }
-  }
 
-  .showArticleView {
-    .body {
-      width: 100%;
-    }
-    .photos {
-      clear: both;
-      &.span5 {
+    .showArticleView {
+      .body {
         width: 100%;
       }
-    }
-
-    .span12 {
-      width: 100%;
-    }
-
-    .nivo-caption {
-      font-size: 0.9em !important;
-    }
-  }
-
-  .thumbnailsPhotoView {
-    .thumbnails {
-      .span5 {
-        width: 96%;
+      .photos {
+        clear: both;
+        &.span5 {
+          width: 100%;
+        }
       }
-    }
-  }
 
-  .view-topbar {
-    top: 0;
-    width: 100%;
-    height: auto;
-
-    .btn-navbar {
-      display: inline-block;
-      float: right;
-      padding: 7px 10px;
-      line-height: 18px;
-      margin: 5px 5px 6px;
-
-      .icon-bar {
-        display: block;
-        width: 18px;
-        height: 2px;
-        background-color: #f5f5f5;
-        @include border-radius(1px);
-        @include box-shadow(0 1px 0 rgba(0,0,0,.25));
+      .span12 {
+        width: 100%;
       }
-    }
 
-    .fadeout {
-      display: none;
-    }
-
-    .flybar {
-      height: auto;
-      width: auto;
-
-      div.wrapper {
-        margin: 0;
-      }
-    }
-  }
-
-  .indexView {
-    .imagescroll {
       .nivo-caption {
-        font-size: 0.9em;
-        bottom: 5px;
+        @include opacity(0.5);
+        font-size: 0.8em;
+      }
+    }
+
+    .thumbnailsPhotoView {
+      .thumbnails {
+        .span5 {
+          width: 96%;
+        }
+      }
+    }
+
+    .view-topbar {
+      top: 0;
+      width: 100%;
+      height: auto;
+
+      .btn-navbar {
+        display: inline-block;
+        float: right;
+        padding: 7px 10px;
+        line-height: 18px;
+        margin: 5px 5px 6px;
+
+        .icon-bar {
+          display: block;
+          width: 18px;
+          height: 2px;
+          background-color: #f5f5f5;
+          @include border-radius(1px);
+          @include box-shadow(0 1px 0 rgba(0,0,0,.25));
+        }
+      }
+
+      .fadeout {
+        display: none;
+      }
+
+      .flybar {
+        height: auto;
+        width: auto;
+
+        div.wrapper {
+          margin: 0;
+        }
+      }
+    }
+
+    .indexView {
+      .imagescroll {
+        .nivo-caption {
+          @include opacity(0.5);
+          font-size: 0.8em;
+          bottom: 0;
+        }
       }
     }
   }
