@@ -20,12 +20,11 @@ class mkm.routers.AppRouter extends Backbone.Router
     @swap(new mkm.views.IndexView())
 
   notFound: ->
-    mkm.helpers.flash('warning', "I could not find the page you asked for, the link may be broken :/")
     @navigate("", true)
+    mkm.helpers.flash('warning', "I couldn't find the page you asked for, the link might be broken :/")
 
   showArticle: (id) ->
-    id = id.match(/\d+/)
-    if _.isArray(id) and article = @_getArticle(id[0])
+    if article = @_getArticle(id)
       @swap(new mkm.views.articles.ShowArticleView({model: article}))
 
   editArticle: (id) ->
@@ -85,25 +84,30 @@ class mkm.routers.AppRouter extends Backbone.Router
     title
 
   _getModel: (key, id, fallback) ->
+    id = @_clean(id)
     if model = mkm.collections[key].get(id)
       return model
     else
-      mkm.helpers.flash('error', "No such #{key.replace(/s$/, "")}")
       @navigate(fallback, true)
+      mkm.helpers.flash('error', "Cannot find #{key.replace(/s$/, "")} with id '#{id}'")
+      return undefined
 
   _getArticle: (id, fallback = '') ->
-    @_getModel('articles', id, fallback)
+    @_getModel('articles', @_clean(id), fallback)
 
   _getPhoto: (article, pId, fallback = '') ->
-    if photo = article.get('photos').get(pId)
+    if photo = article.get('photos').get(@_clean(pId))
       return photo
     else
-      mkm.helpers.flash('error', "No such photo")
       @navigate(fallback, true)
+      mkm.helpers.flash('error', "No such photo")
+      return undefined
 
   _getCountry: (id, fallback = '') ->
-    @_getModel('countries', id, fallback)
+    @_getModel('countries', @_clean(id), fallback)
 
+  _clean: (param) ->
+    param.replace(/\?.*/, "")
 
 
 Backbone.View::destroy = ->
