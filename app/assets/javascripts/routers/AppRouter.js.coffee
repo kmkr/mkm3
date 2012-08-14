@@ -24,7 +24,8 @@ class mkm.routers.AppRouter extends Backbone.Router
     @navigate("", true)
 
   showArticle: (id) ->
-    if article = @_getArticle(id)
+    id = id.match(/\d+/)
+    if _.isArray(id) and article = @_getArticle(id[0])
       @swap(new mkm.views.articles.ShowArticleView({model: article}))
 
   editArticle: (id) ->
