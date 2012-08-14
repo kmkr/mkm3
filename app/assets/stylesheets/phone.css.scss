@@ -39,6 +39,7 @@
       .nivo-caption {
         @include opacity(0.5);
         font-size: 0.8em;
+        line-height: 1;
       }
     }
 
@@ -89,6 +90,7 @@
     .indexView {
       .imagescroll {
         .nivo-caption {
+          line-height: 1;
           @include opacity(0.5);
           font-size: 0.8em;
           bottom: 0;
