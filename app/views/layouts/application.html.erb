@@ -58,7 +58,7 @@
             <%= yield %>
             <script type="text/javascript">
 $(function() {
-    mkm.collections.articles = new mkm.collections.ArticleCollection(<%= raw @articles.to_json(:include => :photos, :except => [ :body ]) %>);
+    mkm.collections.articles = new mkm.collections.ArticleCollection(<%= raw @articles.to_json(:except => [ :body ]) %>);
     mkm.collections.countries = new mkm.collections.CountryCollection(<%= raw @countries.to_json %>);
     mkm.collections.continents = new mkm.collections.ContinentCollection(<%= raw @continents.to_json %>);
     mkm.routers.router = new mkm.routers.AppRouter();

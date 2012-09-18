@@ -6,4 +6,9 @@ class Article < ActiveRecord::Base
     self.published and self.published <= Time.now.end_of_day
   end
 
+  def as_json(options = {})
+    options[:include] = :photos
+    super(options)
+  end
+
 end
