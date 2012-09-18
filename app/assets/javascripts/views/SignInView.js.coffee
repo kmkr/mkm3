@@ -3,4 +3,5 @@ class mkm.views.SignInView extends Backbone.View
 
   render: ->
     @$el.html(@template)
+    @$('input[name=authenticity_token]').attr('value', $('meta[name=csrf-token]').attr('content'))
     @
