@@ -25,6 +25,7 @@ class mkm.views.photos.SortableEditablePhotosView extends Backbone.View
             mkm.helpers.flash('success', 'Positions updated successfully')
             @$('.save-all-wrapper button').show()
             @$('.save-all-wrapper').hide('fade')
+            @$('.bar').width("0")
 
         error: ->
           @$('.save-all-wrapper button').show()
