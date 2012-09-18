@@ -27,7 +27,9 @@
 
     <div class="row">
     <section class="span7 body">
-      <%= convert_textile(article.get('body')) %>
+      <div class="loader">
+        <img src="/assets/loader.gif" />
+      </div>
     </section>
 
     <div class="span5 photos"></div>

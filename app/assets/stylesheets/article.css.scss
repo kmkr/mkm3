@@ -41,6 +41,10 @@
   }
 
   section.body {
+    .loader {
+      display: block;
+      text-align: center;
+    }
     text-align: justify;
     p {
       font-size: 1.2em;

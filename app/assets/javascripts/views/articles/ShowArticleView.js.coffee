@@ -70,20 +70,28 @@ class mkm.views.articles.ShowArticleView extends Backbone.View
 
     @initMap({ readOnly: true })
     @imgsc.init()
-    @updateFbContent()
     unless @model.published()
       mkm.helpers.flash('info', 'This article is not yet published')
 
   initTooltips: ->
     @$('[rel=tooltip]').tooltip()
 
+  setContent: =>
+    html = convert_textile(@model.get('body'))
+    @$('.body').html(html).hide().fadeIn(600)
+    @updateFbContent()
+
   render: ->
     $(@el).html(@template({article: @model}))
-    @initTooltips();
+    @initTooltips()
     @initImageScroll()
     @initLargeThumbs()
     @initSmallThumbs()
     @initAdminbar()
     @initLightbox()
     @updatePublishedStatus()
+    if @model.get('body')
+      @setContent()
+    else
+      @model.fetch({ success: @setContent })
     @
