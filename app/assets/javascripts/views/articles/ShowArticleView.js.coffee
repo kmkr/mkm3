@@ -77,7 +77,7 @@ class mkm.views.articles.ShowArticleView extends Backbone.View
     @$('[rel=tooltip]').tooltip()
 
   setContent: =>
-    html = convert_textile(@model.get('body'))
+    html = new Textile().parse(@model.get('body'))
     @$('.body').html(html).hide().fadeIn(600)
     @updateFbContent()
     @initTooltips()
