@@ -301,7 +301,8 @@ Textile.prototype = {
     text = text.replace(/\*([^*]*)\*(?![^<]*<\/)(?![^<]*>)/g, '<strong>$1</strong>');
     text = text.replace(/_([^_]*)_(?![^<]*<\/)(?![^<]*>)/g, '<em>$1</em>');
     text = text.replace(/\+([^+]*)\+(?![^<]*<\/)(?![^<]*>)/g, '<ins>$1</ins>');
-    text = text.replace(/\-([^+]*)\-(?![^<]*<\/)(?![^<]*>)/g, '<del>$1</del>');
+    // No strikethrough wanted
+    //text = text.replace(/\-([^+]*)\-(?![^<]*<\/)(?![^<]*>)/g, '<del>$1</del>');
     text = text.replace(/\^([^+]*)\^(?![^<]*<\/)(?![^<]*>)/g, '<sup>$1</sup>');
     text = text.replace(/\~([^+]*)\~(?![^<]*<\/)(?![^<]*>)/g, '<sub>$1</sub>');
     text = text.replace(/\%([^+]*)\%(?![^<]*<\/)(?![^<]*>)/g, '<span>$1</span>');
