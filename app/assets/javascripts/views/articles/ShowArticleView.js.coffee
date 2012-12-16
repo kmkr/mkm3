@@ -37,7 +37,7 @@ class mkm.views.articles.ShowArticleView extends Backbone.View
       afterShow: ->
         _this.thumbnailMatrixView.paginateToPhoto(@index - numExcludedFromMatrix)
       beforeShow: ->
-        id = @attr('data-id')
+        id = $(@.element).attr('data-id')
         p = _this.model.get('photos').get(id)
         mkm.routers.router.navigate("articles/#{p.get('article').id}/photos/#{p.id}")
       beforeClose: ->
