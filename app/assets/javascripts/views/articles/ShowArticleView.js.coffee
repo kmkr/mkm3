@@ -32,15 +32,16 @@ class mkm.views.articles.ShowArticleView extends Backbone.View
 
   initLightbox: ->
     numExcludedFromMatrix = @model.get('photos').articlePhotos().length
+    _this = @
     mkm.helpers.lightboxHelper.init(@$('.thumb-wrapper > a'), {
-      afterShow: (lightbox) =>
-        @thumbnailMatrixView.paginateToPhoto(lightbox.index - numExcludedFromMatrix)
-      beforeShow: (lightbox) =>
-        id = $(lightbox.element).attr('data-id')
-        p = @model.get('photos').get(id)
+      afterShow: ->
+        _this.thumbnailMatrixView.paginateToPhoto(@index - numExcludedFromMatrix)
+      beforeShow: ->
+        id = @attr('data-id')
+        p = _this.model.get('photos').get(id)
         mkm.routers.router.navigate("articles/#{p.get('article').id}/photos/#{p.id}")
-      beforeClose: (lightbox) =>
-        mkm.routers.router.navigate("articles/#{@model.id}")
+      beforeClose: ->
+        mkm.routers.router.navigate("articles/#{_this.model.id}")
     })
 
 
