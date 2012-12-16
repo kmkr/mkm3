@@ -12,7 +12,6 @@ mkm.helpers.lightboxHelper = {
           type: "inside"
         overlay:
           opacity: 0.8
-          css: 'background-color': "#000"
     $(selector).fancybox(_.extend(opts, callbacks))
 
 }

@@ -1,0 +1,27 @@
+body {
+
+  .fancybox-error {
+    font: auto;
+  }
+
+  #fancybox-loading, .fancybox-close, .fancybox-prev span, .fancybox-next span {
+    background-image: url('/assets/fancybox/fancybox_sprite.png');
+  }
+
+  #fancybox-loading div {
+    background: url('/assets/fancybox/fancybox_loading.gif') center center no-repeat;
+  }
+
+  .fancybox-nav {
+    background: transparent url('/assets/fancybox/blank.gif'); /* helps IE */
+  }
+
+  .fancybox-overlay {
+    background: url('/assets/fancybox/fancybox_overlay.png');
+  }
+
+  .fancybox-title {
+    font: auto;
+  }
+
+}
