@@ -308,6 +308,10 @@ Textile.prototype = {
     text = text.replace(/\%([^+]*)\%(?![^<]*<\/)(?![^<]*>)/g, '<span>$1</span>');
     text = text.replace(/@([^+]*)@(?![^<]*<\/)(?![^<]*>)/g, '<code>$1</code>');
     text = text.replace(/\?\?([^+]*)\?\?(?![^<]*<\/)(?![^<]*>)/g, '<cite>$1</cite>');
+
+    // fix for tooltips
+    text = text.replace(/\[tt\]([^\|]+)\|([^\[]+)\[\/tt\]/g, '<a href="#" rel="tooltip" title="$2">$1<\/a>');
+
     text = this.replaceEntities(text);
 
     return text;
