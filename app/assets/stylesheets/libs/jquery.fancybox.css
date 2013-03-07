@@ -191,6 +191,8 @@
 /* Title helper */
 
 .fancybox-title {
+  font-size: 15px;
+  text-align: center;
 	visibility: hidden;
 	position: relative;
 	text-shadow: none;
