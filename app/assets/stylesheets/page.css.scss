@@ -5,6 +5,10 @@ body {
   padding-top: 50px; /* to make the container go all the way to the bottom of the topbar */
   background: #fffcfc;
 
+  h1 {
+    font-size: 26px;
+  }
+
   footer {
     margin-top: 25px;
     border-top: 1px solid $grayLighter;
