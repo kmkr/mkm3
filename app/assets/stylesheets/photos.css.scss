@@ -42,6 +42,11 @@
 
 .thumbnailsPhotoView {
   .thumbnail {
+    .caption {
+      p {
+        margin-bottom: 0;
+      }
+    }
     .thumb-wrapper {
       text-align: center;
     }
