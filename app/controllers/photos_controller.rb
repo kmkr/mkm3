@@ -36,8 +36,9 @@ class PhotosController < ApplicationController
       end
     end
 
-    photo.update_attributes({ :caption => params[:caption], :crop_h => params[:crop_h], :crop_y => params[:crop_y], :crop_x => params[:crop_x], :crop_w => params[:crop_w], :position => params[:position], :useAsArticlePhoto => params[:useAsArticlePhoto], :useAsFrontpagePhoto => params[:useAsFrontpagePhoto], :widescreenCaption => params[:widescreenCaption]})
+    created = photo.update_attributes({ :caption => params[:caption], :crop_h => params[:crop_h], :crop_y => params[:crop_y], :crop_x => params[:crop_x], :crop_w => params[:crop_w], :position => params[:position], :useAsArticlePhoto => params[:useAsArticlePhoto], :useAsFrontpagePhoto => params[:useAsFrontpagePhoto], :widescreenCaption => params[:widescreenCaption]})
 
+    logger.debug "Update photo #{created}"
 
     photo.photo.recreate_versions! if needRecreate
 
