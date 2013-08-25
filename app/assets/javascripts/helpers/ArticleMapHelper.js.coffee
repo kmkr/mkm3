@@ -1,11 +1,16 @@
 class mkm.helpers.ArticleMapHelper extends mkm.helpers.AbstractMapHelper
+  settings: {}
+
+  constructor: (overrides = {}) ->
+    _.extend(@settings, overrides)
+
   renderMap: ->
-    super {
+    super _.extend({
       center: @getCenter()
       zoom: @getZoomLevel()
       scrollwheel: false
-      draggable: true
-    }
+      draggable: false
+    }, @settings)
 
   getZoomLevel: ->
     @model.get('zoom_level') or 1

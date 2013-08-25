@@ -4,7 +4,12 @@ class mkm.views.articles.EditArticleView extends Backbone.View
   views: []
 
   initialize: ->
-    _.extend(@, new mkm.helpers.ArticleMapHelper())
+    _.extend(@, new mkm.helpers.ArticleMapHelper(
+      {
+        draggable: true
+        scrollwheel: true
+      }
+    ))
 
   events:
     "click .save-article"    : "save"
