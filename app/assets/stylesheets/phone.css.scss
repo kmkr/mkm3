@@ -62,6 +62,9 @@
         padding: 7px 10px;
         line-height: 18px;
         margin: 5px 5px 6px;
+        position: absolute;
+        right: 20px;
+        z-index: 50000;
 
         .icon-bar {
           display: block;
@@ -77,13 +80,25 @@
         display: none;
       }
 
+
+
+
       .flybar {
         height: auto;
         width: auto;
-
-        div.wrapper {
-          margin: 0;
+        .nav-collapse {
+          height: 0;
+          &.collapse {
+            overflow: hidden;
+          }
+          .wrapper {
+            margin: 0;
+            ul {
+              list-style-type: none;
+            }
+          }
         }
+
       }
     }
 
