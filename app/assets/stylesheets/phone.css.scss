@@ -3,18 +3,21 @@
 .phone {
 
   body {
+    background: #fff;
 
     padding: 0;
     width: 100%;
 
     .padding-wrapper {
+      @include box-shadow(none);
+      @include border-radius(0);
       padding: 5px;
       position: relative;
       left: 0;
       right: 0;
       border: 0;
       margin: 35px 0;
-      width: 96%;
+      width: 100%;
       .container {
         margin: 0;
         width: 100%;
@@ -25,7 +28,7 @@
       .body {
         margin-left: 25px;
         margin-right: 4px;
-        width: 98%;
+        width: 95%;
       }
       .photos {
         clear: both;
