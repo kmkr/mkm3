@@ -10,7 +10,8 @@
 // WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
 // GO AFTER THE REQUIRES BELOW.
 //
-//= require libs/jquery-1.8.2.js
+//= require libs/jquery/jquery-1.8.2.js
+//= require libs/jquery/jquery.ui.1.10.custom.min.js
 //= require jquery_ujs
 //= require ./libs/underscore
 //= require ./libs/backbone
