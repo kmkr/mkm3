@@ -14,7 +14,7 @@ class PhotoUploader < CarrierWave::Uploader::Base
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
     src = "uploads/#{model.class.to_s.underscore}s/article_#{model.article.id}/#{model.id}"
-    logger.info "Uploading to #{src}"
+    Rails.logger.info "Uploading to #{src}"
     src
   end
 
