@@ -4,12 +4,14 @@ class PhotosController < ApplicationController
 
   def create
     article = Article.find(params[:article_id], :include => :photos)    
+    logger.info "Found article #{article.inspect}"
 
     photo = Photo.new(:article_id => article.id, :position => article.photos.size + 1)
 
     file = read_file(params[:file_name], params[:binary_data])
     photo.photo = file
     photo.save!
+    logger.info "Created photo #{photo.inspect}"
      
     respond_with article, photo
   end
