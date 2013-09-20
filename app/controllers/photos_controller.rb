@@ -7,6 +7,7 @@ class PhotosController < ApplicationController
     Rails.logger.info "Found article #{article.inspect}"
 
     photo = Photo.new(:article_id => article.id, :position => article.photos.size + 1)
+    photo.article = article
 
     file = read_file(params[:file_name], params[:binary_data])
     photo.photo = file
