@@ -4,14 +4,14 @@ class PhotosController < ApplicationController
 
   def create
     article = Article.find(params[:article_id], :include => :photos)    
-    logger.info "Found article #{article.inspect}"
+    Rails.logger.info "Found article #{article.inspect}"
 
     photo = Photo.new(:article_id => article.id, :position => article.photos.size + 1)
 
     file = read_file(params[:file_name], params[:binary_data])
     photo.photo = file
     photo.save!
-    logger.info "Created photo #{photo.inspect}"
+    Rails.logger.info "Created photo #{photo.inspect}"
      
     respond_with article, photo
   end
@@ -40,7 +40,7 @@ class PhotosController < ApplicationController
 
     created = photo.update_attributes({ :caption => params[:caption], :crop_h => params[:crop_h], :crop_y => params[:crop_y], :crop_x => params[:crop_x], :crop_w => params[:crop_w], :position => params[:position], :useAsArticlePhoto => params[:useAsArticlePhoto], :useAsFrontpagePhoto => params[:useAsFrontpagePhoto], :widescreenCaption => params[:widescreenCaption]})
 
-    logger.debug "Update photo #{created}"
+    Rails.logger.debug "Update photo #{created}"
     p "Update photo #{created}"
 
     photo.photo.recreate_versions! if needRecreate
