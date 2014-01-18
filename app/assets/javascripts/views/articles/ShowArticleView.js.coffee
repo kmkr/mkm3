@@ -82,7 +82,7 @@ class mkm.views.articles.ShowArticleView extends Backbone.View
       @$('.body').html(html).hide().fadeIn(600)
     else
       @$('.article-content').hide()
-      span = "<span>This is a photo-only article.</span>";
+      span = $("<span>This is a photo-only article.</span>")
       @$('small').append(span)
       span.hide().show('highlight')
     @updateFbContent()
