@@ -34,8 +34,6 @@ class mkm.views.articles.ShowArticleView extends Backbone.View
     numExcludedFromMatrix = @model.get('photos').articlePhotos().length
     _this = @
     mkm.helpers.lightboxHelper.init(@$('.thumb-wrapper > a'), {
-      afterShow: ->
-        _this.thumbnailMatrixView.paginateToPhoto(@index - numExcludedFromMatrix)
       beforeShow: ->
         id = $(@.element).attr('data-id')
         p = _this.model.get('photos').get(id)
@@ -78,8 +76,12 @@ class mkm.views.articles.ShowArticleView extends Backbone.View
     @$('[rel=tooltip]').tooltip()
 
   setContent: =>
-    html = textile(@model.get('body'))
-    @$('.body').html(html).hide().fadeIn(600)
+    body = @model.get('body')
+    if body.length
+      html = textile(body)
+      @$('.body').html(html).hide().fadeIn(600)
+    else
+      @$('.article-content').hide()
     @updateFbContent()
     @initTooltips()
 

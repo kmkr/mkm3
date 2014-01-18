@@ -49,14 +49,20 @@
     color: $grayLight;
   }
 
-  section.body {
-    .loader {
-      display: block;
-      text-align: center;
-    }
-    text-align: justify;
-    p {
-      // paragraphs in articles
+  .article-content {
+    border-bottom: 1px solid $grayLighter;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+
+    section.body {
+      .loader {
+        display: block;
+        text-align: center;
+      }
+      text-align: justify;
+      p {
+        // paragraphs in articles
+      }
     }
   }
 }
