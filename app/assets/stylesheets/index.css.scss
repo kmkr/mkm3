@@ -12,16 +12,12 @@
     }
 
   }
-  .hero-unit {
-    height: 282px;
-  }
-
-  #map {
-    height: 390px;
-  }
-
 
   .hero-unit {
+    p {
+      margin-top: 20px;
+    }
+
     @include box-shadow(0 0 3px $gray);
   }
 

@@ -3,11 +3,7 @@ class mkm.views.IndexView extends Backbone.View
   views: []
   className: 'indexView'
 
-  initialize: ->
-    _.extend(@, new mkm.helpers.CountriesMapHelper())
-
   init: ->
-    @initMap({ readOnly: true})
     @imgsc.init()
 
   getPhotos: ->
