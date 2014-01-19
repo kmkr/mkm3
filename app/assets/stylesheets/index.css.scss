@@ -16,6 +16,7 @@
   .hero-unit {
     p {
       margin-top: 20px;
+      text-align: justify;
     }
 
     @include box-shadow(0 0 3px $gray);
