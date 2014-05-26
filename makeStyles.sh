@@ -1,6 +1,6 @@
 #!/bin/bash
 
-ROOT=~/git_projects/mkm3
+ROOT=~/git/mkm3
 
 cd $ROOT/vendor/assets/stylesheets/bootstrap
 lessc bootstrap.less > $ROOT/app/assets/stylesheets/libs/bootstrap.css
