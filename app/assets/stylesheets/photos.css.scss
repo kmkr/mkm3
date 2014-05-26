@@ -77,7 +77,6 @@
 
     .thumbnail {
       position: absolute;
-      overflow: hidden;
       left: 0;
       top: 0;
       width: 220px;
@@ -86,10 +85,6 @@
       -moz-transition: all 0.1s ease-in-out;
       -o-transition: all 0.1s ease-in-out;
       transition: all 0.1s ease-in-out;
-      img {
-        max-width: 220px;
-        max-height: 220px;
-      }
 
       &:hover {
         width: 300px;
@@ -98,8 +93,8 @@
           max-width: 300px;
           max-height: 300px;
         }
-        margin-top: -180px;
-        margin-left: -180px;
+        margin-top: -130px;
+        margin-left: -130px;
         top: 65%;
         left: 65%;
         border-color: #FD6993;
