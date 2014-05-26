@@ -201,7 +201,7 @@ textarea {
 }
 body {
   margin: 0;
-  font-family: "Arbutus Slab", Georgia, "Times New Roman", Times, serif;
+  font-family: "Arbutus Slab", "Times New Roman", Times;
   font-size: 13px;
   line-height: 20px;
   color: #333333;
@@ -887,7 +887,7 @@ input,
 button,
 select,
 textarea {
-  font-family: "Arbutus Slab", Georgia, "Times New Roman", Times, serif;
+  font-family: "Arbutus Slab", "Times New Roman", Times;
 }
 label {
   display: block;
@@ -3807,7 +3807,7 @@ input[type="submit"].btn.btn-mini {
 .navbar-search .search-query {
   margin-bottom: 0;
   padding: 4px 14px;
-  font-family: "Times New Roman", Times;
+  font-family: "Arbutus Slab", "Times New Roman", Times;
   font-size: 13px;
   font-weight: normal;
   line-height: 1;

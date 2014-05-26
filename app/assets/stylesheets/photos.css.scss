@@ -60,43 +60,39 @@
   clear: both;
 
   .thumbnailPhotoView {
-    li {
-      .thumbnail {
-        z-index:0;
-        position: relative;
-        margin-top: 8px;
-
-        -webkit-transition: all 0.1s ease-in-out;
-        -moz-transition: all 0.1s ease-in-out;
-        -o-transition: all 0.1s ease-in-out;
-        transition: all 0.1s ease-in-out;
-        position: absolute;
-        left: 0;
-        top: 0;
-
-        &:hover {
-          z-index: 5;
-          width: 200px;
-          height: 200px;
-          margin-top: -130px;
-          margin-left: -130px;
-          top: 65%;
-          left: 65%;
-          border-color: #FD6993;
-        }
-
-        img {
-          -webkit-transition: all 0.1s ease-in-out;
-          -moz-transition: all 0.1s ease-in-out;
-          -o-transition: all 0.1s ease-in-out;
-          transition: all 0.1s ease-in-out;
-        }
-
-        .caption {
-          display: none;
-        }
+    ul li {
+      z-index:0;
+      position: relative;
+      &:hover {
+        z-index: 5;
       }
     }
+    .thumbnail {
+      margin-top: 8px;
+
+      -webkit-transition: all 0.1s ease-in-out;
+      -moz-transition: all 0.1s ease-in-out;
+      -o-transition: all 0.1s ease-in-out;
+      transition: all 0.1s ease-in-out;
+      position: absolute;
+      left: 0;
+      top: 0;
+
+      &:hover {
+        width: 200px;
+        height: 200px;
+        margin-top: -130px;
+        margin-left: -130px;
+        top: 65%;
+        left: 65%;
+        border-color: #FD6993;
+      }
+
+      .caption {
+        display: none;
+      }
+    }
+
   }
 
   .thumbmatrix {
