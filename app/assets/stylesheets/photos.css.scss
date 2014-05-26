@@ -59,43 +59,42 @@
 .thumbnailMatrixView {
   clear: both;
 
-  // li
   .thumbnailPhotoView {
-    margin-top: 8px;
-    position: relative;
-    width: 130px;
-    height: 130px;
-    z-index:0;
-    -webkit-transition: all 0.1s ease-in-out;
-    -moz-transition: all 0.1s ease-in-out;
-    -o-transition: all 0.1s ease-in-out;
-    transition: all 0.1s ease-in-out;
+    li {
+      .thumbnail {
+        z-index:0;
+        position: relative;
+        margin-top: 8px;
 
-    &:hover {
-      z-index: 5;
-    }
+        -webkit-transition: all 0.1s ease-in-out;
+        -moz-transition: all 0.1s ease-in-out;
+        -o-transition: all 0.1s ease-in-out;
+        transition: all 0.1s ease-in-out;
+        position: absolute;
+        left: 0;
+        top: 0;
 
-    .thumbnail {
-      position: absolute;
-      left: 0;
-      top: 0;
-      -webkit-transition: all 0.1s ease-in-out;
-      -moz-transition: all 0.1s ease-in-out;
-      -o-transition: all 0.1s ease-in-out;
-      transition: all 0.1s ease-in-out;
+        &:hover {
+          z-index: 5;
+          width: 200px;
+          height: 200px;
+          margin-top: -130px;
+          margin-left: -130px;
+          top: 65%;
+          left: 65%;
+          border-color: #FD6993;
+        }
 
-      &:hover {
-        width: 200px;
-        height: 200px;
-        margin-top: -130px;
-        margin-left: -130px;
-        top: 65%;
-        left: 65%;
-        border-color: #FD6993;
-      }
+        img {
+          -webkit-transition: all 0.1s ease-in-out;
+          -moz-transition: all 0.1s ease-in-out;
+          -o-transition: all 0.1s ease-in-out;
+          transition: all 0.1s ease-in-out;
+        }
 
-      .caption {
-        display: none;
+        .caption {
+          display: none;
+        }
       }
     }
   }
