@@ -1,7 +1,9 @@
 <div class="thumbnail">
+  <div class="thumb-wrapper">
     <a data-id="<%= model.id %>" data-fancybox-group="<%= thumbCollectionId %>" href="<%= model.get('photo').large.url %>" title="<%= model.escape('caption') %>">
       <img src="<%= model.get('photo')[size].url %>" />
     </a>
+</div>
   <div class="caption">
     <p><%= model.get('caption') %></p>
   </div>
