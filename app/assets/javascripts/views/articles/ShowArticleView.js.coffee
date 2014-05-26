@@ -76,6 +76,9 @@ class mkm.views.articles.ShowArticleView extends Backbone.View
     @$('[rel=tooltip]').tooltip()
 
   setContent: =>
+    return if @content_set
+    @content_set = true
+    clearInterval(@interval)
     body = @model.get('body')
     if body.length
       html = textile(body)
@@ -88,16 +91,20 @@ class mkm.views.articles.ShowArticleView extends Backbone.View
     @updateFbContent()
     @initTooltips()
 
+  loopUntilContent: =>
+    if @model.get('body')
+      @setContent()
+    else
+      @model.fetch({ success: @setContent })
+
   render: ->
     $(@el).html(@template({article: @model}))
+    @loopUntilContent()
+    @interval = setInterval(@loopUntilContent, 3500)
     @initImageScroll()
     @initLargeThumbs()
     @initSmallThumbs()
     @initAdminbar()
     @initLightbox()
     @updatePublishedStatus()
-    if @model.get('body')
-      @setContent()
-    else
-      @model.fetch({ success: @setContent })
     @
