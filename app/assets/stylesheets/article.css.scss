@@ -65,4 +65,13 @@
       }
     }
   }
+
+  .fb-like {
+    width: 125px;
+  }
+  .fb-like span,
+  .fb-like iframe {
+      width: 125px !important;
+      height: 25px !important;
+  }
 }
