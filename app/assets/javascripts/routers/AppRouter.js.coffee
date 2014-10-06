@@ -12,7 +12,6 @@ class mkm.routers.AppRouter extends Backbone.Router
     "countries/:id/edit"      : "editCountry"
     "countries/new"           : "newCountry"
     "countries"               : "showCountries"
-    "contact"                 : "contact"
     "users/sign_in"           : "signIn"
     "*path"                   : "notFound"
 
@@ -61,9 +60,6 @@ class mkm.routers.AppRouter extends Backbone.Router
 
   showCountries: ->
     @swap(new mkm.views.countries.IndexCountriesView({collection: mkm.collections.countries}))
-
-  contact: ->
-    @swap(new mkm.views.ContactUsView())
 
   signIn: ->
     @swap(new mkm.views.SignInView())
